@@ -5,7 +5,7 @@
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
 
-<img src="\%22sites/default/files/inline-images/francois_rioult_2016.jpg\%22" data-rioult="" data--="" data-2016\"="" data-entity-type="\&quot;\&quot;" data-entity-uuid="\&quot;\&quot;" style="\&quot;padding-left:" data-10px;\"="" alt="\&quot;Fran?ois" />
+<img src="img/francois_rioult_2016.jpg" width="250"/>
 
 Campus Côte de Nacre, F-14032 Caen cedex, France  
 Tel: +33 (0)2.31.56.73.79 - Fax: +33 (0)2.31.56.73.30  
