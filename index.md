@@ -32,9 +32,9 @@ See my [publications](biblio.md).
 
 ### D3.js samples
 
--   [Filtrage successif d'un nuage de tags](\%22https://rioultf.users.greyc.fr/d3/bubble/bubble.html\%22)
--   [Visualisation de trajectoires dans DotA2](\%22https://rioultf.users.greyc.fr/d3/polygon/index.php\%22)
--   [Petit site de visualisation de données bibliographiques](\%22https://rioultf.users.greyc.fr/d3/framework\%22)
+-   [Filtrage successif d'un nuage de tags](https://rioultf.users.greyc.fr/d3/bubble/bubble.html)
+-   [Visualisation de trajectoires dans DotA2](https://rioultf.users.greyc.fr/d3/polygon/index.php)
+-   [Petit site de visualisation de données bibliographiques](https://rioultf.users.greyc.fr/d3/framework)
     (Merci à Marc Plantevit)
 
 ### Miscellaneous
