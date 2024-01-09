@@ -20,7 +20,7 @@ I defended in 2005 my PhD in computer science. I am now associate professor in C
 ENSICAEN, CNRS, GREYC and teacher in the University of Caen Basse-Normandie. In 2017, I defended my HDR (accreditation to supervise research or
 habilitation thesis).
 
--   [[Research]]: big data, data mining, knowledge discovery in databases, machine learning, decision, classification, sports analytics
+-   [Research](research): big data, data mining, knowledge discovery in databases, machine learning, decision, classification, sports analytics
     See my [publications](bibliography).
 -   [Music](\%22music\%22)
 -   [Miscellaneous](\%22miscellaneous\%22)
