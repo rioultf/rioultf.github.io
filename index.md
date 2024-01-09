@@ -11,22 +11,16 @@ Campus Côte de Nacre, F-14032 Caen cedex, France
 Tel: +33 (0)2.31.56.73.79 - Fax: +33 (0)2.31.56.73.30  
 Office: Sciences 3 - 353  
 email:
-[Francois.Rioult@unicaen.fr](\%22mailto:Francois.Rioult@info.unicaen.fr\%22)
+[Francois.Rioult@unicaen.fr](mailto:Francois.Rioult@info.unicaen.fr)
 
-In 2016 I was 49 years old. Between 1990 and 2000, I was sound-engineer
+In 2020 I was 53 years old. Between 1990 and 2000, I was sound-engineer
 for french television, cinema and music bands.
 
-I defended in 2005 my PhD in computer science. I am now associate
-professor in Caen (France): researcher for the [Normandie Univ, UNICAEN,
-ENSICAEN, CNRS, GREYC](\%22www.greyc.fr\%22) and teacher in the
-[University of Caen Basse-Normandie](\%22http://www.unicaen.fr/\%22). In
-2017, I defended my HDR (accreditation to supervise research or
+I defended in 2005 my PhD in computer science. I am now associate professor in Caen (France): researcher for the Normandie Univ, UNICAEN,
+ENSICAEN, CNRS, GREYC and teacher in the University of Caen Basse-Normandie. In 2017, I defended my HDR (accreditation to supervise research or
 habilitation thesis).
 
--   [Research](\%22research\%22): big data, data mining, knowledge
-    discovery in databases, machine learning, decision,
-    classification.  
-    \\tSee my [publications](\%22bibliography\%22).
--   [Teaching](\%22teaching\%22): pedagogic activity
+-   [[Research]]: big data, data mining, knowledge discovery in databases, machine learning, decision, classification, sports analytics
+    See my [publications](bibliography).
 -   [Music](\%22music\%22)
 -   [Miscellaneous](\%22miscellaneous\%22)
