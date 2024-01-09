@@ -1,14 +1,10 @@
-1.
-A. Mortelier, F. Rioult, and J. Komar. What data should be collected for a good handball expected goal model? In *10th Workshop on Machine Learning and Data Mining for Sports Analytics -- ECML/PKDD 2023 Workshop*, pages 1--12, Turin, Italy, 2023.
+1. A. Mortelier, F. Rioult, and J. Komar. What data should be collected for a good handball expected goal model? In *10th Workshop on Machine Learning and Data Mining for Sports Analytics -- ECML/PKDD 2023 Workshop*, pages 1--12, Turin, Italy, 2023.
 
-1.
-Pigeon, Eric, Clouard, Régis, and Rioult, François. Vikazimut : d'un projet pédagogique à une application grand public. *J3eA*, 22:1017, 2023.
+1. Pigeon, Eric, Clouard, Régis, and Rioult, François. Vikazimut : d'un projet pédagogique à une application grand public. *J3eA*, 22:1017, 2023.
 
-1.
-Arnaud Soulet, François Rioult, and Bruno Crémilleux. Condensed Survey on Condensed Representations of Patterns. In *Workshop on Knowledge Discovery in Inductive Databases (co-located with ECML/PKDD - 2022)*, Grenoble, France, September 2022.
+1. Arnaud Soulet, François Rioult, and Bruno Crémilleux. Condensed Survey on Condensed Representations of Patterns. In *Workshop on Knowledge Discovery in Inductive Databases (co-located with ECML/PKDD - 2022)*, Grenoble, France, September 2022.
 
-1.
-Alexis Mortelier and François Rioult. Addressing the complexity of MOBA games through simple geometric clues. In *Advances in Computational Collective Intelligence: 14th International Conference, ICCCI 2022, Hammamet, Tunisia, September 28--30, 2022, Proceedings*, pages 643--649. Springer, 2022.
+1. Alexis Mortelier and François Rioult. Addressing the complexity of MOBA games through simple geometric clues. In *Advances in Computational Collective Intelligence: 14th International Conference, ICCCI 2022, Hammamet, Tunisia, September 28--30, 2022, Proceedings*, pages 643--649. Springer, 2022.
 
 1.
 Alexis Mortelier and François Rioult. Pertinence d'indices géométriques sur les trajectoires pour la prédiction de moments importants. In Sihem Amer-Yahia and Arnaud Soulet, editors, *Extraction et Gestion des Connaissances, EGC 2022, Blois, France, 24 au 28 janvier 2022*, volume E-38 of *RNTI*, pages 487--488. Editions RNTI, 2022.
