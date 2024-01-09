@@ -1,3 +1,5 @@
+# François Rioult's Publications
+
 1. A. Mortelier, F. Rioult, and J. Komar. What data should be collected for a good handball expected goal model? In *10th Workshop on Machine Learning and Data Mining for Sports Analytics -- ECML/PKDD 2023 Workshop*, pages 1--12, Turin, Italy, 2023.
 
 1. Pigeon, Eric, Clouard, Régis, and Rioult, François. Vikazimut : d'un projet pédagogique à une application grand public. *J3eA*, 22:1017, 2023.
