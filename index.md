@@ -36,7 +36,7 @@ See my [publications](biblio.md).
 
 ### Music
 
-[François Rioult - CNSM Paris - 1993](img/clavecin.jpg)
+![François Rioult - CNSM Paris - 1993](img/clavecin.jpg)
 
 Music is an important part of my life.
 
