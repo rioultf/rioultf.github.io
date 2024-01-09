@@ -40,6 +40,7 @@ See my [publications](biblio.md).
 ### Miscellaneous
 
 -   [Some aphorims (in French)](aphorims.md)
+-   [DotA Pulse](dota_pulse.md)
 
 ### Music
 
