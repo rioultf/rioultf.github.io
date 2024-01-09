@@ -1,9 +1,9 @@
 ## François Rioult
 
-[GREYC](\%22http://greyc.fr\%22) - CNRS UMR 6072  
-[Université de Caen Normandie](\%22http://www.unicaen.fr/\%22)  
-[UFR Sciences](\%22http://ufrsciences.unicaen.fr/\%22) - [Département
-mathématique - informatique](\%22http://www.info.unicaen.fr/\%22)
+[GREYC](https://greyc.fr) - CNRS UMR 6072  
+[Université de Caen Normandie](http://www.unicaen.fr)  
+[UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
+mathématique - informatique
 
 <img src="\%22sites/default/files/inline-images/francois_rioult_2016.jpg\%22" data-rioult="" data--="" data-2016\"="" data-entity-type="\&quot;\&quot;" data-entity-uuid="\&quot;\&quot;" style="\&quot;padding-left:" data-10px;\"="" alt="\&quot;Fran?ois" />
 
