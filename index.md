@@ -5,7 +5,7 @@
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
 
-<img src="img/francois_rioult_2016.jpg" width="250"/>
+<img src="img/francois_rioult_2016.jpg" width="200"/>
 
 Campus Côte de Nacre, F-14032 Caen cedex, France  
 Tel: +33 (0)2.31.56.73.79 - Fax: +33 (0)2.31.56.73.30  
@@ -44,7 +44,7 @@ See my [publications](biblio.md).
 
 ### Music
 
-<img src="img/clavecin.jpg" width="200"/>
+<img src="img/clavecin.jpg" width="150"/>
 
 Music is an important part of my life.
 
