@@ -2,7 +2,7 @@
 
 Tout cela n'a pas beaucoup changé, vive le planning poker avec la suite de Fibonacci !
 
-Extrait de Belle du Seigneur, Albert Cohen, Gallimard, p. 250-254
+*Extrait de Belle du Seigneur, Albert Cohen, Gallimard, p. 250-254*
 
 La scène se passe au séminaire de la Société des Nations.
 
