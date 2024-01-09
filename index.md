@@ -27,7 +27,7 @@ habilitation thesis).
 -   Algorithmical aspects of data mining - condensed representations
 -   Machine learning, classification, clustering
 -   (e-)Sport analysis
-See my [publications](bibliography).
+See my [publications](bibliography.md).
 
 ### Music
 
