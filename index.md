@@ -30,6 +30,17 @@ habilitation thesis).
 
 See my [publications](biblio.md).
 
+### Miscellaneous
+
+-   [Some aphorims (in French)](aphorims.md)
+
 ### Music
 
--   [Miscellaneous](\%22miscellaneous\%22)
+<figure>
+<img src="\%22sites/default/files/inline-images/clavecin.jpg\%22" data-rioult="" data-cnsm="" data-paris="" data--="" data-1993\"="" data-entity-type="\&quot;\&quot;" data-entity-uuid="\&quot;\&quot;" alt="François Rioult - CNSM Paris - 1993" /><figcaption aria-hidden="true">François Rioult - CNSM Paris - 1993</figcaption>
+</figure>
+
+Music is an important part of my life.
+
+You can find some of mine at Souncloud:
+[https://soundcloud.com/user-578993177](https://soundcloud.com/user-578993177)
