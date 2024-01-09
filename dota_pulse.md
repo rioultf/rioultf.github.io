@@ -68,10 +68,10 @@ Nothing really surprising, just remind the order : safe, mid, hard.
 ## Conclusion
 
 We only delivered here an univariate rough analysis of the times where
-objectives fall in DotA. It is just a way to our main goal, witch
+objectives fall in DotA. It is just a way to our main goal, wich
 addresses the dynamic of the confrontation. But it already gives more
 insight about how to grasp the pulse of DotA.
 
 ## Who are we?
 
-Fran?ois Rioult, Nicolas Calenge, Mehdi Kaytoue.
+François Rioult, Nicolas Calenge, Mehdi Kaytoue.
