@@ -5,7 +5,7 @@
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
 
-<img src="\%22sites/default/files/inline-images/francois_rioult_2016.jpg\%22" data-rioult="" data--="" data-2016\"="" data-entity-type="\&quot;\&quot;" data-entity-uuid="\&quot;\&quot;" style="\&quot;padding-left:" data-10px;\"="" alt="\&quot;Fran?ois" />
+<img src="img/francois_rioult_2016.jpg" width="250"/>
 
 Campus Côte de Nacre, F-14032 Caen cedex, France  
 Tel: +33 (0)2.31.56.73.79 - Fax: +33 (0)2.31.56.73.30  
@@ -30,15 +30,20 @@ habilitation thesis).
 
 See my [publications](biblio.md).
 
+### D3.js samples
+
+-   [Filtrage successif d'un nuage de tags](https://rioultf.users.greyc.fr/d3/bubble/bubble.html)
+-   [Visualisation de trajectoires dans DotA2](https://rioultf.users.greyc.fr/d3/polygon/index.php)
+-   [Petit site de visualisation de données bibliographiques](https://rioultf.users.greyc.fr/d3/framework)
+    (Merci à Marc Plantevit)
+
 ### Miscellaneous
 
 -   [Some aphorims (in French)](aphorims.md)
 
 ### Music
 
-<figure>
-<img src="\%22sites/default/files/inline-images/clavecin.jpg\%22" data-rioult="" data-cnsm="" data-paris="" data--="" data-1993\"="" data-entity-type="\&quot;\&quot;" data-entity-uuid="\&quot;\&quot;" alt="François Rioult - CNSM Paris - 1993" /><figcaption aria-hidden="true">François Rioult - CNSM Paris - 1993</figcaption>
-</figure>
+<img src="img/clavecin.jpg" width="200"/>
 
 Music is an important part of my life.
 
