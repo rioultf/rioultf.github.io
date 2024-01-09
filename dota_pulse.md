@@ -1,3 +1,5 @@
+## Investigating the `DotA` Pulse
+
 On our way to DotA's analysis, we deliver here some preliminary results
 on the pulse of DotA.
 
