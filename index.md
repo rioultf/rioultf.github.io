@@ -1,6 +1,6 @@
 ## François Rioult
 
-[GREYC](http://www.greyc.fr) - CNRS UMR 6072  
+[GREYC](https://www.greyc.fr/equipes/codag/) - CNRS UMR 6072  
 [Université de Caen Normandie](http://www.unicaen.fr)  
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
