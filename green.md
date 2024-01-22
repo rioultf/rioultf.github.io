@@ -9,7 +9,7 @@
   - 13 : Mesures relatives à la lutte contre les changements climatiques
   - 17 : Partenariats pour la réalisation des objectifs
  
-* initialement *aucune réponse*
+* initialement *aucune réponse* -> greenwashing
 
 ## Propositions
 
