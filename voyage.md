@@ -144,8 +144,13 @@ Der Link zu Ihrem persönlichen Gastbereich erscheint am Ende unserer E-Mails.
 
 *  Hamburg - Luxembourg : 6 h 4 min (592 km)
 
+## Parking
+
+il n'est malheureusement pas possible de se garer directement devant l'appartement. Mais il y a <m.gratisparken.de> qui montre où vous pouvez vous garer gratuitement partout à Berlin. Peut-être que cela les aide :) Une possibilité est sur la B2 au Tiergarten. Mais peut-être que vous trouverez de meilleures options sur la carte 
+
 ## Airnbnb
 
 * 6 Avenue du Dix Septembre, Luxembourg, District de Luxembourg 2550, Luxembourg
+* arrivée après 15:00, départ avant 12:00
 
 
