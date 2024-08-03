@@ -1,4 +1,4 @@
-# dimanche 4 août
+# dimanche 4 août - Bruges
 
 ## Parking
 
@@ -24,7 +24,7 @@ Caen-Bruges 450 km - 4h30
 
 <https://www.visitbruges.be/fr/que-faire/visites/bruges-en-bateau>
 
-# lundi 5 août
+# lundi 5 août - Amsterdam
 
 ## Parking
 
@@ -60,7 +60,7 @@ Arrivée à 19:00
 
 [booklet](https://download.iamsterdam.com/2rgg2sn69yya-city-card-boekje-2024-online.pdf)
 
-# mercredi 7 août
+# mercredi 7 août - Soenderborg
 
 ## Parking
 
@@ -80,7 +80,7 @@ Amsterdam - Sonderborg 6 h 45 min (663 km)
 * [les sentiers partant de Sonderborg](https://www.alltrails.com/fr/denmark/region-of-southern-denmark/sonderborg)
 * [activités](https://www.tripadvisor.com/Attractions-g227597-Activities-Soenderborg_South_Jutland_Jutland.html)
 
-# vendredi 9 août
+# vendredi 9 août - Copenhague
 
 ## Parking
  il y a un parking gratuit dans la rue ou dans les rues parallèles. Le stationnement est valable ici pour 3 heures. Si la voiture y tient plus longtemps, elle nécessite un permis de voyageur que je peux commander pour vous.
