@@ -29,6 +29,9 @@ P+R RAI (exit S109). Entrance open 07:00 to midnight (exit 24 hours a day). This
 
 Disponibilité des places : <https://www.amsterdam.nl/en/parking/park-ride/>
 
+Park & Ride RAI - c'est le moyen le plus rapide et le plus simple. De là, prenez le métro M52 jusqu'à Vijzelgracht,
+Park & Ride Olympisch Stadion - également très facile et rapide. De là, prenez le tramway 24 jusqu'à Vijzelgracht, ce tramway prendra environ 15 minutes.
+
 ## Airbnb
 
 Fokke Simonszstraat 1, Amsterdam, Noord-Holland 1017 TD, Pays-Bas
