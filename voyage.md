@@ -66,6 +66,35 @@ Arrivée à 19:00
 
 ## Logement
 
+<https://maps.app.goo.gl/WpYr8M983e8chJYQ8> 54°54'40.0"N 9°47'11.6"E
+Kong Chr. D. X S Bro, 6400 Sønderborg, Danemark
+
 ## Voyage 
 
 Amsterdam - Sonderborg 6 h 45 min (663 km)
+
+## Activités
+
+* <https://www.expedia.fr/Snderborg.dx3137>
+* [sentier Alssundstien](https://www.alltrails.com/fr/randonnee/denmark/region-of-southern-denmark/alssundstien)
+* [les sentiers partant de Sonderborg](https://www.alltrails.com/fr/denmark/region-of-southern-denmark/sonderborg)
+* [activités](https://www.tripadvisor.com/Attractions-g227597-Activities-Soenderborg_South_Jutland_Jutland.html)
+
+# vendredi 9 août
+
+## Parking
+ il y a un parking gratuit dans la rue ou dans les rues parallèles. Le stationnement est valable ici pour 3 heures. Si la voiture y tient plus longtemps, elle nécessite un permis de voyageur que je peux commander pour vous.
+## Airbnb
+
+Meklenborggade 9 st. tv., Copenhague, 2300, Danemark
+
+## Voyage
+
+Sonderborg - Copenhague 317 km 3h10
+
+## Activités
+
+[Tivoli Gardens](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/tivoli) 11 à 23:00
+[9 attractions danoises](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/copenhague?map=1)
+
+
