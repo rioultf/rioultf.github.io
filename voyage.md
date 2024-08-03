@@ -1,4 +1,9 @@
-# 4 août
+# dimanche 4 août
+
+## Parking
+
+<https://www.visitbruges.be/fr/organiser-votre-sejour/stationnement>
+
 ## Hôtel
 Logies Graaf Van Vlaanderen
 
@@ -19,7 +24,7 @@ Caen-Bruges 450 km - 4h30
 
 <https://www.visitbruges.be/fr/que-faire/visites/bruges-en-bateau>
 
-# 5 août
+# lundi 5 août
 
 ## Parking
 
@@ -43,8 +48,24 @@ Clés remises par l'hôte: La réception est ouverte pour l'enregistrement uniqu
 
 ## Voyage
 Bruges - Moulins de Kinderdijk : 200 km 2h30
-https://www.holland.com/fr/tourisme/laissez-vous-inspirer/en-ce-moment/unesco/les-moulins-de-kinderdijk
+<https://www.holland.com/fr/tourisme/laissez-vous-inspirer/en-ce-moment/unesco/les-moulins-de-kinderdijk>
 
 Kinderdijk - Amsterdam : 100 km - 1h20
 
 Arrivée à 19:00
+
+# mardi 6 août
+
+[city card](https://www.iamsterdam.com/en/tickets/use-the-city-card)
+
+[booklet](https://download.iamsterdam.com/2rgg2sn69yya-city-card-boekje-2024-online.pdf)
+
+# mercredi 7 août
+
+## Parking
+
+## Logement
+
+## Voyage 
+
+Amsterdam - Sonderborg 6 h 45 min (663 km)
