@@ -34,31 +34,25 @@ P+R RAI (exit S109). Entrance open 07:00 to midnight (exit 24 hours a day). This
 
 Disponibilité des places : <https://www.amsterdam.nl/en/parking/park-ride/>
 
-Park & Ride RAI - c'est le moyen le plus rapide et le plus simple. De là, prenez le métro M52 jusqu'à Vijzelgracht,
-Park & Ride Olympisch Stadion - également très facile et rapide. De là, prenez le tramway 24 jusqu'à Vijzelgracht, ce tramway prendra environ 15 minutes.
+* Park & Ride RAI - c'est le moyen le plus rapide et le plus simple. De là, prenez le métro M52 jusqu'à Vijzelgracht,
+* Park & Ride Olympisch Stadion - également très facile et rapide. De là, prenez le tramway 24 jusqu'à Vijzelgracht, ce tramway prendra environ 15 minutes.
 
 ## Airbnb
 
-Fokke Simonszstraat 1, Amsterdam, Noord-Holland 1017 TD, Pays-Bas
-
-Clés remises par l'hôte: La réception est ouverte pour l'enregistrement uniquement de 8 h 00 à 23 h 00
-
-
-
+* Fokke Simonszstraat 1, Amsterdam, Noord-Holland 1017 TD, Pays-Bas
+* Clés remises par l'hôte: La réception est ouverte pour l'enregistrement uniquement de 8 h 00 à 23 h 00
 
 ## Voyage
-Bruges - Moulins de Kinderdijk : 200 km 2h30
-<https://www.holland.com/fr/tourisme/laissez-vous-inspirer/en-ce-moment/unesco/les-moulins-de-kinderdijk>
+* Bruges - Moulins de Kinderdijk : 200 km 2h30
+* <https://www.holland.com/fr/tourisme/laissez-vous-inspirer/en-ce-moment/unesco/les-moulins-de-kinderdijk>
 
-Kinderdijk - Amsterdam : 100 km - 1h20
-
-Arrivée à 19:00
+* Kinderdijk - Amsterdam : 100 km - 1h20
+* Arrivée à 19:00
 
 # mardi 6 août
 
-[city card](https://www.iamsterdam.com/en/tickets/use-the-city-card)
-
-[booklet](https://download.iamsterdam.com/2rgg2sn69yya-city-card-boekje-2024-online.pdf)
+* [city card](https://www.iamsterdam.com/en/tickets/use-the-city-card)
+* [booklet](https://download.iamsterdam.com/2rgg2sn69yya-city-card-boekje-2024-online.pdf)
 
 # mercredi 7 août - Soenderborg
 
@@ -94,8 +88,8 @@ Sonderborg - Copenhague 317 km 3h10
 
 ## Activités
 
-[Tivoli Gardens](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/tivoli) 11 à 23:00
-[9 attractions danoises](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/copenhague?map=1)
+* [Tivoli Gardens](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/tivoli) 11 à 23:00
+* [9 attractions danoises](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/copenhague?map=1)
 
 # dimanche 11 - Soenderborg
 
@@ -123,5 +117,12 @@ Sonderborg - Copenhague 317 km 3h10
 
 # Airbnb
 
+* Hallerstraße 72, Hambourg, Hambourg 20146, Allemagne
+* arrivée après 16:00, départ avant 10:00
+* Code house entrance & code apartment: 222322 # ‼️ Code visible from 1pm on the day of arrival, active from check-in time!
+
+Einen Tag vor Ihrer Ankunft senden wir Ihnen die Anweisungen für den schnellen Check-in an Ihre E-Mail-Adresse. 
+In Ihrem für Sie rund um die Uhr verfügbaren Gästebereich finden Sie alle wichtigen Informationen zu Ihrem Aufenthalt und die Anreiseanleitung.
+Der Link zu Ihrem persönlichen Gastbereich erscheint am Ende unserer E-Mails.
 
 
