@@ -97,4 +97,31 @@ Sonderborg - Copenhague 317 km 3h10
 [Tivoli Gardens](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/tivoli) 11 à 23:00
 [9 attractions danoises](https://www.visitdenmark.fr/danemark/quoi-faire/attractions/copenhague?map=1)
 
+# dimanche 11 - Soenderborg
+
+# lundi 12 - Hambourg / Berlin
+
+# Parking
+
+# Airbnb
+
+* Neue Promenade 8, Berlin, Berlin 10178, Allemagne
+* Entre les magasins Frozen Toppi et l'Atix Coffee Market se trouvent deux portes d'entrée.
+* À la porte d'entrée de droite se trouve une boîte à clés nommée « Burgwächter ». Le code est 8793.
+* Prends la clé et referme à nouveau la boîte à clés.
+* Allez ensuite à la porte d'entrée de gauche et ouvrez la porte avec la clé. Appelez l'ascenseur. Sur la clé se trouve un capteur qu'il faut tenir à la plaque blanche dans l'ascenseur. Ensuite, l'ascenseur sera libéré. Appuyez ensuite sur l'étage 3.
+* Au troisième étage, tu tournes à droite et l'appartement nommé « Baumann » est à toi.
+
+## Activités
+
+* [Welcome card](https://www.berlin-welcomecard.de/fr/la-berlin-welcomecard)
+* [Fernsehturm](https://www.visitberlin.de/fr/tickets/fast-view-ticket-tour-de-television-de-berlin#/)
+* [Montez et descendez toutes les 15 minutes aux arrêts souhaités et vivez pleinement cette atmosphère intime berlinoise lors de votre circuit de découverte. Profitez aussi du HopOn HopOff (montées et descentes) qui vous propose de découvrir 20 lieux majeurs de la ville.](https://www.berlin-welcomecard.de/fr/partenaire/top-tour-sightseeing)
+* offre hop on/off spécifique avec île aux musées.
+
+# mercredi 14 : Hambourg
+
+# Airbnb
+
+
 
