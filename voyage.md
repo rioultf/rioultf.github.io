@@ -95,9 +95,16 @@ Sonderborg - Copenhague 317 km 3h10
 
 # lundi 12 - Hambourg / Berlin
 
-# Parking
+## Voyage 
 
-# Airbnb
+*  Soenderborg - Hamburg - 2 h 6 min (204 km)
+*  Hamburg - Berlin -  4 h 33 min (480 km)
+*  billets de train : à partir de 120€ pour deux adultes (gratuit pour Darcy)
+*  
+
+## Parking
+
+## Airbnb
 
 * Neue Promenade 8, Berlin, Berlin 10178, Allemagne
 * Entre les magasins Frozen Toppi et l'Atix Coffee Market se trouvent deux portes d'entrée.
@@ -115,7 +122,9 @@ Sonderborg - Copenhague 317 km 3h10
 
 # mercredi 14 : Hambourg
 
-# Airbnb
+## Parking
+
+## Airbnb
 
 * Hallerstraße 72, Hambourg, Hambourg 20146, Allemagne
 * arrivée après 16:00, départ avant 10:00
@@ -124,5 +133,19 @@ Sonderborg - Copenhague 317 km 3h10
 Einen Tag vor Ihrer Ankunft senden wir Ihnen die Anweisungen für den schnellen Check-in an Ihre E-Mail-Adresse. 
 In Ihrem für Sie rund um die Uhr verfügbaren Gästebereich finden Sie alle wichtigen Informationen zu Ihrem Aufenthalt und die Anreiseanleitung.
 Der Link zu Ihrem persönlichen Gastbereich erscheint am Ende unserer E-Mails.
+
+## Activités
+
+[quinze activités](https://www.visiter-hambourg.de/que-faire-a-hambourg/)
+
+# jeudi 15 : Luxembourg
+
+## Voyage
+
+*  Hamburg - Luxembourg : 6 h 4 min (592 km)
+
+## Airnbnb
+
+* 6 Avenue du Dix Septembre, Luxembourg, District de Luxembourg 2550, Luxembourg
 
 
