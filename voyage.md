@@ -21,9 +21,21 @@ Caen-Bruges 450 km - 4h30
 
 # 5 août
 
+## Parking
+
+[Système P + R](https://www.iamsterdam.com/en/travel-stay/getting-around/park-and-ride)
+
+P+R RAI (exit S109). Entrance open 07:00 to midnight (exit 24 hours a day). This location is not valid for P+R rates during event days at Amsterdam RAI. Check a calendar of events on the Amsterdam RAI website. Additionally, the P+R rate here is only valid for a maximum of 24 hours.
+
+Disponibilité des places : <https://www.amsterdam.nl/en/parking/park-ride/>
+
 ## Airbnb
 
 Fokke Simonszstraat 1, Amsterdam, Noord-Holland 1017 TD, Pays-Bas
+
+Clés remises par l'hôte: La réception est ouverte pour l'enregistrement uniquement de 8 h 00 à 23 h 00
+
+
 
 
 ## Voyage
