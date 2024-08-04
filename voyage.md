@@ -2,7 +2,8 @@
 
 ## Parking
 
-<https://www.visitbruges.be/fr/organiser-votre-sejour/stationnement>
+* <https://www.visitbruges.be/fr/organiser-votre-sejour/stationnement>
+* Ondergrondse parking ‘t zand
 
 ## Hôtel
 Logies Graaf Van Vlaanderen
