@@ -6,30 +6,41 @@ title: Application des LLM
 subtitle: LP-IA
 ---
 
-* CM 1
-  * architecture
-  * définitions
-    * dataset
-    * modèle
-    * évaluation
-    * API
-    * chat template
-    * system prompt
-    * évaluation
+<!---------------------------------------------------------------->
+# Introduction
+
+Ce cours s'adresse à des étudiant.e.s en Licence Professionnelle IA.
+
+Normalement, ces étudiant.e.s sont formé.e.s depuis ans à l'informatique, après le bac. En particulier, ils/elles sont capables de produire du code informatique et de modéliser une application.
+
+Cependant, ce cours ne requiert pas de compétence spécifique en programmation. Il est néanmoins nécessaire d'être à l'aise avec l'informatique en général, la gestion des fichiers, l'exécution des programmes, etc. L'utilisation du système Linux est préconisée.
+
+## Objectifs
+
+Les objectifs de ce cours sont : 
+
+* comprendre le fonctionnement d'un LLM
+* maîtriser les interactions avec un LLM (prompt engineering)
+* le mettre en oeuvre pour la réalisation d'une application
+* appréhender l'éco-système informatique autour des LLM
+
+## Cas d'usage
+
+* chatbot, robot conservationnel, agent de conversation : pour toutes les interactions avec un système d'information, RAG
+* conception d'un endpoint LLM pour interrogation tierce : vérification de guidelines, extraction d'information
+* distillation
+
+<!---------------------------------------------------------------->
+# Table des matières
+
+* [CM1 - Fonctionnement d'un modèle de langue](model/model.md)
 * CM 2
-
 * CM 3
-
 * CM 4
-
 * CM 5
-
 * CM 6
-
 * CM 7
-
 * CM 8
-
 
 * TP 01
 prise en main LM Studio

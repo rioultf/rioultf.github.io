@@ -1,4 +1,26 @@
-# Fonctionnement d'un modèle de langue
+---
+author:
+- François Rioult
+lang: fr
+title: Application des LLM
+subtitle: Fonctionnement d'un modèle de langue
+---
+
+# architecture
+# définitions
+## dataset
+## modèle
+## évaluation
+## API
+## chat template
+## system prompt
+## évaluation
+
+# 
+
+
+
+
 
 [Sur les paramètres de la génération](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
 
