@@ -1,3 +1,13 @@
+---
+author:
+- François Rioult
+lang: fr
+title: Application des LLM
+subtitle: Prompt Engineering
+---
+
+
+
 * [LE grand guide avec de nombreux exemples](https://www.promptingguide.ai/fr)
 
 * [de bonnes définitions](https://www.spiceworks.com/tech/artificial-intelligence/articles/what-is-prompt-engineering/)

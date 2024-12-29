@@ -33,35 +33,14 @@ Les objectifs de ce cours sont :
 <!---------------------------------------------------------------->
 # Table des matières
 
-* [CM1 - Fonctionnement d'un modèle de langue](model/model.md)
-* CM 2
-* CM 3
-* CM 4
-* CM 5
-* CM 6
-* CM 7
+* [CM 1 - Fonctionnement d'un modèle de langue](model/model.md)
+* [CM 2 - Prompt Engineering](prompt/prompt.md)
+* [CM 3 - Mise en oeuvre d'un LLM](devops/devops.md)
+* [CM 4 - Interactions avec un système d'information, RAG](rag/rag.md)
+* [CM 5 - Écosystème des LLM](hugging/hugging.md)
+* [CM 6 - Programmation assistée par LLM - NoCode](nocode/nocode.md)
+* [CM 7 - Personnalisation d'un LLM - Distillation]()
 * CM 8
-
-* TP 01
-prise en main LM Studio
-* TP 02
-* TP 03
-* TP 04
-* TP 05
-* TP 06
-* TP 07
-* TP 08
-* TP 09
-* TP 10
-* TP 11
-  * présentation projet recherche
-
-* CC 1
-  * projet d'une application / valorisation d'un LLM
-* CC 2
-* CC 3
-  * projet recherche sur un thème donné
-
 
 # Modèle : Fonctionnement d'un LLM
 
