@@ -37,7 +37,7 @@ Un réseau de neurones structure la transformation\ :
 * en la sortie (multi-dimensionnelle, autant de neurones que de dimension) 
 * en intercalant des couches de neurones
 
-<img src="fig/deep.png">
+<img src="../fig/deep.png">
 
 ### Redescription de l'espace
 
