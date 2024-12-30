@@ -33,7 +33,7 @@ Les objectifs de ce cours sont :
 <!---------------------------------------------------------------->
 # Table des matières
 
-* [CM 1 - Fonctionnement d'un modèle de langue](model/model.md)
+* [CM 1 - Fonctionnement d'un modèle de langue](model/model1.md)
 * [CM 2 - Prompt Engineering](prompt/prompt.md)
 * [CM 3 - Mise en oeuvre d'un LLM](devops/devops.md)
 * [CM 4 - Interactions avec un système d'information, RAG](rag/rag.md)
