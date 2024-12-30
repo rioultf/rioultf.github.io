@@ -23,11 +23,15 @@ C'est un seuil de probabilité pour filtrer les tokens.
 
 ### Exemple de Smollm 
 
-[600B tokens from Smollm-Corpus](https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus)
+* [600B tokens from Smollm-Corpus](https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus)
+* 49152 tokens
+* [architecture reprise sur MobileLLM](https://arxiv.org/pdf/2402.14905)
+  * section G : distillation
+  * beaucoup de détails techniques, considérations sur le nombre de têtes d'attention. Partage de layer. Un bloc trasformer contient le MHSA (multi-head self attention) et un feed-forward (FFN)
 
-tokenizer trained on the Smollm Corpus with a vocab size of 49152
+#### Analyse des tokens
 
-* token de dialogue :
+* tokens de dialogue :
 
 ```
 <|endoftext|>
@@ -68,11 +72,6 @@ Les tokens commençant par un espace (codé `Ġ`) sont des débuts de mots. Les
 ```bash
 awk 'NR>=254{print}' token.txt | sed -n 's/^ //p' | sort > words.txt
 awk 'NR>=254{print}' token.txt | grep -v "^ " | sort > suffixes.txt
-
-
-
-
-
 ```
 
 #### Mots en majuscule
@@ -80,7 +79,12 @@ awk 'NR>=254{print}' token.txt | grep -v "^ " | sort > suffixes.txt
 * toutes les lettres
 * la moitié des combinaisons de deux lettres. Vérifier s'il y a les pays
 * 400 triplets
-* les mots de plus de quatre lettres. [Les plus longs](script/capital.txt)
+* [Les plus longs](script/capital.txt)
+* 10 000 mots commencent par une majuscule
+* [22 000 mots commencent par une minuscule](script/lower.txt)
+
+* 3800 suffixes commencent par une majuscule
+
 
 ```bash
 grep -E '^[A-Z]{4,}$' words.txt | awk '{ print length(), $0 | "sort -rn" }' | cut -d" " -f2- > capital.txt
@@ -90,12 +94,36 @@ grep -E '^[A-Z]{4,}$' words.txt | awk '{ print length(), $0 | "sort -rn" }' | cu
 
 * la ponctuation est prise en compte
 * le modèle fait la différence entre majuscules et minuscules
+* certains tokens sont *très* longs : les mots longs ne sont pas découpés lorsqu'ils sont porteurs de sens répandu dans le corpus.
 
-
+### Notes
 
 * [tokenizer](https://huggingface.co/google-t5/t5-base)
+* <https://huggingface.co/docs/transformers/model_doc/t5>
 
-https://huggingface.co/docs/transformers/model_doc/t5
+<!---------------------------------------------------------------->
+## Embedding
+
+L'*embedding* transforme le token en un vecteur, qui peut être utilisé dans un RNN. C'est le résultat d'un apprentissage à base de blocs transformers propageant de la self attention pour prédire la cible.
+
+### GPT - generative pre-trained transformer
+
+On ajoute un embedding positionnel sur la *sequence*.
+
+### BERT - (Bidirectional Encoder Representations from Transformers)
+
+Utilise également un embedding positionnel.
+
+Ajoute un embedding de *segment* pour différencier les séquences.
+
+### Word2vec
+
+Il utilise deux architectures principales pour générer des embeddings : Skip-gram et CBOW (Continuous Bag of Words). Skip-gram prédit le contexte à partir d'un mot donné, tandis que CBOW prédit un mot à partir des mots du contexte.
+
+<a title="Aelu013, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CBOW_eta_Skipgram.png"><img width="512" alt="CBOW eta Skipgram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/CBOW_eta_Skipgram.png/512px-CBOW_eta_Skipgram.png?20180225191115"></a>
+
+L'embedding 
+
 
 <!---------------------------------------------------------------->
 ## Raisonnement
