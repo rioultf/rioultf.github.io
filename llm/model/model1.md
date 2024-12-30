@@ -61,6 +61,10 @@ Un réseau récurrent est constitué de *cellules* égrénant le temps, reliées
 
 <img src="../fig/rnn.png" width="600">
 
+* [Transformer illustré](http://jalammar.github.io/illustrated-transformer/)
+* [Transformers + architecture + code](https://jaketae.github.io/study/transformer/)
+* [Spécifique attention](https://jaketae.github.io/study/seq2seq-attention/)
+
 <!---------------------------------------------------------------->
 ## Définition d'un LLM
 
@@ -80,9 +84,14 @@ Les dataset peuvent également être spécialisés dans des domaines, par exempl
 
 Le modèle, c'est-à-dire le RNN, est précisé par sa *structure* sous forme de tenseurs et ses *poids*. Il est généralement conçu pour être exécuté sur une carte graphique, programmée dans le langage CUDA. Des librairies de plus haut niveau (Tensorflow, Torch, Keras) sont disponibles en python.
 
+* [vade mecum sur la conception d'un llm](https://symbl.ai/developers/blog/a-guide-to-building-an-llm-from-scratch/)
+* [GPT from scratch - code - architecture détaillée](https://jaketae.github.io/study/gpt/)
+
 #### Évaluation
 
 Un LLM peut être confronté à des benchmarks, qui sont des paires Q/A.
+
+* [test sans contamination des meilleurs modèles](https://livebench.ai/#/)
 
 ### Constituants opérationnels
 
@@ -108,13 +117,20 @@ Le chat est paramétré par le *chat template*, qui indique au modèle comment i
 {% endif %}
 ```
 
+* [chat template](https://huggingface.co/docs/transformers/main/en/chat_templating)
+
+
 #### Comment le modèle s'arrête-til de produire des jetons ?
 
 Le modèle a été entraîné sur des textes terminant par le token EOS `<|endoftext|>`.
 
 * [Comment le LLM sait quand s'arrêter de générer](https://www.louisbouchard.ai/how-llms-know-when-to-stop/)
+* [Discussion sur ce qui le fait s'arrêter](https://www.reddit.com/r/LocalLLaMA/comments/1haizeq/llm_noob_here_can_any_explain_whats_happening/)
 
 #### System prompt
 
 * [Obtenir le system prompt d'un LLM](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h2uxeh/full_starting_prompt_for_chatgpt/)
+* [systeme prompt de chatgpt](https://www.reddit.com/r/ChatGPT/comments/1h94hz8/accidentally_discovered_a_prompt_which_gave_me/)
+* [meta promt d'openai](https://platform.openai.com/docs/guides/prompt-generation)
+* <https://www.reddit.com/r/ChatGPTCoding/comments/1hkudnz/openai_reveals_its_prompt_engineering/>
 

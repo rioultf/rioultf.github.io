@@ -1,6 +1,9 @@
 <!---------------------------------------------------------------->
 ## Paramètres de la génération
 
+* [paramétrage technique, quantisation, mémoire](https://www.reddit.com/r/LocalLLM/comments/1hm3x30/finally_understanding_llms_what_actually_matters/)
+
+
 [Source](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
 
 ### Température
@@ -120,9 +123,14 @@ Ajoute un embedding de *segment* pour différencier les séquences.
 
 Il utilise deux architectures principales pour générer des embeddings : Skip-gram et CBOW (Continuous Bag of Words). Skip-gram prédit le contexte à partir d'un mot donné, tandis que CBOW prédit un mot à partir des mots du contexte.
 
+La couche cachée contient quelques centaines de neurones et constitue, à l'issue de la représentation, le plongement lexical (embedding) permettant de représenter un mot.
+
 <a title="Aelu013, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CBOW_eta_Skipgram.png"><img width="512" alt="CBOW eta Skipgram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/CBOW_eta_Skipgram.png/512px-CBOW_eta_Skipgram.png?20180225191115"></a>
 
-L'embedding 
+### FastText
+
+Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position, dans la dimension 300, avec des n-grammes de caractères de longueur 5, une fenêtre de taille 5 et 10 négatifs.
+
 
 
 <!---------------------------------------------------------------->
@@ -132,26 +140,43 @@ L'embedding
 * [tests de problemes elementaires](https://github.com/cpldcpu/MisguidedAttention)
 * [modele qui raisonne en enchainant trois system slot](https://informationism.org/ai2/siriusIIemodel.php)
 * [details sur le CoT de o1](https://openai.com/index/learning-to-reason-with-llms/)
-
-i'm like 80% this is how o1 works:
+* i'm like 80% this is how o1 works:
 >collect a dataset of question/answer pairs
 >model to produce reasoning steps (sentences)
 >r env where each new reasoning step is an action
 >no fancy model; ppo actor-critic is enough
 >that's literally
-
 * https://www.reddit.com/r/LocalLLaMA/comments/1h1q8h3/alibaba_qwq_32b_model_reportedly_challenges_o1/
-
 * https://medium.com/@wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a
+* deepseek 3 COT https://www.reddit.com/r/LocalLLaMA/comments/1hnbgtu/deep_seek_v3_has_a_deep_think_option_it_shows_the/
+* The ARC benchmark (Abstraction and Reasoning Corpus), created by Google engineer François Chollet,
 
-The ARC benchmark (Abstraction and Reasoning Corpus), created by Google engineer François Chollet,
+sur le fonctionnement de o3 :
+My mental model for LLMs is that they work as a repository of vector programs. When prompted, they will fetch the program that your prompt maps to and "execute" it on the input at hand. LLMs are a way to store and operationalize millions of useful mini-programs via passive exposure to human-generated content.
+
+This "memorize, fetch, apply" paradigm can achieve arbitrary levels of skills at arbitrary tasks given appropriate training data, but it cannot adapt to novelty or pick up new skills on the fly (which is to say that there is no fluid intelligence at play here.
+https://arcprize.org/blog/oai-o3-pub-breakthrough
+
+source How I think about LLM prompt engineering
+Prompting as searching through a space of vector programs
+FRANÇOIS CHOLLET
+https://fchollet.substack.com/p/how-i-think-about-llm-prompt-engineering
+
+prompt interminable pour faire raisonner :
+https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h5iv86/i_give_you_the_perfected_system_copypaste_prompt/
+réponse : I will give since you gave ot should save you some tokens
+Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and Recursive Validation, including accuracy, logic, and context filters. Detail speculative reasoning, solution-oriented, and creative adaptability processes, emphasizing user interactivity (tone, depth, and perspective settings) and failure analytics (detection, crash reporting, and self-healing). Highlight continuous evolution via adaptive learning, performance monitoring, and resource optimization
+
 
 ## Tuning
 
 https://github.com/huggingface/smol-course/tree/main
 https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning
+cours de fine tuning https://github.com/huggingface/smol-course
 
 Tuning de Smollm puis sauvegarde sur le hub
+
+[Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/index)
 
 ## Model context protocol
 
@@ -172,6 +197,8 @@ https://www.anthropic.com/news/model-context-protocol
 
 ## Large Action Model
 
+https://github.com/tatsu-lab/stanford_alpaca
+
 <https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work>
 
 C’est plutôt dédié à la productivité. Tu programmes des tâches variées.
@@ -181,7 +208,7 @@ Voir la source : <https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr
 
 * <https://www.salesforce.com/blog/large-action-model-ai-agent/>
 * <https://www.instinctools.com/blog/large-action-models/>
-
+* [appel de fonctions](https://gist.github.com/zackangelo/8862ec433eaf419122a5dc69e9f228d9)
 
 * [meta moteur de recherche pour alimenter en contexte](https://docs.searxng.org)
 

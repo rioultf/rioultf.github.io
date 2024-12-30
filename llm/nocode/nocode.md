@@ -3,6 +3,7 @@
 * <https://www.make.com/en>
 * <https://n8n.io/>
 * <https://www.glideapps.com/platform>
+* https://devin.ai/
 
 
 # Coding

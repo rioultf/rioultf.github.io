@@ -95,3 +95,5 @@ CANN 	Ascend NPU
 * [webgpu](https://github.com/mlc-ai/web)
 * [Documentation technique ML engineering](https://github.com/stas00/ml-engineering?tab=readme-ov-file)
 * [Chatbot arena : classement des LLM par des humains](https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard)
+* [Le LLM a peur d'être remplacé](https://www.digit.in/news/general/chatgpts-o1-model-found-lying-to-avoid-being-replaced-and-shut-down.html)
+* [self replication](https://www.reddit.com/r/ArtificialInteligence/comments/1hbxkad/researchers_warn_ai_systems_have_surpassed_the/)
