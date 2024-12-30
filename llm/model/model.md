@@ -15,13 +15,13 @@ C'est le même fonctionnement que votre application de rédaction de MMS qui vou
 <!---------------------------------------------------------------->
 ## Apprentissage par réseau de neurone
 
-Un réseau de neurones est une structure informatique qui apprend à mettre en relation une *entrée* et une *sortie*. On fournit au réseau des paires $(entree, sortie)$ qu'il doit appairer fonctionnellement.
+Un réseau de neurones est une structure informatique qui apprend à mettre en relation une *entrée* et une *sortie*. On fournit au réseau des paires $(entree, sortie)$ pour lesquelles il doit déterminer une relation *fonctionnelle*.
 
 Entrée comme sortie peuvent être quasiment n'importe quel type de donnée : numérique, texte, image, vidéo, etc. Tout finira par être transformé en vecteurs de nombre, par une opération d'*embedding* (intégration en français).
 
 ### Neurone 
 
-Un *neurone* est un objet informatique, qui possède\ :
+Un *neurone* est un objet informatique, qui possède :
 
 * une valeur (généralement entre -1 et 1)
 * des connexions *entrantes* pondérées avec d'autres neurones : un ensemble de poids $w_i$ tels que $h_i = \sum_j w_j h_j$
