@@ -110,7 +110,7 @@ Le chat est paramétré par le *chat template*, qui indique au modèle comment i
 
 #### Comment le modèle s'arrête-til de produire des jetons ?
 
-Le modèle a été entraîné sur des textes terminant par le token EOS `<|endoftext|>`. Lorsqu'il produit 
+Le modèle a été entraîné sur des textes terminant par le token EOS `<|endoftext|>`.
 
 * [Comment le LLM sait quand s'arrêter de générer](https://www.louisbouchard.ai/how-llms-know-when-to-stop/)
 
