@@ -1,6 +1,25 @@
 <!---------------------------------------------------------------->
 ## Paramètres de la génération
 
+* [Source](https://jaketae.github.io/study/gpt2/#setup)
+Beaucoup de détails sur les paramètres de la NLG avec la librairie `transformers`
+
+NLG with GPT-2
+
+    Setup
+    Tokenization
+        Byte Pair Encoding
+        HuggingFace Tokenizers
+    Generation
+        Greedy Generation
+        Beam Search
+        N-gram Penalty
+        Multiple Generation
+        Random Sampling
+        Softmax Temperature
+        Top-K Sampling
+        Top-P Sampling
+
 * [paramétrage technique, quantisation, mémoire](https://www.reddit.com/r/LocalLLM/comments/1hm3x30/finally_understanding_llms_what_actually_matters/)
 
 
@@ -18,6 +37,10 @@ Indique au modèle de choisir des token parmi les $k$ meilleurs.
 
 C'est un seuil de probabilité pour filtrer les tokens.
 
+<!---------------------------------------------------------------->
+## Quantization
+
+<https://symbl.ai/developers/blog/a-guide-to-quantization-in-llms/>
 
 <!---------------------------------------------------------------->
 ## Tokenizer
@@ -33,6 +56,8 @@ C'est un seuil de probabilité pour filtrer les tokens.
   * beaucoup de détails techniques, considérations sur le nombre de têtes d'attention. Partage de layer. Un bloc trasformer contient le MHSA (multi-head self attention) et un feed-forward (FFN)
 
 #### Analyse des tokens
+
+[La liste des tokens](https://huggingface.co/HuggingFaceTB/cosmo2-tokenizer/raw/main/tokenizer.json)
 
 * tokens de dialogue :
 
@@ -109,9 +134,15 @@ grep -E '^[A-Z]{4,}$' words.txt | awk '{ print length(), $0 | "sort -rn" }' | cu
 
 L'*embedding* transforme le token en un vecteur, qui peut être utilisé dans un RNN. C'est le résultat d'un apprentissage à base de blocs transformers propageant de la self attention pour prédire la cible.
 
+[modèle renvoyant un embedding (par exemple avec LMStudio) : text-embedding-nomic-embed-text-v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5)
+
+[atlas nomique des embeddings](https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample)
+
 ### GPT - generative pre-trained transformer
 
 On ajoute un embedding positionnel sur la *sequence*.
+
+* [Encodage de la position](https://jaketae.github.io/study/relative-positional-encoding/)
 
 ### BERT - (Bidirectional Encoder Representations from Transformers)
 
@@ -130,6 +161,8 @@ La couche cachée contient quelques centaines de neurones et constitue, à l'iss
 ### FastText
 
 Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position, dans la dimension 300, avec des n-grammes de caractères de longueur 5, une fenêtre de taille 5 et 10 négatifs.
+
+* [Encodage de la position](https://jaketae.github.io/study/relative-positional-encoding/)
 
 
 
@@ -212,5 +245,5 @@ Voir la source : <https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr
 
 * [meta moteur de recherche pour alimenter en contexte](https://docs.searxng.org)
 
-
+[autogen + lmstudio](https://medium.com/@LakshmiNarayana_U/a-beginners-guide-to-agents-using-autogen-studio-and-lm-studio-0e5da8aea17e)
 

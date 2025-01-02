@@ -54,9 +54,35 @@ dans le menu Models, on peut éditer la configuration de chaque modèle : param�
 [How to convert HuggingFace model to GGUF](https://github.com/ggerganov/llama.cpp/discussions/2948)
   
 
+Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
+Dans l'onglet inférence, system prompt = méta prompt ?
+
+[Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
+
+  beta spéciale avec inscription
+
 <!---------------------------------------------------------------->
 ## Ollama
 
+Permet de faire tourner en local une large variété de modèles.
+
+<!---------------------------------------------------------------->
+## LlamaIndex
+
+LlamaIndex is a data framework for your LLM applications 
+Use Cases
+
+    Prompting
+    Question-Answering (RAG)
+    Chatbots
+    Structured Data Extraction
+    Agents
+    Multi-Modal Applications
+    Fine-Tuning
+
+
+
+[Intégration LMStudio][https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]
 
 
 <!---------------------------------------------------------------->
@@ -198,6 +224,24 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 
 # Streamlit
 
+*[voir aussi](https://github.com/Chainlit/chainlit)
+
+* [Streamlit avec llmstudio, utilise une quantisation 2bit d'un modèle mistral](https://medium.com/@ingridwickstevens/streaming-local-llm-responses-with-lm-studio-inference-server-cce3f78b2522)
+
+```python
+    prompt = ChatPromptTemplate.from_template(template)
+
+    # Using LM Studio Local Inference Server
+    llm = ChatOpenAI(base_url="http://localhost:1234/v1")
+
+    chain = prompt | llm | StrOutputParser()
+    
+    return chain.stream({
+        "chat_history": chat_history,
+        "user_question": user_query,
+    })
+```
+
 * [avec OpenAI et LLaMaIndex](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/)
 
 Streamlit is an open-source Python framework to build highly interactive apps – in only a few lines of code. Streamlit integrates with all the latest tools in generative AI, such as any LLM, vector database, or various AI frameworks like LangChain, LlamaIndex, or Weights & Biases. Streamlit’s chat elements make it especially easy to interact with AI so you can build chatbots that “talk to your data.”
@@ -217,6 +261,26 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 ## Postman des LLM
 
 * [programmation graphique et prompt engineering : ChainForge provides a suite of tools to evaluate and visualize prompt (and model) quality](https://chainforge.ai/)
+
+  Lance une interface web pour design d'un pipeline avec LLM
+  On peut mettre un provider local sous la forme d'un script python à coller dans le widget : compliqué
+
+* [Analytics sur des LLM](https://app.traceloop.com/)
+
+  Quid de l'intégration LMStudio ? Niet
+  OpenLLMetry fournit des indicateurs à des logiciels comme Grafana, chargé de l'observabilité. Les modèles propriétaire sont instrumentés, de même que les databases de vecteurs ou les frameworks (langchain, llamaindex, https://haystack.deepset.ai/, )
+
+* [Literal AI](https://docs.literalai.com/get-started/overview) is the collaborative observability, evaluation and analytics platform for building production-grade LLM apps. Literal AI offers multimodal logging, including vision, audio, and video.
+
+  a l'air très bien mais je n'arrive pas à brancher LMStudio.
+  literalai custom configuration test failed 504
+  
+
+* [oobabooga A Gradio web UI for Large Language Models.](https://github.com/oobabooga/text-generation-webui)
+
+  installe Torch et propose plein de providers comme transformers
+
+
 * Le postman des llm https://www.adaline.ai/get-started
 * API de Postman : <https://www.postman.com/manukmcts/llm/overview>
 * [Génératon de tests Postman par LLM](https://www.aimodels.fyi/papers/arxiv/automating-rest-api-postman-test-cases-using)
@@ -234,3 +298,6 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 
 
 
+
+
+[https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]: https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/

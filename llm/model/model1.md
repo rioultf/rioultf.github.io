@@ -61,45 +61,57 @@ Un réseau récurrent est constitué de *cellules* égrénant le temps, reliées
 
 <img src="../fig/rnn.png" width="600">
 
+<!---------------------------------------------------------------->
+## Définition d'un LLM
+
+### Transformer
+
 * [Transformer illustré](http://jalammar.github.io/illustrated-transformer/)
 * [Transformers + architecture + code](https://jaketae.github.io/study/transformer/)
 * [Spécifique attention](https://jaketae.github.io/study/seq2seq-attention/)
 
-<!---------------------------------------------------------------->
-## Définition d'un LLM
 
 Un LLM (ou *large language model*) est un modèle de langue constitué par un réseau de neurones récurrent entraîné à prédire des tokens de texte à partir d'un contexte de tokens, sur des *corpus* de textes proportionnels à sa *taille*.
 
 La façon de *tokenizer* le texte est importante. Cette fonctionnalité peut elle-même être fournie par un LLM.
 
-### Constituants informatiques
+<!---------------------------------------------------------------->
+## Conception d'un chatbot
 
-#### Dataset
+* RLHF : reinforcement learning from human feedback
+
+
+
+<!---------------------------------------------------------------->
+# Constituants informatiques
+
+## Dataset
 
 Il s'agit du corpus de textes qui a servi à entraîner le RNN. Ce peut être du texte brut, des pages web, des appariements question-réponse (*question/answer* Q/A en anglais).
 
 Les dataset peuvent également être spécialisés dans des domaines, par exemple la médecine, de code, la recherche...
 
-#### Modèle
+## Modèle
 
 Le modèle, c'est-à-dire le RNN, est précisé par sa *structure* sous forme de tenseurs et ses *poids*. Il est généralement conçu pour être exécuté sur une carte graphique, programmée dans le langage CUDA. Des librairies de plus haut niveau (Tensorflow, Torch, Keras) sont disponibles en python.
 
 * [vade mecum sur la conception d'un llm](https://symbl.ai/developers/blog/a-guide-to-building-an-llm-from-scratch/)
 * [GPT from scratch - code - architecture détaillée](https://jaketae.github.io/study/gpt/)
 
-#### Évaluation
+## Évaluation - benchmark
 
 Un LLM peut être confronté à des benchmarks, qui sont des paires Q/A.
 
 * [test sans contamination des meilleurs modèles](https://livebench.ai/#/)
 
-### Constituants opérationnels
+<!---------------------------------------------------------------->
+# Constituants opérationnels
 
-#### API
+## API
 
 Une part importante de l'écosystème consiste en la fourniture de ressources de calcul pour faire tourner les LLM. On dispose d'*endpoint* (point d'accès) interrogeables par une API.
 
-#### Chat template
+## Chat template
 
 Un chat alterne des tours de parole entre les différents *rôles* : `user`, `assistant`, `system`. C'est un échange de messages, qui démarrent par le token `<|im_start|>`, introduisent le rôle de l'émetteur puis le *contenu* du message, et terminent par le token `<|im_end|>`.
 
@@ -120,14 +132,14 @@ Le chat est paramétré par le *chat template*, qui indique au modèle comment i
 * [chat template](https://huggingface.co/docs/transformers/main/en/chat_templating)
 
 
-#### Comment le modèle s'arrête-til de produire des jetons ?
+## Comment le modèle s'arrête-til de produire des jetons ?
 
 Le modèle a été entraîné sur des textes terminant par le token EOS `<|endoftext|>`.
 
 * [Comment le LLM sait quand s'arrêter de générer](https://www.louisbouchard.ai/how-llms-know-when-to-stop/)
 * [Discussion sur ce qui le fait s'arrêter](https://www.reddit.com/r/LocalLLaMA/comments/1haizeq/llm_noob_here_can_any_explain_whats_happening/)
 
-#### System prompt
+## System prompt
 
 * [Obtenir le system prompt d'un LLM](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h2uxeh/full_starting_prompt_for_chatgpt/)
 * [systeme prompt de chatgpt](https://www.reddit.com/r/ChatGPT/comments/1h94hz8/accidentally_discovered_a_prompt_which_gave_me/)

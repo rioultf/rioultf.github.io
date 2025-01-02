@@ -42,27 +42,30 @@ Les objectifs de ce cours sont :
 * [CM 7 - Personnalisation d'un LLM - Distillation]()
 * CM 8
 
-# Modèle : Fonctionnement d'un LLM
+<!---------------------------------------------------------------->
+# Travaux pratiques
 
+1. TP - Prise en main `lm_studio`
 
-# Déploiement - mise en oeuvre
+  * Installation
+  * Examen du repository
+  * System prompt / Meta prompt
+  * Mesure, fenêtre de contexte.
 
+1. TP - Programmation d'un LLM
 
-# Prompt Engineering
+  * librairie `transformer`et modèle `smollm`
+  * définition chat template
+  * tokenisation
+  * inférence
 
+1. TP - Réalisation d'application - `Streamlit`
 
-# RAG
-
-
-# Écosytème industriel
-
-
-# Hugging Face
-
+  * connexion `lm_studio`
 
 # Vocabulaire
 
-* Backend - Devices
+* Backend - Devices - hug - repository
 
 Ex. pour Llama.cpp
 
@@ -80,9 +83,7 @@ CANN 	Ascend NPU
 
 # Concepts
 
-* automatisation de tâche (Large Action Model)
-* interconnexion d'apps (NoCode)
-* RLHF : reinforcement learning from human feedback
+
 * [ai slop](https://www.reddit.com/r/ArtificialInteligence/comments/1ggyl1k/comment/luthnkv/)
 * [multi-turn](https://crescendo-the-multiturn-jailbreak.github.io//
 * machine unlearning
