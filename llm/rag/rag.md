@@ -18,6 +18,7 @@ Ce sont des modèles qui calculent une similarité entre deux documents. C'est u
 [tous les mots clés du reranking](https://medium.com/@sahin.samia/what-is-reranking-in-retrieval-augmented-generation-rag-ee3dd93540ee)
 
 
+
 https://ragaboutit.com/graph-rag-vs-vector-rag-a-comprehensive-tutorial-with-code-examples/
 
 [graph rag avec text2cypher, utilise langchain](https://medium.com/singapore-gds/from-conventional-rag-to-graph-rag-a0202a1aaca7)
@@ -32,3 +33,4 @@ https://www.nebula-graph.io/posts/graph-RAG
 
 [rag sur email avec classification de genre et indexation sql](https://blog.gopenai.com/how-i-accidentally-created-a-better-rag-adjacent-tool-1cb09929996f)
  
+[génération de test et construction de knowledge graph](https://docs.ragas.io/en/stable/getstarted/rag_testset_generation/#knowledgegraph-creation)

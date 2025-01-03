@@ -19,7 +19,9 @@ installe une API OpenAI
 <!---------------------------------------------------------------->
 ## LM Studio
 
-[Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
+* [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
+* [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
+* [en TypeScript](https://lmstudio.ai/docs/sdk)
 
 les models sont dans `/home/rioultf/.cache/lm-studio/models`
 fichier gguf
@@ -157,6 +159,10 @@ GBNF (GGML BNF) is a format for defining formal grammars to constrain model outp
 Alternative to n8n?
 * [Stack LLM ops avec FastAPI](https://www.timescale.com/blog/the-emerging-open-source-ai-stack)
 
+## Architecture
+
+<img src="https://raw.githubusercontent.com/Arize-ai/phoenix-assets/main/images/blog/llm_app_architecture.png">
+
 <img src="https://www.timescale.com/_next/image?url=https%3A%2F%2Ftimescale.ghost.io%2Fblog%2Fcontent%2Fimages%2F2024%2F12%2FThe-Emerging-Open-Source-AI-Stack_stack.png&w=1080&q=75"/>
 
 Resource Request
@@ -246,7 +252,7 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 
 Streamlit is an open-source Python framework to build highly interactive apps – in only a few lines of code. Streamlit integrates with all the latest tools in generative AI, such as any LLM, vector database, or various AI frameworks like LangChain, LlamaIndex, or Weights & Biases. Streamlit’s chat elements make it especially easy to interact with AI so you can build chatbots that “talk to your data.”
 
-* [Tutoriel d'utilisation de Streamlit dans `codespaces`de GitHub](https://discuss.streamlit.io/t/streamlit-101-the-fundamentals-of-a-python-data-app/75557)
+* [Tutoriel d'utilisation de Streamlit dans `codespaces` de GitHub](https://discuss.streamlit.io/t/streamlit-101-the-fundamentals-of-a-python-data-app/75557)
 
 Les apps tournent en local. Une colonne à gauche pour les pages, une zone centrale, par exemple un chat.
 
@@ -260,10 +266,14 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 
 ## Postman des LLM
 
+[Définitions](https://www.deepchecks.com/glossary/llm-testing/)
+
 * [programmation graphique et prompt engineering : ChainForge provides a suite of tools to evaluate and visualize prompt (and model) quality](https://chainforge.ai/)
 
   Lance une interface web pour design d'un pipeline avec LLM
-  On peut mettre un provider local sous la forme d'un script python à coller dans le widget : compliqué
+  On peut mettre un provider local sous la forme d'un script python à coller dans le widget : [compliqué](https://gitlab.hl-dev.de/aichecker/masterarbeit/-/blob/4ec3a667c981c11e052f01baaca9c974918b6e3c/ChainForge/LMStudioProvider.py)
+
+  <https://chainforge.ai/docs/custom_providers/>
 
 * [Analytics sur des LLM](https://app.traceloop.com/)
 
@@ -281,10 +291,17 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
   installe Torch et propose plein de providers comme transformers
 
 
-* Le postman des llm https://www.adaline.ai/get-started
-* API de Postman : <https://www.postman.com/manukmcts/llm/overview>
+### PromptFoo
+
+[Promptfoo: A Test-Driven Approach to LLM Success](https://medium.com/@fassha08/promptfoo-a-test-driven-approach-to-llm-success-154a444b2669)
+
+
+
+* [Le postman des llm, mais pas de modèle local](https://www.adaline.ai/get-started)
+
+* [Des exemples dans Postman](https://www.postman.com/manukmcts/llm/overview)
 * [Génératon de tests Postman par LLM](https://www.aimodels.fyi/papers/arxiv/automating-rest-api-postman-test-cases-using)
-* <https://www.functionize.com/>
+
 * [An Overview on Testing Frameworks For LLMs](https://llmshowto.com/blog/llm-test-frameworks)
 * [Tester avec l’IA générative – Stratégie & Feuille de route réaliste](https://www.smartesting.com/tester-avec-lia-generative-strategie-feuille-de-route-realiste/)
 * LLMops [Automated Testing for LLMOps](https://www.deeplearning.ai/short-courses/automated-testing-llmops/)

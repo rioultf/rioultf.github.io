@@ -218,9 +218,23 @@ https://www.anthropic.com/news/model-context-protocol
 ## Évaluation
 
 * [blog sur l'évaluation de GPT-4 avec quelques exemples dans le playground](https://www.promptingguide.ai/fr/models/gpt-4)
+
+Une part importante des solutions consistent à capter des mesures de télémétrie, générée lors de l'éxécution du LLM (qu'il faut *sonder*), puis à les analyser.
+
+
 * [From metrics to insight, Power your metrics and alerting with the leading open-source monitoring solution](https://prometheus.io/)
 * [Télémétrie](https://opentelemetry.io/docs/what-is-opentelemetry/)
+
 * [métriques d'évaluation llm](https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics)
+
+
+([Framework d'évaluation](https://www.deepchecks.com/best-llm-evaluation-tools/#post-item-2)
+
+
+
+### Poenix - Arive
+
+[Capte de la télémétrie](https://docs.arize.com/phoenix)
 
 
 
