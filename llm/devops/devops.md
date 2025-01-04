@@ -306,28 +306,80 @@ Un fichier de configuration `promptfooconfig.yaml` définit :
 
 Il s'agit de la définition d'un template assemblant différents fichiers (tous les constituants peuvent être mis dans des fichiers). Couplé avec un gestionnaire de version, la dépendance forte de `PromptFoo` lui confère une traçabilité optimale.
 
-Deux commandes sont alors disponibles :
+Deux commandes sont alors disponibles :
 
 * `npx promptfoo eval --no-cache` : pour chaque prompt, exécute les différents configurations de test sur chaque provider. Il faut déactiver le cache pour forcer l'interrogation du modèle.
 * `npx promptfoo view` : lance une interface web permettant d'analyser les résultats dans le cache
 
 Le cache est une base de données de prompts / réponses, accompagnés des fichiers de configuration. Ceux peuvent être édités de manière à relancer le test.
 
+On peut définir des [prompts comme des fonctions .py ou .js](https://www.promptfoo.dev/docs/configuration/parameters/#prompt-functions)
+
+De nombreuses métriques sont disponibles, déterministes ou fournies par des LLM : Model-graded metrics. 
+
+llm-rubric is promptfoo's general-purpose grader for "LLM as a judge" evaluation. Propose également de la classification, modération, etc.
+
 #### Cas d'usage
 
 Le système de base construit un tableau test/prompt.
 
-* tester différents prompts : sur différentes formulations d'une tâche, par exemple de traduction our de rédaction.C'est le cas d'usage par défaut, il suffit pour cela de définir plusieurs prompts
-* tester différents
+* tester différents prompts : sur différentes formulations d'une tâche, par exemple de traduction ou de rédaction. C'est le cas d'usage par défaut, il suffit pour cela de définir plusieurs prompts.
+* tester différents system prompts : il faut définir autant de cas de test que nécessaire :
+
+
+Utilisation du system de template analogue à `jinja2` : [nunjucks](https://www.promptfoo.dev/docs/configuration/parameters/#nunjucks-filters)
+
+#### Prompt pour chat
+
+Certains modèles une interaction sous forme de messages, avec un role et un contenu. On pourra définir les prompts dans des fichiers JSON :
+
+```json
+[
+    {
+      "role": "system",
+      "content": "{{systemPrompt}}"
+    },
+    {
+      "role": "user",
+      "content": "Tell me about planets"
+    }
+]
+```
 
 
 
 #### Fichier de configuration des tests
 
-[Détails sur la configuration](https://www.promptfoo.dev/docs/configuration/guide/)
+Interface avec LMStudio comme provider.
+
+* [Détails sur la configuration](https://www.promptfoo.dev/docs/configuration/guide/)
 
 
-Le prompt est dans un 
+```yaml
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: "My eval"
+
+prompts:
+  - file://personality1.json
+
+
+providers:
+  - id: https
+    config:
+      url: 'http://0.0.0.0:1234/v1/chat/completions'
+      method: 'POST'
+      body:
+        model: 'smollm2-360m-instruct'
+        messages: '{{prompt}}'
+      transformResponse: 'json.choices[0].message.content'
+      maxTokens: 300
+
+tests:
+  - vars:
+      systemPrompt: 'Answer in french.'
+  - vars:
+      systemPrompt: 'Be concise.'
+```
 
 
 <!--------------------------------------------------------------->
