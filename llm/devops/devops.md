@@ -290,11 +290,48 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 
   installe Torch et propose plein de providers comme transformers
 
-
+<!--------------------------------------------------------------->
 ### PromptFoo
 
 [Promptfoo: A Test-Driven Approach to LLM Success](https://medium.com/@fassha08/promptfoo-a-test-driven-approach-to-llm-success-154a444b2669)
 
+Un fichier de configuration `promptfooconfig.yaml` définit :
+
+* une liste de prompts
+* une liste de providers
+* une configuration par défaut `defaultTest`
+* une liste de tests
+  * liste de variables
+  * test
+
+Il s'agit de la définition d'un template assemblant différents fichiers (tous les constituants peuvent être mis dans des fichiers). Couplé avec un gestionnaire de version, la dépendance forte de `PromptFoo` lui confère une traçabilité optimale.
+
+Deux commandes sont alors disponibles :
+
+* `npx promptfoo eval --no-cache` : pour chaque prompt, exécute les différents configurations de test sur chaque provider. Il faut déactiver le cache pour forcer l'interrogation du modèle.
+* `npx promptfoo view` : lance une interface web permettant d'analyser les résultats dans le cache
+
+Le cache est une base de données de prompts / réponses, accompagnés des fichiers de configuration. Ceux peuvent être édités de manière à relancer le test.
+
+#### Cas d'usage
+
+Le système de base construit un tableau test/prompt.
+
+* tester différents prompts : sur différentes formulations d'une tâche, par exemple de traduction our de rédaction.C'est le cas d'usage par défaut, il suffit pour cela de définir plusieurs prompts
+* tester différents
+
+
+
+#### Fichier de configuration des tests
+
+[Détails sur la configuration](https://www.promptfoo.dev/docs/configuration/guide/)
+
+
+Le prompt est dans un 
+
+
+<!--------------------------------------------------------------->
+### Notes
 
 
 * [Le postman des llm, mais pas de modèle local](https://www.adaline.ai/get-started)
