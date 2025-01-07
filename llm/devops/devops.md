@@ -228,7 +228,51 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 * [The AI Horde is a service that generates text using crowdsourced GPUs run by independent volunteer workers](https://lite.koboldai.net/#)
 
 
-# Streamlit
+<!-------------------------------------------------------------->
+<!-------------------------------------------------------------->
+<!-------------------------------------------------------------->
+# Développement d'application 
+
+## Appel de fonctions externes
+
+<https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models>
+
+### OpenAI
+
+[Un GPT est disponible pour concevoir les actions](https://chatgpt.com/g/g-TYEliDU6A-actionsgpt) et aider à la rédaction des schémas. Sur [cet exemple](https://platform.openai.com/docs/actions/getting-started), on demande au GPT d'aller lire la documentation de l'API d'un service et de produire la spécification `yaml` de l'action. Les informations de description sont interprétées pour décider, à partir du prompt, quelle action appeler et avec quels paramètres.
+
+Une action est définie par le schémas.
+
+Il vaut mieux éviter de multiplier les actions, une vingtaine au max.
+
+Le modèle intervient à de nombreux niveaux :
+
+* conception du schéma à partir d'une documentation externe
+* choix de l'action et des paramètres à partir du prompt
+* exécution de la requête sur le service externe, correctement formatée
+* formatage de la réponse
+
+Un schéma définit plusieurs actions, que l'on peut tester. Le modèle génère alors un prompt, effectue la requête http, et fournit la réponse, le tout avec des traces qui montrent l'implication du modèle dans la reformulation.
+
+#### GPT Actions
+
+Que l'on trouve dans les GPT-plus
+
+[exemple de la météo](https://platform.openai.com/docs/actions/getting-started)
+
+va 
+
+#### Chat completion API
+
+Les appels de fonction consistent à associer à un prompt la spécification de la fonction qui va nourrir la réponse. On définit pour cela un répertoire de fonction. L'exécution est à la charge du client.
+
+Functions are the only type of tools supported in the Chat Completions API, but the Assistants API also supports built-in tools.
+
+#### Assistant API
+
+The Assistants API allows you to build AI assistants within your own applications. An Assistant has instructions and can leverage models, tools, and files to respond to user queries. The Assistants API currently supports three types of *tools*: Code Interpreter, File Search, and Function calling.
+
+## Streamlit
 
 *[voir aussi](https://github.com/Chainlit/chainlit)
 
@@ -258,13 +302,10 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 
 [Exemple streamit + replicate](https://github.com/tonykipkemboi/streamlit-replicate-img-app/blob/main/streamlit_app.py#L121)
 
-
-
-
-
-
-
-## Postman des LLM
+<!-------------------------------------------------------------->
+<!-------------------------------------------------------------->
+<!-------------------------------------------------------------->
+# Automatisation des tests de LLM
 
 [Définitions](https://www.deepchecks.com/glossary/llm-testing/)
 
@@ -324,8 +365,8 @@ llm-rubric is promptfoo's general-purpose grader for "LLM as a judge" evaluation
 Le système de base construit un tableau test/prompt.
 
 * tester différents prompts : sur différentes formulations d'une tâche, par exemple de traduction ou de rédaction. C'est le cas d'usage par défaut, il suffit pour cela de définir plusieurs prompts.
-* tester différents system prompts : il faut définir autant de cas de test que nécessaire :
-
+* tester différents system prompts : il faut définir autant de cas de test que nécessaire (voir ci-dessous)
+* tester différents paramètres du modèle : autant de cas de tests
 
 Utilisation du system de template analogue à `jinja2` : [nunjucks](https://www.promptfoo.dev/docs/configuration/parameters/#nunjucks-filters)
 
@@ -345,9 +386,6 @@ Certains modèles une interaction sous forme de messages, avec un role et un con
     }
 ]
 ```
-
-
-
 #### Fichier de configuration des tests
 
 Interface avec LMStudio comme provider.
@@ -381,10 +419,8 @@ tests:
       systemPrompt: 'Be concise.'
 ```
 
-
 <!--------------------------------------------------------------->
 ### Notes
-
 
 * [Le postman des llm, mais pas de modèle local](https://www.adaline.ai/get-started)
 
@@ -396,14 +432,10 @@ tests:
 * LLMops [Automated Testing for LLMOps](https://www.deeplearning.ai/short-courses/automated-testing-llmops/)
 
 
-## ToDos
+# ToDos
 
 * streamlit est-il vraiment utile autrement qu'avec un back-end en ligne (voir avec Replicate) ? LLM en local ?
 * modèle local smollm avec openllm ? -> bento pour déployer
 * LMstudio n'est pas prévu pour utiliser une autre API que celle qu'il met en place.
-
-
-
-
 
 [https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]: https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/
