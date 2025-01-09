@@ -1,4 +1,48 @@
+---
+author:
+- François Rioult
+lang: fr
+title: Application des LLM
+subtitle: Mise en oeuvre d'un modèle de langue
+---
+
+L'application la plus connue d'un LLM est le chatbot. Cependant, il s'agit d'un usage bien particulier des capacités génératives d'un LLM\ : répondre à un tour de parole.
+
+Il faut donc distinguer deux usages d'un LLM\ :
+
+* générer du *texte* à partir d'un autre texte
+* répondre à un tour de parole formaté en [en ChatML](https://gist.github.com/edwardzjl/8df07c1f7140c9a3e2f48d33a8032090) avec les *jetons adéquats* : 
+
+```
+<|im_start|>system
+You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible.<|im_end|>
+<|im_start|>user
+How are you<|im_end|>
+<|im_start|>assistant
+I am doing well!<|im_end|>
+<|im_start|>user
+How are you now?<|im_end|>
+```
+
+Noter la définition du *rôle* : 
+
+* `system` (qui évolue vers `developer`)
+
+Une forme plus moderne, ci-dessous, mais sachez qu'au final le modèle ingère du texte et reconnaît les tokens\ :
+
+*
+[
+        {"role": "developer", "content": "You are a helpful assistant."},
+        {
+            "role": "user",
+            "content": "Write a haiku about recursion in programming."
+        }
+    ]
+
+
 <!---------------------------------------------------------------->
+# Génération de texte par complétion
+
 ## Paramètres de la génération
 
 * [Source](https://jaketae.github.io/study/gpt2/#setup)
@@ -22,6 +66,7 @@ NLG with GPT-2
 
 * [paramétrage technique, quantisation, mémoire](https://www.reddit.com/r/LocalLLM/comments/1hm3x30/finally_understanding_llms_what_actually_matters/)
 
+* [beaucoup de schéma et d'explications](https://www.reddit.com/r/LocalLLaMA/comments/17vonjo/your_settings_are_probably_hurting_your_model_why/)
 
 [Source](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
 
@@ -201,7 +246,9 @@ réponse : I will give since you gave ot should save you some tokens
 Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and Recursive Validation, including accuracy, logic, and context filters. Detail speculative reasoning, solution-oriented, and creative adaptability processes, emphasizing user interactivity (tone, depth, and perspective settings) and failure analytics (detection, crash reporting, and self-healing). Highlight continuous evolution via adaptive learning, performance monitoring, and resource optimization
 
 
-## Tuning
+## Fine-Tuning / Distillation
+
+
 
 https://github.com/huggingface/smol-course/tree/main
 https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning

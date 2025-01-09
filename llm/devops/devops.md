@@ -3,6 +3,14 @@
 <!---------------------------------------------------------------->
 # Exécution d'un service LLM
 
+## Définitions
+
+**Orchestration Framework** :  
+Système permettant de gérer à la fois l'origine des modèles (comme Hugging Face ou des registres personnalisés) et leur exécution. Il optimise les performances en déléguant l'inférence à divers fournisseurs de modèles.  
+
+**Registre/Source de modèles** :  
+Ensemble des plateformes et outils permettant de télécharger, ajouter ou intégrer des modèles. Par exemple, Ollama et LM Studio s'appuient sur Hugging Face, tandis qu'AnythingLLM supporte des modèles locaux et cloud via plusieurs fournisseurs.
+
 <!---------------------------------------------------------------->
 ## vllm
 
@@ -17,11 +25,46 @@ dispose d'une app web pour tester, avec system prompt
 installe une API OpenAI
 
 <!---------------------------------------------------------------->
+## AnythingLLM
+
+<https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/>
+
+* permet d'exposer l'API d'un agent, valorisant un provider (instance/admin/pref/enable network discovery)
+* gestion de clé d'accès API
+* plugin navigateur
+* peut définir des agents
+
+## System prompt
+
+Il est paramétrable uniquement dans `Settings/Apparence`.
+
+### Agent : Custom Skill
+
+Appelés au moment du prompt `@agent what is the temperature at what is the température in 48.929557/-0.469883 ?`. Voir [custom skills](https://docs.anythingllm.com/agent/custom/introduction). La programmation s'effectue en JS et requiert de connaître très précisément la documentation de l'API appelée.
+
+All skills must return a string type response - anything else may break the agent invocation.
+
+<https://docs.anythingllm.com/agent/custom/introduction>
+
+```bash
+cd .config/anythingllm-desktop/storage/plugins/agent-skills
+mkdir my-custom-agent-skill
+touch plugin.json handler.js
+
+```
+
+### Notes
+
+Not all LLM Models works well as Agents, you may need to use higher quantization models for better responses. Example: Llama 3 8B 8Bit Quantization gives better responses as an Agent
+
+
+<!---------------------------------------------------------------->
 ## LM Studio
 
 * [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
 * [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
 * [en TypeScript](https://lmstudio.ai/docs/sdk)
+* [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
 
 les models sont dans `/home/rioultf/.cache/lm-studio/models`
 fichier gguf
@@ -59,9 +102,30 @@ dans le menu Models, on peut éditer la configuration de chaque modèle : param�
 Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
 Dans l'onglet inférence, system prompt = méta prompt ?
 
+[On peut analyser les log de ce qui est envoyé au model](https://lmstudio.ai/docs/cli/log-stream#debug-your-prompts-with-lms-log-stream)
+
+### CLI
+
+Install lms by running 
+        
+        npx lmstudio install-cli
+
+
+### Fonctions
+
 [Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
 
   beta spéciale avec inscription
+
+Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
+
+
+
+## Chat-ui
+
+<https://github.com/huggingface/chat-ui>
+
+Utilise vllm pour faire tourner un modèle et propose une petite interface pour dialoguer.
 
 <!---------------------------------------------------------------->
 ## Ollama
@@ -86,6 +150,9 @@ Use Cases
 
 [Intégration LMStudio][https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]
 
+
+<!---------------------------------------------------------------->
+## mlx-lm
 
 <!---------------------------------------------------------------->
 ## Llama.cpp
@@ -158,6 +225,8 @@ GBNF (GGML BNF) is a format for defining formal grammars to constrain model outp
 * [Mélange markdown et JSX](https://github.com/puzzlet-ai/agentmark)
 Alternative to n8n?
 * [Stack LLM ops avec FastAPI](https://www.timescale.com/blog/the-emerging-open-source-ai-stack)
+* streamlit
+* gradio
 
 ## Architecture
 
@@ -231,11 +300,29 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
-# Développement d'application 
+# Développement d'application - Agents
+
+Un agent regroupe trois composants :
+
+* un LLM
+* des outils, choisis par le LLM
+* un framework, qui exécute l'outil
+
+[Systems and Algorithms for Integrating LLMs with Applications, Tools, and Services](https://gorilla.cs.berkeley.edu/)
+
+## Framework
+
+* llamaindex : *LlamaIndex provides a framework for building agents including the ability to use RAG pipelines as one of many tools to complete a task.*
+* [langchain](https://python.langchain.com/docs/concepts/) : librairie pour concevoir des *composants* à base de LLM, `langgraph`pour les orchestrer
 
 ## Appel de fonctions externes
 
 <https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models>
+
+## LLM Compiler
+
+https://github.com/SqueezeAILab/LLMCompiler
+LLMCompiler is a framework that enables an efficient and effective *orchestration* of parallel function calling with LLMs, including both open-source and close-source models, by automatically identifying which tasks can be performed in parallel and which ones are interdependent.
 
 ### OpenAI
 
@@ -259,8 +346,6 @@ Un schéma définit plusieurs actions, que l'on peut tester. Le modèle génèr
 Que l'on trouve dans les GPT-plus
 
 [exemple de la météo](https://platform.openai.com/docs/actions/getting-started)
-
-va 
 
 #### Chat completion API
 
@@ -301,6 +386,10 @@ Streamlit is an open-source Python framework to build highly interactive apps �
 Les apps tournent en local. Une colonne à gauche pour les pages, une zone centrale, par exemple un chat.
 
 [Exemple streamit + replicate](https://github.com/tonykipkemboi/streamlit-replicate-img-app/blob/main/streamlit_app.py#L121)
+
+## Divers
+
+* [API de recherche sur le web, par ex. pour alimenter en RAG](https://docs.tavily.com/)
 
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->

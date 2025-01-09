@@ -3,7 +3,7 @@ author:
 - François Rioult
 lang: fr
 title: Application des LLM
-subtitle: LP-IA
+subtitle: Introduction
 ---
 
 <!---------------------------------------------------------------->
@@ -87,6 +87,7 @@ CANN 	Ascend NPU
 * [ai slop](https://www.reddit.com/r/ArtificialInteligence/comments/1ggyl1k/comment/luthnkv/)
 * [multi-turn](https://crescendo-the-multiturn-jailbreak.github.io//
 * machine unlearning
+* [prompt injection](https://www.linkedin.com/pulse/newly-discovered-prompt-injection-tactic-threatens-large-anderson/)
 
 # Ressources
 
