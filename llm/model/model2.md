@@ -248,8 +248,6 @@ Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and 
 
 ## Fine-Tuning / Distillation
 
-
-
 https://github.com/huggingface/smol-course/tree/main
 https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning
 cours de fine tuning https://github.com/huggingface/smol-course
@@ -257,10 +255,6 @@ cours de fine tuning https://github.com/huggingface/smol-course
 Tuning de Smollm puis sauvegarde sur le hub
 
 [Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/index)
-
-## Model context protocol
-
-https://www.anthropic.com/news/model-context-protocol
 
 ## Évaluation
 

@@ -119,8 +119,6 @@ Install lms by running
 
 Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
 
-
-
 ## Chat-ui
 
 <https://github.com/huggingface/chat-ui>
@@ -131,6 +129,7 @@ Utilise vllm pour faire tourner un modèle et propose une petite interface pour 
 ## Ollama
 
 Permet de faire tourner en local une large variété de modèles.
+Pour l'installation `curl | sh`, cela a marché directement en GPU, malgré [une erreur](https://github.com/ollama/ollama/issues/7929).
 
 <!---------------------------------------------------------------->
 ## LlamaIndex
@@ -145,8 +144,6 @@ Use Cases
     Agents
     Multi-Modal Applications
     Fine-Tuning
-
-
 
 [Intégration LMStudio][https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]
 
@@ -185,22 +182,21 @@ Run simple text completion
 
 llama-cli -m model.gguf -p "I believe the meaning of life is" -n 128
 
-# I believe the meaning of life is to find your own truth and to live in accordance with it. For me, this means being true to myself and following my passions, even if they don't align with societal expectations. I think that's what I love about yoga – it's not just a physical practice, but a spiritual one too. It's about connecting with yourself, listening to your inner voice, and honoring your own unique journey.
+ I believe the meaning of life is to find your own truth and to live in accordance with it. For me, this means being true to myself and following my passions, even if they don't align with societal expectations. I think that's what I love about yoga – it's not just a physical practice, but a spiritual one too. It's about connecting with yourself, listening to your inner voice, and honoring your own unique journey.
 
 Run in conversation mode
 
 llama-cli -m model.gguf -p "You are a helpful assistant" -cnv
 
-# > hi, who are you?
-# Hi there! I'm your helpful assistant! I'm an AI-powered chatbot designed to assist and provide information to users like you. I'm here to help answer your questions, provide guidance, and offer support on a wide range of topics. I'm a friendly and knowledgeable AI, and I'm always happy to help with anything you need. What's on your mind, and how can I assist you today?
-#
-# > what is 1+1?
-# Easy peasy! The answer to 1+1 is... 2!
+ > hi, who are you?
+ Hi there! I'm your helpful assistant! I'm an AI-powered chatbot designed to assist and provide information to users like you. I'm here to help answer your questions, provide guidance, and offer support on a wide range of topics. I'm a friendly and knowledgeable AI, and I'm always happy to help with anything you need. What's on your mind, and how can I assist you today?
+ > what is 1+1?
+ Easy peasy! The answer to 1+1 is... 2!
 
 Run with custom chat template
 
-# use the "chatml" template
-# use a custom template
+ use the "chatml" template
+ use a custom template
 llama-cli -m model.gguf -p "You are a helpful assistant" -cnv --in-prefix 'User: ' --reverse-prompt 'User:'
 
 Supported templates
@@ -208,7 +204,7 @@ Constrain the output with a custom grammar
 
 llama-cli -m model.gguf -n 256 --grammar-file grammars/json.gbnf -p 'Request: schedule a call at 8pm; Command:'
 
-# {"appointmentTime": "8pm", "appointmentDetails": "schedule a a call"}
+ {"appointmentTime": "8pm", "appointmentDetails": "schedule a a call"}
 
 ### Génération selon une grammaire
 
@@ -241,7 +237,6 @@ Some interesting ones are Flowise, Wordware, Autogen and Crewai but i’m not su
 
 * [fait tourner des promts en arriere plan](https://www.agenticworkers.com/)
 * [workflow de connexion](https://n8n.io/)
-
 
 
 <!---------------------------------------------------------------->
@@ -315,9 +310,143 @@ Un agent regroupe trois composants :
 * llamaindex : *LlamaIndex provides a framework for building agents including the ability to use RAG pipelines as one of many tools to complete a task.*
 * [langchain](https://python.langchain.com/docs/concepts/) : librairie pour concevoir des *composants* à base de LLM, `langgraph`pour les orchestrer
 
-## Appel de fonctions externes
+## Outils - appel de fonction
+
+<https://blog.christoolivier.com/p/llms-and-functiontool-calling>
+
+<img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/multimodal/images/function-calling.png?hl=fr">
+
+Le choix de l'action et des paramètres est effectué par le modèle à partir du prompt.
+
+Testé sur `smollm2:1.7b` avec `ollama` :
+
+```python
+import ollama
+
+response = ollama.chat(
+    model='smollm2:1.7b',
+    messages=[{'role': 'user', 'content':
+        'What is the weather in Toronto?'}],
+
+		# provide a weather checking tool to the model
+    tools=[{
+      'type': 'function',
+      'function': {
+        'name': 'get_current_weather',
+        'description': 'Get the current weather for a city',
+        'parameters': {
+          'type': 'object',
+          'properties': {
+            'city': {
+              'type': 'string',
+              'description': 'The name of the city',
+            },
+          },
+          'required': ['city'],
+        },
+      },
+    },
+  ],
+)
+
+print(response['message']['tool_calls'])
+```
+
+```
+[ToolCall(function=Function(name='get_current_weather', arguments={'city': 'Toronto'}))]
+```
+
+`ollama` fait tourner un serveur compatible avec l'API d'OpenAI :
+
+```bash
+MODEL='smollm2:1.7b'
+tools=tools.json
+messages='[{"role": "user", "content": "What is the temperature at the location 51.5074/-0.1278?"}]'
+
+cmd="curl http://localhost:11434/v1/chat/completions \
+  -H \"Content-Type: application/json\" \
+  -d '{\"model\": \"$MODEL\", \"messages\": $messages, \"tools\": $(jq . $tools)}'"
+
+echo $cmd >&2
+
+eval $cmd
+```
+
+Liste d'outils :
+
+```json
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Get the current weather, in particular the temperature, at a given location",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city and state, e.g. San Francisco, CA"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            }
+        }
+    },
+    ...
+]
+```
+
+Résultat :
+
+```json
+{
+  "id": "chatcmpl-484",
+  "object": "chat.completion",
+  "created": 1736531003,
+  "model": "smollm2:1.7b",
+  "system_fingerprint": "fp_ollama",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "id": "call_ktfdd662",
+            "index": 0,
+            "type": "function",
+            "function": {
+              "name": "get_current_weather",
+              "arguments": "{\"location\":\"51.5074,-0.1278\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 441,
+    "completion_tokens": 46,
+    "total_tokens": 487
+  }
+}
+```
+
+Le repository est à `/usr/share/ollama/.ollama/models`.
+
+*Ne fonctionne pas avec LMStudio* (ils parlent de béta sur inscription).
 
 <https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models>
+
+### Model context protocol
+
+https://www.anthropic.com/news/model-context-protocol
+Les MCP sont des spécifications de serveurs généralistes permettant d'interfacer une API avec les modèles d'Anthropic.
 
 ## LLM Compiler
 
