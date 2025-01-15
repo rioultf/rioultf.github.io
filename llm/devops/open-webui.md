@@ -195,7 +195,7 @@ Le modèle va être interrogé une seconde fois avec le résultat de la fonction
         return f"Answer in french that the current water level of sensor {sensor_number} is {water_level}."
 ```
 
-La réponse finale est la réponse au prompt 
+La réponse finale est la réponse au prompt suivant
 
         Answer in french that the current water level of sensor 1 is 1.35 mm
 
@@ -222,7 +222,12 @@ class Tools:
 
 Pour identifier clairement le comportement d'un outil, il importe de fournir au modèle :
 
-* des questions auquelles seul l'outil peut répondre. Le problème c'est que le modèle est très performant et peut 
+* des questions auquelles seul l'outil peut répondre. Le problème c'est que le modèle est très performant et peut déjà disposer d'outils.
+* des prompts tous préparés avec le résultat, que le modèle doit mettre en forme.
+
+Cela fait donc *deux* étapes à tester !
+
+Et ces questions ne sont pas simples d'un point de vue du prompt engineering.
 
 # Difficultés
 
