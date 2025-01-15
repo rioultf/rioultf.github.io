@@ -443,6 +443,23 @@ Le repository est à `/usr/share/ollama/.ollama/models`.
 
 <https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models>
 
+<!------------------------------------------------------------------->
+### OpenWeb-Ui
+
+Image docker développée par la communauté, large documentation user, génère un serveur web (ou python pour en faire un endpoint) :
+
+* gestion / historique de prompt, téléchargeable, importable
+* connexion à tout modèle par API ou `ollama`
+* gestion des évaluations (*arena models*)
+* RAG par embedding au choix
+* recherche sur le web 
+
+Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
+Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
+
+
+
+
 ### Model context protocol
 
 https://www.anthropic.com/news/model-context-protocol

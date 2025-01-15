@@ -80,6 +80,7 @@ https://github.com/MIATECHPARTNERS/PromptChains
 * [meta prompt anthropic, pour générer les prompts dans la console](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator)
 
 * [déployer ses prompts ?](https://chat-prompt.com/gpt-store/g-gZXNS2trn-weather-forecaster)
+* [partager/monétiser ses prompts](https://www.opengpt.com/)
 
 
 <!------------------------------------------------------->
