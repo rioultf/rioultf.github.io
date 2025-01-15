@@ -385,7 +385,7 @@ Si c'est l'oeuvre d'un seul homme, un seul homme peut lire le code et l'amélior
 
 * [code for water height on sensors](https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-10796319)
 * [précisions sur les outils](https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-11218580)
-* [détails sur les possibilités d'appel de fonction](https://github.com/open-webui/open-webui/pull/6836)
+* [détails sur les possibilités d'appel de fonction :](https://github.com/open-webui/open-webui/pull/6836)
 
 ```
 ("what is the first letter of the latin alphabet",  "no tools needed"),
