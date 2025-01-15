@@ -209,12 +209,44 @@ Sur cette image, j'ai eu `[source_id]` en retour. Aucune indication de l'appel d
 Parfois j'ai la chance d'avoir une indication de l'appel de l'outil :
 <img src="fig/sensor2.png">
 
+On me dit que [pour avoir le bouton](https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-11218580) il faut déclarer :
+
+```python
+class Tools:
+    def __init__(self):
+        self.citation = True
+```
+
+
+# Discussion
+
+Pour identifier clairement le comportement d'un outil, il importe de fournir au modèle :
+
+* des questions auquelles seul l'outil peut répondre. Le problème c'est que le modèle est très performant et peut 
+
 # Difficultés
 
-Il est extrèmement difficile de mettre en place un processus fiable de développement avec `Open-webui` :
+Il est extrèmement difficile de mettre en place un processus fiable de développement avec `Open-webui`, car on ne sait pas facilement si l'outil s'est ou non déclenché. De plus,
 
-* les logs sont sporadiques
-*
+* les logs sont sporadiques dans la console web
+* les logs 
+* parfois j'ai un bouton, et parfois il me donne une pop-up avec le résultat de l'appel de la fonction Python
+
+# Ce que je recommande
+
+* il faut un modèle très costaud pour interpréter le prompt de sélection d'outil, j'utilise `gtp-4o-mini`. C'est un peu du luxe. Gemma-2B semblait prometteur.
+* il faut lancer le serveur et stocker sa sortie standard, qui peut être analysée et filtrée
+
+```bash
+open-webui serve | tee /tmp/log
+```
+
+And do whatever you like with it:
+
+```bash
+tail -f /tmp/log
+```
+
 
 # Pré-recquis
 
@@ -247,7 +279,7 @@ Il faut charger cet environnement et lancer le serveur :
 
 ```bash
 source config.sh
-open-webui serve
+open-webui serve | tee /tmp/log
 ```
 
 Avec la séquence ci-dessus, j'ai obtenu dans la console, les logs suivants, que je commente :
@@ -299,7 +331,7 @@ INFO:     127.0.0.1:36306 - "GET /api/v1/chats/all/tags HTTP/1.1" 200 OK
 
 ## Dans la console du navigateur
 
-Quelques traces sont disponibles, il faut filtrer avec `sources`:
+Quelques traces sont disponibles. Si on filtre avec `sources`, on peut voir la réponse de l'appel de fonction, avant traitement par le modèle.
 
 ```json
 {
@@ -325,9 +357,9 @@ Quelques traces sont disponibles, il faut filtrer avec `sources`:
 
 ## Leçons
 
-`Open-webui` offre la promesse de concurrencer les ChatGPT-plus Actions, qui broutent une documentation, génèrent une spécification, effectuent l'appel API et fournissent le résultat. Les deux ne proposent pas de cadre de développement rigoureux, avec gestion des sources et log.
+`Open-webui` offre la promesse de concurrencer les ChatGPT-plus Actions, qui broutent une documentation, génèrent une spécification, effectuent l'appel API et fournissent le résultat. Les deux ne proposent pas de cadre de développement rigoureux, avec gestion des sources et log. Mais au moins avec `Open-webui` on peut bricoler !
 
-Pour `Open-webui`, il faut garder en tête que :
+Il faut garder en tête que :
 
 * le prompt est soumis au modèle avec la description des outils, pour choisir le bon
 * l'appel de fonction Python est exécuté selon les instructions du modèle
@@ -335,10 +367,33 @@ Pour `Open-webui`, il faut garder en tête que :
 
 # Questions
 
-* est-il possible de faire mieux
-  * comment générer des logs dans l'outil
-  * les logs sont-ils stockés quelque part ? Analyser la sortie du serveur est peu pratique
+* est-il possible de faire mieux ?
+  * comment générer des logs dans l'outil ?
+  * les logs sont-ils stockés quelque part ? Analyser la sortie du serveur est peu pratique.
+* pourrait-on décorréler les deux appels LLM choix outil / formulation de réponse ?
+* pourrait-on forcer le premier appel de choix d'outil avec API standard ?
+
+# Pensée
+
+J'ai lu hier que `Open-webui` est l'[oeuvre d'un seul homme](https://www.reddit.com/r/OpenWebUI/comments/1gjziqm/im_the_sole_maintainer_of_open_webui_ama/). Respect !
+
+Malgré ses défauts en terme de diagnostique, cela fonctionne quasi parfaitement.
+
+Si c'est l'oeuvre d'un seul homme, un seul homme peut lire le code et l'améliorer ?
 
 # Sources
 
-* [code for water height on sensors]<https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-10796319>
+* [code for water height on sensors](https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-10796319)
+* [précisions sur les outils](https://github.com/open-webui/open-webui/discussions/3134#discussioncomment-11218580)
+* [détails sur les possibilités d'appel de fonction](https://github.com/open-webui/open-webui/pull/6836)
+
+```
+("what is the first letter of the latin alphabet",  "no tools needed"),
+("what is the date of today (use the get_current_time function)", " 1 tool no args"),
+("what is the value of sensor 1", " 1 tool with args"),
+("what are the value of sensors 1 and 4", " 2 tools (the may be run in parallel if the API supports it )"),
+("if the value of sensors 1 is less that 5 m/s report the value of sensor 4. Otherwise report sensor 3", " 2 tools (in s
+equence if the model does it )"),
+("choose a integer between 1 an 10 write it here. If it's bigger that 5 report sensor 4. Otherwise report sensor 1", " tool call after having generated some text"),
+("what is the value of sensor 'HELLO' ",  "tool call raises an exception")
+```
