@@ -45,6 +45,40 @@ Une forme plus moderne, ci-dessous, mais sachez qu'au final le modèle ingère d
 
 ## Paramètres de la génération
 
+logit : sorties brutes du dernier bloc de la couche de prédiction d'un modèle de transformer, avant l'application de la fonction softmax
+
+Les logits sont utilisés pour sélectionner le token suivant, en prenant celui avec la probabilité maximale (mode greedy), ou en échantillonnant une distribution basée sur les probabilités (mode sampling, température, top-k, top-p). On trouve aussi beam search.
+
+Pour attaquer un réseau de neurones, on ne peut pas lui fournir les tokens sous la forme de leur identifiant : un neurone prend en entrée un signal généralement compris entre -1 et 1. Or les identifiants de token peuvent monter très haut (50 000) ; il serait illusoire de vouloir ramener tout ce monde entre -1 et 1. Il faut donc plus de dimensions. 
+
+C'est le rôle de l'*embedding* : projeter un one-hot vecteur vers un espace de dimension choisie.
+
+Par exemple, la documentation de `torch` indique, pour encoder 10 tokens en dimension 3 :
+
+```python
+>>> embedding = nn.Embedding(10, 3)
+>>> # a batch of 2 samples of 4 indices each
+>>> input = torch.LongTensor([[1, 2, 4, 5], [4, 3, 2, 9]])
+>>> embedding(input)
+tensor([[[-0.0251, -1.6902,  0.7172],
+         [-0.6431,  0.0748,  0.6969],
+         [ 1.4970,  1.3448, -0.9685],
+         [-0.3677, -2.7265, -0.1685]],
+
+        [[ 1.4970,  1.3448, -0.9685],
+         [ 0.4362, -0.4004,  0.9400],
+         [-0.6431,  0.0748,  0.6969],
+         [ 0.9124, -2.3616,  1.1151]]])
+```
+
+Ainsi, 1 est encodé [-0.0251, -1.6902,  0.7172], 2 est encodé [-0.6431,  0.0748,  0.6969]. Ces valeurs sont tirées au hasard dans $N(0,1)$.
+
+**Important :** L'embedding est *aléatoire* et sera *optimisé*.
+
+
+
+
+
 * [Source](https://jaketae.github.io/study/gpt2/#setup)
 Beaucoup de détails sur les paramètres de la NLG avec la librairie `transformers`
 
