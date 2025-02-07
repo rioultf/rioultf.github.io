@@ -217,6 +217,25 @@ L'*embedding* transforme le token en un vecteur, qui peut être utilisé dans un
 
 [atlas nomique des embeddings](https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample)
 
+```python
+def calculate_average_distance(responses):
+    """
+    This function calculates the average distance between the embeddings of the responses.
+    The distance between embeddings is a measure of how similar the responses are.
+    """
+    # Calculate embeddings for each response
+    response_embeddings = [get_embedding(response) for response in responses]
+
+    # Compute distances between the first response and the rest
+    distances = distances_from_embeddings(response_embeddings[0], response_embeddings[1:])
+
+    # Calculate the average distance
+    average_distance = sum(distances) / len(distances)
+
+    # Return the average distance
+    return average_distance
+```
+
 ### GPT - generative pre-trained transformer
 
 On ajoute un embedding positionnel sur la *sequence*.
