@@ -119,7 +119,14 @@ C'est un seuil de probabilité pour filtrer les tokens.
 <!---------------------------------------------------------------->
 ## Quantization
 
-<https://symbl.ai/developers/blog/a-guide-to-quantization-in-llms/>
+La quantisation consiste à compresser les poids du modèle, en changeant le type de valeur, par exemple en passant de FP32 à INT4.
+
+Deux méthodes :
+
+* Quantization-Aware Training (QAT) : intègre la conversion de poids (calibration, estimation de domaine de variation, clipping, rouding) pendant l'apprentissage. Le modèle obtenu est de meilleure qualité, mais plus coûteux.
+* Post-Training Quantization (PTQ) : la compression est effectuée *après* l'entrainement.
+
+[Source](https://symbl.ai/developers/blog/a-guide-to-quantization-in-llms/).
 
 <!---------------------------------------------------------------->
 ## Tokenizer
@@ -308,6 +315,8 @@ cours de fine tuning https://github.com/huggingface/smol-course
 Tuning de Smollm puis sauvegarde sur le hub
 
 [Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/index)
+
+[Red teaming](https://www.promptfoo.dev/docs/red-team/)
 
 ## Évaluation
 

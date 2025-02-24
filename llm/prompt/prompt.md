@@ -16,7 +16,7 @@ Avant toute chose, il importe de comprendre que cette tâche requiert de dialogu
 
 Un environnement de développement doit rassurer le programmeur en étant le plus neutre et déterministe possible. À ce titre, les modèles en ligne type `chatGPT` sont à exclure. Ils mémorisent en effet bien trop d'[information sur les interactions passées](https://www.reddit.com/r/ChatGPT/comments/1co8qtr/how_is_latest_chatgpt_feature_memory_implemented/).
 
-Il faut également être prudent avec les interfaces type `open-webui` et bien comprendre leur fonctionnement, en analysant les logs. Par exemple, la retranscription du chat ci-dessous est à comparer avec ce qui est transmis à l'API :
+Il faut également être prudent avec les interfaces type `open-webui` et bien comprendre leur fonctionnement en mode *multi-turn*, en analysant les logs. Par exemple, la retranscription du chat ci-dessous est à comparer avec ce qui est transmis à l'API :
 
 ```
 ### USER
