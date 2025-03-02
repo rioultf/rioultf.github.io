@@ -1,5 +1,25 @@
 # François Rioult's Publications
 
+1. Mortelier, Alexis, Sebastien Bougleux, and François Rioult. 2024. “Team
+Dynamics in Dota2 Through Attention Mechanism.” In *11th Workshop on
+Machine Learning and Data Mining for Sports Analytics – Ecml/Pkdd 2024*,
+1–11. Vilnus, Lituany.
+
+1. Mortelier, Alexis, Boris Helleu, Wiem Belhedi, and François Rioult.
+2024. “Analysis of Enthusiasm Triggers in Competitive Video Games:
+Overwatch Case Study.” In *IT4PSS – Ijcai 2024*, 1–8. Jeju, Korea.
+
+1. Mortelier, Alexis, François Rioult, and John Komar. 2024. “Design of a
+Handball Tactics Observatory Based on Dynamic Sub-Graphs.” In
+*Proceedings of the International Sports Analytics Conference and
+Exhibition (Isace)*. Lecture Notes in Computer Science (Lncs). Paris,
+France: Springer.
+
+1. Benguigui, Nicolas, François Rioult, François Kauffmann, Matt
+Miller-Dicks, and Colm P. Murphy. 2024. “Henri Cochet’s Theory of Angles
+in Tennis (1933) Reveals a New Facet of Anticipation.” *Scientific
+Reports* 14: 1–9.
+
 1. A. Mortelier, F. Rioult, and J. Komar. What data should be collected for a good handball expected goal model? In *10th Workshop on Machine Learning and Data Mining for Sports Analytics -- ECML/PKDD 2023 Workshop*, pages 1--12, Turin, Italy, 2023.
 
 1. Pigeon, Eric, Clouard, Régis, and Rioult, François. Vikazimut : d'un projet pédagogique à une application grand public. *J3eA*, 22:1017, 2023.
