@@ -1,13 +1,8 @@
 # François Rioult's Publications
 
-1. Mortelier, Alexis, Sebastien Bougleux, and François Rioult. 2024. “Team
-Dynamics in Dota2 Through Attention Mechanism.” In *11th Workshop on
-Machine Learning and Data Mining for Sports Analytics – Ecml/Pkdd 2024*,
-1–11. Vilnus, Lituany.
+1. Mortelier, Alexis, Sebastien Bougleux, and François Rioult. 2024. “Team Dynamics in Dota2 Through Attention Mechanism.” In *11th Workshop on Machine Learning and Data Mining for Sports Analytics – Ecml/Pkdd 2024*, 1–11. Vilnus, Lituany.
 
-1. Mortelier, Alexis, Boris Helleu, Wiem Belhedi, and François Rioult.
-2024. “Analysis of Enthusiasm Triggers in Competitive Video Games:
-Overwatch Case Study.” In *IT4PSS – Ijcai 2024*, 1–8. Jeju, Korea.
+1. Mortelier, Alexis, Boris Helleu, Wiem Belhedi, and François Rioult. 2024. “Analysis of Enthusiasm Triggers in Competitive Video Games: Overwatch Case Study.” In *IT4PSS – Ijcai 2024*, 1–8. Jeju, Korea.
 
 1. Mortelier, Alexis, François Rioult, and John Komar. 2024. “Design of a
 Handball Tactics Observatory Based on Dynamic Sub-Graphs.” In
