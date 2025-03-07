@@ -122,7 +122,7 @@ Quel âge a Tom ?
 Tom a 7 ans.
 ```
 
-Je n'ai pas trouvé moyen d'afficher la taille du context dans `open-webui`, `LM-studio` le fait.
+Je n'ai pas trouvé moyen d'afficher la taille du contexte dans `open-webui`, `LM-studio` le fait.
 
 <!------------------------------------------------------->
 ## Opérations
@@ -267,16 +267,6 @@ La tendance des chiffres 12, 45, 67, et 89 est à la hausse, car la moyenne est 
 
 Il faut être très prudent avec les manipulations de données !
 
-
-<!------------------------------------------------------->
-## Paramétrage
-
-### Graine
-
-Le générateur aléatoire qu'utilise le modèle est pourvu d'une graine, qu'il faudra initialiser si l'on souhaite le faire fonctionner le plus déterministiquement possible.
-
-Je n'ai pas réussi à mettre en évidence le caractère déterministe.
-
 <!------------------------------------------------------->
 # Prompt Engineering
 
@@ -296,22 +286,37 @@ On s'efforcera de respecter [quelques principes](https://natesnewsletter.substac
 
 On trouve de nombreuses variations de ces concepts, par ex. [Risen Framework](https://beeazt.com/knowledge-base/prompt-frameworks/the-risen-framework/). Ces techniques sont nommées [*framework de rédaction*](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1haj8zd/the_top_secrets_to_master_prompt_engineering/). 
 
+<!------------------------------------------------------->
+## Techniques de prompt
+
+D'après le site de référence, très pédagogique: <https://www.promptingguide.ai/fr/introduction>.
+
+Un *shot* (tir, coup) désigne une tentative de prompt précédent le prompt courant. Les techniques élémentaires différencient le *zero-shot* du *few-shot* :
+
+* *zero-shot* : aucun prompt avant le prompt courant, le contexte est vide
+* *few-shot* : on a effectué des prompts préliminaires, qui ont servi d'[exemple](https://www.promptingguide.ai/fr/techniques/fewshot).
+
+Citons quelques techniques plus élaborées :
+
+* *chain-of-thought* : expliciter la *chaîne de pensée* que doit considérer le modèle. Des détails [ici](https://www.reddit.com/r/PromptEngineering/comments/1j0esuw/chain_of_thot_custom_gpt_training_doc/).
+* *Retrieve Augmented Generation - RAG* : une base de connaissances est préalablement interrogée selon le prompt pour *améliorer la génération par récupération*.
 
 <!------------------------------------------------------->
-# Techniques avancées
+# Métacognition
+
+La *métacognition* est la capacité à réfléchir sur ses propres processus cognitifs. Le préfixe *meta* indique qu'on monte d'un niveau dans l'abstraction. 
+
+Il est pertinent d'utiliser ces techniques pour améliorer la compréhension de la requête : [Metacognitive prompting improves understanding in large language models](https://arxiv.org/pdf/2308.05342).
+
+* [De nombreux exemples détaillés](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1j1pekn/toolbox_for_highlevel_thought_12_tools_try/)
 
 <!------------------------------------------------------->
 # Références
 
 * [de bonnes définitions](https://www.spiceworks.com/tech/artificial-intelligence/articles/what-is-prompt-engineering/)
-
 * [catalogue de prompts](https://arxiv.org/pdf/2302.11382)
-
 * [super words](https://www.reddit.com/r/ChatGPTPromptGenius/comments/1gdqyog/super_words_implications_and_in_final_evolution/)
-
-<!------------------------------------------------------->
-* [technique de prompt `react`](https://www.promptingguide.ai/techniques/react)
-* [LE grand guide avec de nombreux exemples](https://www.promptingguide.ai/fr)
+* (techniques de prompt avec LangChain)[https://github.com/NirDiamant/Prompt_Engineering]
 
 
 https://medium.com/aiguys/the-prompt-report-prompt-engineering-techniques-254464b0b32b

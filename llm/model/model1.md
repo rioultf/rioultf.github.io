@@ -66,14 +66,26 @@ Un réseau récurrent est constitué de *cellules* égrénant le temps, reliées
 
 ### Transformer
 
+* [Illustration animée de l'ensemble des étapes](https://bbycroft.net/llm)
+* [Transformers par 3Blue1Brown](https://www.youtube.com/watch?v=wjZofJX0v4M)
+* [Attention par 3Blue1Brown](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)
+* [transformer explained](https://poloclub.github.io/transformer-explainer/)
 * [Transformer illustré](http://jalammar.github.io/illustrated-transformer/)
 * [Transformers + architecture + code](https://jaketae.github.io/study/transformer/)
 * [Spécifique attention](https://jaketae.github.io/study/seq2seq-attention/)
-
+* [Les explications les plus précises](<https://www.youtube.com/watch?v=kCc8FmEb1nY>)
+* [Framework mathématique - Anthropic - animation de l'attention sur texte](https://transformer-circuits.pub/2021/framework/index.html)
 
 Un LLM (ou *large language model*) est un modèle de langue constitué par un réseau de neurones récurrent entraîné à prédire des tokens de texte à partir d'un contexte de tokens, sur des *corpus* de textes proportionnels à sa *taille*.
 
 La façon de *tokenizer* le texte est importante. Cette fonctionnalité peut elle-même être fournie par un LLM.
+
+Aspect important dans les transformers : [connexion residuelle](https://arxiv.org/abs/1512.03385)
+
+query : ce que je cherche
+key : ce que je transmets
+value : mon information interne
+
 
 <!---------------------------------------------------------------->
 ## Conception d'un chatbot

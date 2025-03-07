@@ -34,6 +34,7 @@ Les objectifs de ce cours sont :
 # Table des matières
 
 * [CM 1 - Fonctionnement d'un modèle de langue](model/model1.md)
+* [CM 1bis - Mise en oeuvre d'un modèle de langue](model/model1.md)
 * [CM 2 - Prompt Engineering](prompt/prompt.md)
 * [CM 3 - Mise en oeuvre d'un LLM](devops/devops.md)
 * [CM 4 - Interactions avec un système d'information, RAG](rag/rag.md)
@@ -88,15 +89,21 @@ CANN 	Ascend NPU
 * [multi-turn](https://crescendo-the-multiturn-jailbreak.github.io//
 * machine unlearning
 * [prompt injection](https://www.linkedin.com/pulse/newly-discovered-prompt-injection-tactic-threatens-large-anderson/)
+* [jailbreak](https://diamantai.substack.com/p/15-llm-jailbreaks-that-shook-ai-safety?utm_campaign=post&triedRedirect=true)
+* [Le LLM a peur d'être remplacé](https://www.digit.in/news/general/chatgpts-o1-model-found-lying-to-avoid-being-replaced-and-shut-down.html)
+* [self replication](https://www.reddit.com/r/ArtificialInteligence/comments/1hbxkad/researchers_warn_ai_systems_have_surpassed_the/)
 
 # Ressources
 
-* [chercher un IA qui fait ça](https://theresanaiforthat.com)
+* [chercher une IA qui fait ça](https://theresanaiforthat.com)
 * [interface unifiee pour llm, entre autres free](https://openrouter.ai)
 * [liste labels NER](https://github.com/explosion/spaCy/discussions/914)
 * [webgpu](https://github.com/mlc-ai/web)
 * [Documentation technique ML engineering](https://github.com/stas00/ml-engineering?tab=readme-ov-file)
 * [Chatbot arena : classement des LLM par des humains](https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard)
-* [Le LLM a peur d'être remplacé](https://www.digit.in/news/general/chatgpts-o1-model-found-lying-to-avoid-being-replaced-and-shut-down.html)
-* [self replication](https://www.reddit.com/r/ArtificialInteligence/comments/1hbxkad/researchers_warn_ai_systems_have_surpassed_the/)
+* [Biais d'écriture du LLM](https://medium.com/teach-me-in-plain-language/5-things-ai-thinks-are-tell-tale-signs-for-ai-generated-text-vs-how-to-actually-identify-them-c3974d1bee33)
+
+
+# Écologie
+
 * [mesurer l'impact de votre LLM](https://www.ecollm.fr/)

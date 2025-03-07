@@ -1,3 +1,11 @@
+---
+author:
+- François Rioult
+lang: fr
+title: Application des LLM
+subtitle: Mise en production
+---
+
 <!---------------------------------------------------------------->
 <!---------------------------------------------------------------->
 <!---------------------------------------------------------------->
@@ -456,6 +464,52 @@ Image docker développée par la communauté, large documentation user, génère
 
 Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
 Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
+
+[liste des variables utilisables dans les prompts](https://openwebui.com/features/)
+
+
+### Pinokio
+
+* dans un navigateur maison
+* fait tourner sur un noyau isolé
+* connecté au filesystem local
+* des scripts AI décrits dans un JSON
+
+automation scripting language with features like memory, dynamic templating, and extensible low level APIs.
+
+installe 
+
+* conda
+* python
+* sqlite
+* perl, git -> conda-forge 
+* nodejs
+* ffmpeg
+* un kernel ! + gcc
+* cuda et les outils de monitoring nsight
+* playwright
+
+-> 12 GB
+
+Un script est précédé de la déclaration d'un environnement.
+Une commande peut être lancée en mode *daemon*, utile pour un serveur par exemple.
+
+Les applis lancées tournent dans un venv
+
+On peut appeler des scripts .js en ligne, qui contiennent la description des actions. Voir [ici](https://github.com/cocktailpeanutlabs/moondream2/blob/main/install.js)
+
+#### Fonctionnalités
+
+* fs.download
+* script.start (call d'un script)
+* script.return
+
+#### UI
+
+* shortcut : affiché sur la page d'accueil
+* app : le layout
+
+Il y a un `open-webui` qui installe torch et cuda pour python 3.11
 
 
 

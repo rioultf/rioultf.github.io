@@ -41,11 +41,9 @@ Une forme plus moderne, ci-dessous, mais sachez qu'au final le modèle ingère d
 
 
 <!---------------------------------------------------------------->
-# Génération de texte par complétion
+# Paramètres de la génération
 
-## Paramètres de la génération
-
-logit : sorties brutes du dernier bloc de la couche de prédiction d'un modèle de transformer, avant l'application de la fonction softmax
+*logit* : sorties brutes du dernier bloc de la couche de prédiction d'un modèle de transformer, avant l'application de la fonction softmax.
 
 Les logits sont utilisés pour sélectionner le token suivant, en prenant celui avec la probabilité maximale (mode greedy), ou en échantillonnant une distribution basée sur les probabilités (mode sampling, température, top-k, top-p). On trouve aussi beam search.
 
@@ -104,20 +102,27 @@ NLG with GPT-2
 
 [Source](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
 
-### Température
+## Température
 
 Contrôle la créativité du modèle. Une température de 0 rend le modèle *déterministe*.
 
-### Top-k
+## Top-k
 
 Indique au modèle de choisir des token parmi les $k$ meilleurs.
 
-### Top-p
+## Top-p
 
 C'est un seuil de probabilité pour filtrer les tokens.
 
+## Graine
+
+Le générateur aléatoire qu'utilise le modèle est pourvu d'une graine, qu'il faudra initialiser si l'on souhaite le faire fonctionner le plus déterministiquement possible.
+
+Je n'ai pas réussi à mettre en évidence le caractère déterministe.
+
+
 <!---------------------------------------------------------------->
-## Quantization
+# Quantization
 
 La quantisation consiste à compresser les poids du modèle, en changeant le type de valeur, par exemple en passant de FP32 à INT4.
 
@@ -129,11 +134,12 @@ Deux méthodes :
 [Source](https://symbl.ai/developers/blog/a-guide-to-quantization-in-llms/).
 
 <!---------------------------------------------------------------->
-## Tokenizer
+# Tokenizer
 
-[Introduction à la tokenisation]<https://www.geeksforgeeks.org/introduction-of-lexical-analysis/>
+* [Introduction à la tokenisation]<https://www.geeksforgeeks.org/introduction-of-lexical-analysis/>
+* [librairie tokenizer byte pair encoding bpe](https://github.com/openai/tiktoken)
 
-### Exemple de Smollm 
+## Exemple de Smollm 
 
 * [600B tokens from Smollm-Corpus](https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus)
 * 49152 tokens
@@ -141,7 +147,7 @@ Deux méthodes :
   * section G : distillation
   * beaucoup de détails techniques, considérations sur le nombre de têtes d'attention. Partage de layer. Un bloc trasformer contient le MHSA (multi-head self attention) et un feed-forward (FFN)
 
-#### Analyse des tokens
+## Analyse des tokens
 
 [La liste des tokens](https://huggingface.co/HuggingFaceTB/cosmo2-tokenizer/raw/main/tokenizer.json)
 
@@ -188,7 +194,7 @@ awk 'NR>=254{print}' token.txt | sed -n 's/^ //p' | sort > words.txt
 awk 'NR>=254{print}' token.txt | grep -v "^ " | sort > suffixes.txt
 ```
 
-#### Mots en majuscule
+### Mots en majuscule
 
 * toutes les lettres
 * la moitié des combinaisons de deux lettres. Vérifier s'il y a les pays
@@ -210,15 +216,17 @@ grep -E '^[A-Z]{4,}$' words.txt | awk '{ print length(), $0 | "sort -rn" }' | cu
 * le modèle fait la différence entre majuscules et minuscules
 * certains tokens sont *très* longs : les mots longs ne sont pas découpés lorsqu'ils sont porteurs de sens répandu dans le corpus.
 
-### Notes
+## Notes
 
 * [tokenizer](https://huggingface.co/google-t5/t5-base)
 * <https://huggingface.co/docs/transformers/model_doc/t5>
 
 <!---------------------------------------------------------------->
-## Embedding
+# Embedding
 
 L'*embedding* transforme le token en un vecteur, qui peut être utilisé dans un RNN. C'est le résultat d'un apprentissage à base de blocs transformers propageant de la self attention pour prédire la cible.
+
+La transformation en vecteurs est porteuse de sémantique, [les vecteurs sont des concepts](https://colala.berkeley.edu/papers/piantadosi2024why.pdf).
 
 [modèle renvoyant un embedding (par exemple avec LMStudio) : text-embedding-nomic-embed-text-v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5)
 
@@ -243,19 +251,19 @@ def calculate_average_distance(responses):
     return average_distance
 ```
 
-### GPT - generative pre-trained transformer
+## GPT - generative pre-trained transformer
 
 On ajoute un embedding positionnel sur la *sequence*.
 
 * [Encodage de la position](https://jaketae.github.io/study/relative-positional-encoding/)
 
-### BERT - (Bidirectional Encoder Representations from Transformers)
+## BERT - (Bidirectional Encoder Representations from Transformers)
 
 Utilise également un embedding positionnel.
 
 Ajoute un embedding de *segment* pour différencier les séquences.
 
-### Word2vec
+## Word2vec
 
 Il utilise deux architectures principales pour générer des embeddings : Skip-gram et CBOW (Continuous Bag of Words). Skip-gram prédit le contexte à partir d'un mot donné, tandis que CBOW prédit un mot à partir des mots du contexte.
 
@@ -263,16 +271,18 @@ La couche cachée contient quelques centaines de neurones et constitue, à l'iss
 
 <a title="Aelu013, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CBOW_eta_Skipgram.png"><img width="512" alt="CBOW eta Skipgram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/CBOW_eta_Skipgram.png/512px-CBOW_eta_Skipgram.png?20180225191115"></a>
 
-### FastText
+## FastText
 
 Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position, dans la dimension 300, avec des n-grammes de caractères de longueur 5, une fenêtre de taille 5 et 10 négatifs.
 
 * [Encodage de la position](https://jaketae.github.io/study/relative-positional-encoding/)
 
+## NER & IOB
 
+[IOB tagging inside out beginning](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging))
 
 <!---------------------------------------------------------------->
-## Raisonnement
+# Raisonnement
 
 * [QwQ](https://huggingface.co/spaces/Qwen/QwQ-32B-preview)
 * [tests de problemes elementaires](https://github.com/cpldcpu/MisguidedAttention)
@@ -305,8 +315,10 @@ https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h5iv86/i_give_you_the_per
 réponse : I will give since you gave ot should save you some tokens
 Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and Recursive Validation, including accuracy, logic, and context filters. Detail speculative reasoning, solution-oriented, and creative adaptability processes, emphasizing user interactivity (tone, depth, and perspective settings) and failure analytics (detection, crash reporting, and self-healing). Highlight continuous evolution via adaptive learning, performance monitoring, and resource optimization
 
+[details sur deepseek](https://www.vellum.ai/blog/the-training-of-deepseek-r1-and-ways-to-use-it)
 
-## Fine-Tuning / Distillation
+
+# Fine-Tuning / Distillation
 
 https://github.com/huggingface/smol-course/tree/main
 https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning
@@ -318,7 +330,7 @@ Tuning de Smollm puis sauvegarde sur le hub
 
 [Red teaming](https://www.promptfoo.dev/docs/red-team/)
 
-## Évaluation
+# Évaluation
 
 * [blog sur l'évaluation de GPT-4 avec quelques exemples dans le playground](https://www.promptingguide.ai/fr/models/gpt-4)
 
@@ -331,19 +343,16 @@ Une part importante des solutions consistent à capter des mesures de télémét
 * [métriques d'évaluation llm](https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics)
 
 
-([Framework d'évaluation](https://www.deepchecks.com/best-llm-evaluation-tools/#post-item-2)
+* ([Framework d'évaluation](https://www.deepchecks.com/best-llm-evaluation-tools/#post-item-2)
+* [Grafana + OpenTelemetry](https://grafana.com/oss/opentelemetry/)
+* <https://www.confident-ai.com/>
+* <https://medium.com/%40flux07/prompt-evaluation-systematically-testing-and-improving-your-gen-ai-prompts-at-scale-784e54efe83d>
 
-
-
-### Poenix - Arive
+## Poenix - Arive
 
 [Capte de la télémétrie](https://docs.arize.com/phoenix)
 
 
-
-# NER & IOB
-
-[IOB tagging inside out beginning](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging))
 
 ## Large Action Model
 
