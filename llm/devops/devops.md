@@ -6,158 +6,18 @@ title: Application des LLM
 subtitle: Mise en production
 ---
 
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-# Exécution d'un service LLM
+On veillera à différencier : 
 
-## Définitions
+1. **Orchestration Framework** : Système permettant de gérer à la fois l'origine des modèles (comme Hugging Face ou des registres personnalisés) et leur exécution. Il optimise les performances en déléguant l'inférence à divers fournisseurs de modèles.  
 
-**Orchestration Framework** :  
-Système permettant de gérer à la fois l'origine des modèles (comme Hugging Face ou des registres personnalisés) et leur exécution. Il optimise les performances en déléguant l'inférence à divers fournisseurs de modèles.  
+2. **Registre/Source de modèles** :  Ensemble des plateformes et outils permettant de télécharger, ajouter ou intégrer des modèles. Par exemple, Ollama et LM Studio s'appuient sur Hugging Face, tandis qu'AnythingLLM supporte des modèles locaux et cloud via plusieurs fournisseurs.
 
-**Registre/Source de modèles** :  
-Ensemble des plateformes et outils permettant de télécharger, ajouter ou intégrer des modèles. Par exemple, Ollama et LM Studio s'appuient sur Hugging Face, tandis qu'AnythingLLM supporte des modèles locaux et cloud via plusieurs fournisseurs.
+3. **Interfaces de manipulation de LLM** : effectuent des requêtes API sur des services LLM, locaux ou externes
 
 <!---------------------------------------------------------------->
-## vllm
-
-vllm, https://docs.vllm.ai/en/stable/index.html servir du llm, entre autres hugging face
-
 <!---------------------------------------------------------------->
-## OpenLLM
-
-https://github.com/bentoml/OpenLLM
-
-dispose d'une app web pour tester, avec system prompt
-installe une API OpenAI
-
 <!---------------------------------------------------------------->
-## AnythingLLM
-
-<https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/>
-
-* permet d'exposer l'API d'un agent, valorisant un provider (instance/admin/pref/enable network discovery)
-* gestion de clé d'accès API
-* plugin navigateur
-* peut définir des agents
-
-## System prompt
-
-Il est paramétrable uniquement dans `Settings/Apparence`.
-
-### Agent : Custom Skill
-
-Appelés au moment du prompt `@agent what is the temperature at what is the température in 48.929557/-0.469883 ?`. Voir [custom skills](https://docs.anythingllm.com/agent/custom/introduction). La programmation s'effectue en JS et requiert de connaître très précisément la documentation de l'API appelée.
-
-All skills must return a string type response - anything else may break the agent invocation.
-
-<https://docs.anythingllm.com/agent/custom/introduction>
-
-```bash
-cd .config/anythingllm-desktop/storage/plugins/agent-skills
-mkdir my-custom-agent-skill
-touch plugin.json handler.js
-
-```
-
-### Notes
-
-Not all LLM Models works well as Agents, you may need to use higher quantization models for better responses. Example: Llama 3 8B 8Bit Quantization gives better responses as an Agent
-
-
-<!---------------------------------------------------------------->
-## LM Studio
-
-* [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
-* [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
-* [en TypeScript](https://lmstudio.ai/docs/sdk)
-* [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
-
-les models sont dans `/home/rioultf/.cache/lm-studio/models`
-fichier gguf
-
-on choisit le runtime Llama.cpp (GPU, CPU) ou Vulkan
-
-la fenêtre de chat peut être améliorée par des configurations (settings) incluant un system prompt
-
-le chat montre
-
-* le nombre de token pour chaque instruction
-* le rôle est paramétrable (user, assistant)
-* génération : token/sec, temps pour obtenir le premier token, raison pour le stop
-* en bas de la fenêtre, le taux de remplissage du contexte
-
-peut instancier un serveur, réglable par l'interface.
-
-```bash
-lms -h
-```
-
-On peut charger plusieurs fois un même modèle, vierge pour tester le système prompt en chat, ou avec son propre système prompt à partir d'une configuration de chat. Permet de mettre au point un système prompt.
-
-supporte les fonctions
-
-dans le menu Models, on peut éditer la configuration de chaque modèle : paramètres, system prompt, chat template
-
-[On peut ajouter des GGUF](https://github.com/lmstudio-ai/lmstudio.js/issues/21)
-
-        lms import "{filepath}/{modelName}.gguf"
-
-[How to convert HuggingFace model to GGUF](https://github.com/ggerganov/llama.cpp/discussions/2948)
-  
-
-Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
-Dans l'onglet inférence, system prompt = méta prompt ?
-
-[On peut analyser les log de ce qui est envoyé au model](https://lmstudio.ai/docs/cli/log-stream#debug-your-prompts-with-lms-log-stream)
-
-### CLI
-
-Install lms by running 
-        
-        npx lmstudio install-cli
-
-
-### Fonctions
-
-[Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
-
-  beta spéciale avec inscription
-
-Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
-
-## Chat-ui
-
-<https://github.com/huggingface/chat-ui>
-
-Utilise vllm pour faire tourner un modèle et propose une petite interface pour dialoguer.
-
-<!---------------------------------------------------------------->
-## Ollama
-
-Permet de faire tourner en local une large variété de modèles.
-Pour l'installation `curl | sh`, cela a marché directement en GPU, malgré [une erreur](https://github.com/ollama/ollama/issues/7929).
-
-<!---------------------------------------------------------------->
-## LlamaIndex
-
-LlamaIndex is a data framework for your LLM applications 
-Use Cases
-
-    Prompting
-    Question-Answering (RAG)
-    Chatbots
-    Structured Data Extraction
-    Agents
-    Multi-Modal Applications
-    Fine-Tuning
-
-[Intégration LMStudio][https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]
-
-
-<!---------------------------------------------------------------->
-## mlx-lm
+# Orchestration Framework
 
 <!---------------------------------------------------------------->
 ## Llama.cpp
@@ -220,6 +80,136 @@ Par exemple, générer du JSON.
 
 GBNF (GGML BNF) is a format for defining formal grammars to constrain model outputs in llama.cpp
 
+<!---------------------------------------------------------------->
+## Ollama
+
+Permet de faire tourner en local une large variété de modèles.
+Pour l'installation `curl | sh`, cela a marché directement en GPU, malgré [une erreur](https://github.com/ollama/ollama/issues/7929). Fournit également une web UI.
+
+
+<!---------------------------------------------------------------->
+<!---------------------------------------------------------------->
+<!---------------------------------------------------------------->
+# Registres
+<!---------------------------------------------------------------->
+## LM Studio
+
+* [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
+* [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
+* [en TypeScript](https://lmstudio.ai/docs/sdk)
+* [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
+
+les models sont dans `/home/rioultf/.cache/lm-studio/models`
+fichier gguf
+
+on choisit le runtime Llama.cpp (GPU, CPU) ou Vulkan
+
+la fenêtre de chat peut être améliorée par des configurations (settings) incluant un system prompt
+
+le chat montre
+
+* le nombre de token pour chaque instruction
+* le rôle est paramétrable (user, assistant)
+* génération : token/sec, temps pour obtenir le premier token, raison pour le stop
+* en bas de la fenêtre, le taux de remplissage du contexte
+
+peut instancier un serveur, réglable par l'interface.
+
+```bash
+lms -h
+```
+
+On peut charger plusieurs fois un même modèle, vierge pour tester le système prompt en chat, ou avec son propre système prompt à partir d'une configuration de chat. Permet de mettre au point un système prompt.
+
+supporte les fonctions
+
+dans le menu Models, on peut éditer la configuration de chaque modèle : paramètres, system prompt, chat template
+
+[On peut ajouter des GGUF](https://github.com/lmstudio-ai/lmstudio.js/issues/21)
+
+        lms import "{filepath}/{modelName}.gguf"
+
+[How to convert HuggingFace model to GGUF](https://github.com/ggerganov/llama.cpp/discussions/2948)
+  
+
+Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
+Dans l'onglet inférence, system prompt = méta prompt ?
+
+[On peut analyser les log de ce qui est envoyé au model](https://lmstudio.ai/docs/cli/log-stream#debug-your-prompts-with-lms-log-stream)
+
+### CLI
+
+Install lms by running 
+        
+        npx lmstudio install-cli
+
+
+### Fonctions
+
+[Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
+
+  beta spéciale avec inscription
+
+Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
+
+
+<!---------------------------------------------------------------->
+<!---------------------------------------------------------------->
+<!---------------------------------------------------------------->
+# Interface Utilisateur 
+
+<!------------------------------------------------------------------->
+## OpenWeb-Ui
+
+Image docker développée par la communauté, large documentation user, génère un serveur web (ou python pour en faire un endpoint) :
+
+* gestion / historique de prompt, téléchargeable, importable
+* connexion à tout modèle par API ou `ollama`
+* gestion des évaluations (*arena models*)
+* RAG par embedding au choix
+* recherche sur le web 
+
+Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
+Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
+
+[liste des variables utilisables dans les prompts](https://openwebui.com/features/)
+
+<!---------------------------------------------------------------->
+## AnythingLLM
+
+* permet d'exposer l'API d'un agent, valorisant un provider (instance/admin/pref/enable network discovery)
+* gestion de clé d'accès API
+* plugin navigateur
+* peut définir des agents
+
+
+### System prompt
+
+Il est paramétrable uniquement dans `Settings/Apparence`.
+
+### Agent : Custom Skill
+
+Appelés au moment du prompt `@agent what is the temperature at what is the température in 48.929557/-0.469883 ?`. Voir [custom skills](https://docs.anythingllm.com/agent/custom/introduction). La programmation s'effectue en JS et requiert de connaître très précisément la documentation de l'API appelée.
+
+All skills must return a string type response - anything else may break the agent invocation.
+
+<https://docs.anythingllm.com/agent/custom/introduction>
+
+```bash
+cd .config/anythingllm-desktop/storage/plugins/agent-skills
+mkdir my-custom-agent-skill
+touch plugin.json handler.js
+
+```
+
+### Notes
+
+Not all LLM Models works well as Agents, you may need to use higher quantization models for better responses. Example: Llama 3 8B 8Bit Quantization gives better responses as an Agent
+
+<!---------------------------------------------------------------->
+
+
+
 
 <!---------------------------------------------------------------->
 <!---------------------------------------------------------------->
@@ -228,7 +218,6 @@ GBNF (GGML BNF) is a format for defining formal grammars to constrain model outp
 
 * [Mélange markdown et JSX](https://github.com/puzzlet-ai/agentmark)
 Alternative to n8n?
-* [Stack LLM ops avec FastAPI](https://www.timescale.com/blog/the-emerging-open-source-ai-stack)
 * streamlit
 * gradio
 
@@ -303,169 +292,7 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
-# Développement d'application - Agents
 
-Un agent regroupe trois composants :
-
-* un LLM
-* des outils, choisis par le LLM
-* un framework, qui exécute l'outil
-
-[Systems and Algorithms for Integrating LLMs with Applications, Tools, and Services](https://gorilla.cs.berkeley.edu/)
-
-## Framework
-
-* llamaindex : *LlamaIndex provides a framework for building agents including the ability to use RAG pipelines as one of many tools to complete a task.*
-* [langchain](https://python.langchain.com/docs/concepts/) : librairie pour concevoir des *composants* à base de LLM, `langgraph`pour les orchestrer
-
-## Outils - appel de fonction
-
-<https://blog.christoolivier.com/p/llms-and-functiontool-calling>
-
-<img src="https://cloud.google.com/static/vertex-ai/generative-ai/docs/multimodal/images/function-calling.png?hl=fr">
-
-Le choix de l'action et des paramètres est effectué par le modèle à partir du prompt.
-
-Testé sur `smollm2:1.7b` avec `ollama` :
-
-```python
-import ollama
-
-response = ollama.chat(
-    model='smollm2:1.7b',
-    messages=[{'role': 'user', 'content':
-        'What is the weather in Toronto?'}],
-
-		# provide a weather checking tool to the model
-    tools=[{
-      'type': 'function',
-      'function': {
-        'name': 'get_current_weather',
-        'description': 'Get the current weather for a city',
-        'parameters': {
-          'type': 'object',
-          'properties': {
-            'city': {
-              'type': 'string',
-              'description': 'The name of the city',
-            },
-          },
-          'required': ['city'],
-        },
-      },
-    },
-  ],
-)
-
-print(response['message']['tool_calls'])
-```
-
-```
-[ToolCall(function=Function(name='get_current_weather', arguments={'city': 'Toronto'}))]
-```
-
-`ollama` fait tourner un serveur compatible avec l'API d'OpenAI :
-
-```bash
-MODEL='smollm2:1.7b'
-tools=tools.json
-messages='[{"role": "user", "content": "What is the temperature at the location 51.5074/-0.1278?"}]'
-
-cmd="curl http://localhost:11434/v1/chat/completions \
-  -H \"Content-Type: application/json\" \
-  -d '{\"model\": \"$MODEL\", \"messages\": $messages, \"tools\": $(jq . $tools)}'"
-
-echo $cmd >&2
-
-eval $cmd
-```
-
-Liste d'outils :
-
-```json
-[
-    {
-        "type": "function",
-        "function": {
-            "name": "get_current_weather",
-            "description": "Get the current weather, in particular the temperature, at a given location",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "location": {
-                        "type": "string",
-                        "description": "The city and state, e.g. San Francisco, CA"
-                    }
-                },
-                "required": [
-                    "location"
-                ]
-            }
-        }
-    },
-    ...
-]
-```
-
-Résultat :
-
-```json
-{
-  "id": "chatcmpl-484",
-  "object": "chat.completion",
-  "created": 1736531003,
-  "model": "smollm2:1.7b",
-  "system_fingerprint": "fp_ollama",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "",
-        "tool_calls": [
-          {
-            "id": "call_ktfdd662",
-            "index": 0,
-            "type": "function",
-            "function": {
-              "name": "get_current_weather",
-              "arguments": "{\"location\":\"51.5074,-0.1278\"}"
-            }
-          }
-        ]
-      },
-      "finish_reason": "tool_calls"
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 441,
-    "completion_tokens": 46,
-    "total_tokens": 487
-  }
-}
-```
-
-Le repository est à `/usr/share/ollama/.ollama/models`.
-
-*Ne fonctionne pas avec LMStudio* (ils parlent de béta sur inscription).
-
-<https://cookbook.openai.com/examples/how_to_call_functions_with_chat_models>
-
-<!------------------------------------------------------------------->
-### OpenWeb-Ui
-
-Image docker développée par la communauté, large documentation user, génère un serveur web (ou python pour en faire un endpoint) :
-
-* gestion / historique de prompt, téléchargeable, importable
-* connexion à tout modèle par API ou `ollama`
-* gestion des évaluations (*arena models*)
-* RAG par embedding au choix
-* recherche sur le web 
-
-Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
-Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
-
-[liste des variables utilisables dans les prompts](https://openwebui.com/features/)
 
 
 ### Pinokio
@@ -514,10 +341,6 @@ Il y a un `open-webui` qui installe torch et cuda pour python 3.11
 
 
 
-### Model context protocol
-
-https://www.anthropic.com/news/model-context-protocol
-Les MCP sont des spécifications de serveurs généralistes permettant d'interfacer une API avec les modèles d'Anthropic.
 
 ## LLM Compiler
 
@@ -591,134 +414,6 @@ Les apps tournent en local. Une colonne à gauche pour les pages, une zone centr
 
 * [API de recherche sur le web, par ex. pour alimenter en RAG](https://docs.tavily.com/)
 
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->
-# Automatisation des tests de LLM
-
-[Définitions](https://www.deepchecks.com/glossary/llm-testing/)
-
-* [programmation graphique et prompt engineering : ChainForge provides a suite of tools to evaluate and visualize prompt (and model) quality](https://chainforge.ai/)
-
-  Lance une interface web pour design d'un pipeline avec LLM
-  On peut mettre un provider local sous la forme d'un script python à coller dans le widget : [compliqué](https://gitlab.hl-dev.de/aichecker/masterarbeit/-/blob/4ec3a667c981c11e052f01baaca9c974918b6e3c/ChainForge/LMStudioProvider.py)
-
-  <https://chainforge.ai/docs/custom_providers/>
-
-* [Analytics sur des LLM](https://app.traceloop.com/)
-
-  Quid de l'intégration LMStudio ? Niet
-  OpenLLMetry fournit des indicateurs à des logiciels comme Grafana, chargé de l'observabilité. Les modèles propriétaire sont instrumentés, de même que les databases de vecteurs ou les frameworks (langchain, llamaindex, https://haystack.deepset.ai/, )
-
-* [Literal AI](https://docs.literalai.com/get-started/overview) is the collaborative observability, evaluation and analytics platform for building production-grade LLM apps. Literal AI offers multimodal logging, including vision, audio, and video.
-
-  a l'air très bien mais je n'arrive pas à brancher LMStudio.
-  literalai custom configuration test failed 504
-  
-
-* [oobabooga A Gradio web UI for Large Language Models.](https://github.com/oobabooga/text-generation-webui)
-
-  installe Torch et propose plein de providers comme transformers
-
-<!--------------------------------------------------------------->
-### PromptFoo
-
-[Promptfoo: A Test-Driven Approach to LLM Success](https://medium.com/@fassha08/promptfoo-a-test-driven-approach-to-llm-success-154a444b2669)
-
-Un fichier de configuration `promptfooconfig.yaml` définit :
-
-* une liste de prompts
-* une liste de providers
-* une configuration par défaut `defaultTest`
-* une liste de tests
-  * liste de variables
-  * test
-
-Il s'agit de la définition d'un template assemblant différents fichiers (tous les constituants peuvent être mis dans des fichiers). Couplé avec un gestionnaire de version, la dépendance forte de `PromptFoo` lui confère une traçabilité optimale.
-
-Deux commandes sont alors disponibles :
-
-* `npx promptfoo eval --no-cache` : pour chaque prompt, exécute les différents configurations de test sur chaque provider. Il faut déactiver le cache pour forcer l'interrogation du modèle.
-* `npx promptfoo view` : lance une interface web permettant d'analyser les résultats dans le cache
-
-Le cache est une base de données de prompts / réponses, accompagnés des fichiers de configuration. Ceux peuvent être édités de manière à relancer le test.
-
-On peut définir des [prompts comme des fonctions .py ou .js](https://www.promptfoo.dev/docs/configuration/parameters/#prompt-functions)
-
-De nombreuses métriques sont disponibles, déterministes ou fournies par des LLM : Model-graded metrics. 
-
-llm-rubric is promptfoo's general-purpose grader for "LLM as a judge" evaluation. Propose également de la classification, modération, etc.
-
-#### Cas d'usage
-
-Le système de base construit un tableau test/prompt.
-
-* tester différents prompts : sur différentes formulations d'une tâche, par exemple de traduction ou de rédaction. C'est le cas d'usage par défaut, il suffit pour cela de définir plusieurs prompts.
-* tester différents system prompts : il faut définir autant de cas de test que nécessaire (voir ci-dessous)
-* tester différents paramètres du modèle : autant de cas de tests
-
-Utilisation du system de template analogue à `jinja2` : [nunjucks](https://www.promptfoo.dev/docs/configuration/parameters/#nunjucks-filters)
-
-#### Prompt pour chat
-
-Certains modèles une interaction sous forme de messages, avec un role et un contenu. On pourra définir les prompts dans des fichiers JSON :
-
-```json
-[
-    {
-      "role": "system",
-      "content": "{{systemPrompt}}"
-    },
-    {
-      "role": "user",
-      "content": "Tell me about planets"
-    }
-]
-```
-#### Fichier de configuration des tests
-
-Interface avec LMStudio comme provider.
-
-* [Détails sur la configuration](https://www.promptfoo.dev/docs/configuration/guide/)
-
-
-```yaml
-# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
-description: "My eval"
-
-prompts:
-  - file://personality1.json
-
-
-providers:
-  - id: https
-    config:
-      url: 'http://0.0.0.0:1234/v1/chat/completions'
-      method: 'POST'
-      body:
-        model: 'smollm2-360m-instruct'
-        messages: '{{prompt}}'
-      transformResponse: 'json.choices[0].message.content'
-      maxTokens: 300
-
-tests:
-  - vars:
-      systemPrompt: 'Answer in french.'
-  - vars:
-      systemPrompt: 'Be concise.'
-```
-
-<!--------------------------------------------------------------->
-### Notes
-
-* [Le postman des llm, mais pas de modèle local](https://www.adaline.ai/get-started)
-
-* [Des exemples dans Postman](https://www.postman.com/manukmcts/llm/overview)
-* [Génératon de tests Postman par LLM](https://www.aimodels.fyi/papers/arxiv/automating-rest-api-postman-test-cases-using)
-
-* [An Overview on Testing Frameworks For LLMs](https://llmshowto.com/blog/llm-test-frameworks)
-* [Tester avec l’IA générative – Stratégie & Feuille de route réaliste](https://www.smartesting.com/tester-avec-lia-generative-strategie-feuille-de-route-realiste/)
-* LLMops [Automated Testing for LLMOps](https://www.deeplearning.ai/short-courses/automated-testing-llmops/)
 
 
 # ToDos
@@ -726,5 +421,3 @@ tests:
 * streamlit est-il vraiment utile autrement qu'avec un back-end en ligne (voir avec Replicate) ? LLM en local ?
 * modèle local smollm avec openllm ? -> bento pour déployer
 * LMstudio n'est pas prévu pour utiliser une autre API que celle qu'il met en place.
-
-[https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/]: https://docs.llamaindex.ai/en/stable/examples/llm/lmstudio/
