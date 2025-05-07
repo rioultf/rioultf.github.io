@@ -1,4 +1,3 @@
-
 ---
 author:
 - François Rioult
