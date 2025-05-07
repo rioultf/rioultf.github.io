@@ -1,5 +1,12 @@
 
-# Description
+---
+author:
+- François Rioult
+lang: fr
+title: Visualisation de la tonalité
+---
+
+# Visualisation de la tonalité
 
 Ce travail consiste à proposer une visualisation dynamique de la tonalité au cours d'une séquence musicale.
 
@@ -9,7 +16,7 @@ Ce travail consiste à proposer une visualisation dynamique de la tonalité au c
 4. la [librairie `Humdrum Extras`](https://extras.humdrum.org) convertit le format `MusicXML` en `hum` et effectue l'analyse des tonalités.
 5. j'assemble le tout en JSON après divers traitements pour générer la visualisation
 
-# Calcul de la tonalité
+## Calcul de la tonalité
 
 Les données sur l'harmonie sont fournies par l'utilitaire [`mkeyscape`](https://extras.humdrum.org/man/mkeyscape/) qui définit un *pas d'analyse*, ici à la *croche*. Par exemple, sur les 26 mesures à 4 temps du Bach BWV555 de référence, `mkeyscape` calcule, pour 26 * 4 = 104 points, la tonalité :
 
@@ -23,8 +30,10 @@ Les données sur l'harmonie sont fournies par l'utilitaire [`mkeyscape`](https:/
 
 <img src="BWV_555.png">
 
-# Visualisation de la tonalité
+## Visualisation d'une tonalité
 
 Les couleurs sont inspirées par la synesthésie de ma fille. *Majeur et relatif mineur* sont confondus.
 
-Pour les tonalités majeures, la fondamentale et la quinte sont situées sur le cercle extérieur, et liées à la tierce mineure sur le cercle intérieur. Pour les mineures, c'est le contraire.
+Pour les tonalités majeures, la fondamentale et la quinte sont situées sur le cercle extérieur, et liées à la tierce mineure sur le cercle intérieur. Pour les tonalités mineures, c'est le contraire.
+
+Cette technique de visualisation dispose les tonalités autour d'un cercle de manière à ce que leur proximité géométrique reflète la proximité harmonique.
