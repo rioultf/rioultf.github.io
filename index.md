@@ -48,5 +48,7 @@ See my [publications](biblio.md).
 
 Music is an important part of my life.
 
+See my work about [Tonality Visualization](hurmony/index.md).
+
 You can find some of mine at Souncloud:
 [https://soundcloud.com/user-578993177](https://soundcloud.com/user-578993177)
