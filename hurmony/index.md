@@ -5,6 +5,8 @@ lang: fr
 title: Visualisation de la tonalité
 ---
 
+[English version](index-en.md)
+
 Ci-dessous quelques précisions sur la version en ligne de [Hurmony - Tonality Visualization](https://rioultf.users.greyc.fr/hurmony/index.php).
 
 # Visualisation de la tonalité
