@@ -5,6 +5,8 @@ lang: fr
 title: Visualisation de la tonalité
 ---
 
+Ci-dessous quelques précisions sur la version en ligne de [Hurmony - Tonality Visualization](https://rioultf.users.greyc.fr/hurmony/index.php).
+
 # Visualisation de la tonalité
 
 Ce travail consiste à proposer une visualisation dynamique de la tonalité au cours d'une séquence musicale.
