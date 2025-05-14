@@ -44,6 +44,22 @@ Les objectifs de ce cours sont :
 * CM 8
 
 <!---------------------------------------------------------------->
+
+# Compétences pré-recquises
+
+L'utilisation de LLM se fait ici dans un contexte de *développement informatique*. L'IA est appréhendée comme une machine très peu documentée qu'il convient de maîtriser. Il sera donc nécessaire de procéder à de nombreuses *itérations*.
+
+Ceci suppose de gérer un *environnement de développement* :
+
+* l'élément pivot est le *fichier*, qui pourra contenir du texte, ou de la donnée. Ils constituent la mémoire permanente du système.
+* il faut gérer les versions de ses fichiers, par *itérations*. L'idéal est d'utiliser un système dédié : `git`.
+* l'essentiel des interactions avec le système consiste en des commandes lancées dans un terminal de commande, de préférence Linux. Il faut arriver à se passer de la souris.
+* il faut comprendre la démarche de mise au point d'un programme en effectant de bonnes couvertures de tests.
+
+[Référence](http://mocs-artefacts.ensta-bretagne.fr/papers/2019_vincent_leilde_these.pdf)
+
+
+<!---------------------------------------------------------------->
 # Travaux pratiques
 
 1. TP - Prise en main `lm_studio`

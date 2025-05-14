@@ -175,6 +175,11 @@ Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/a
 [liste des variables utilisables dans les prompts](https://openwebui.com/features/)
 
 <!---------------------------------------------------------------->
+## LiteLLM
+
+https://docs.litellm.ai/docs/hosted
+
+<!---------------------------------------------------------------->
 ## AnythingLLM
 
 * permet d'exposer l'API d'un agent, valorisant un provider (instance/admin/pref/enable network discovery)

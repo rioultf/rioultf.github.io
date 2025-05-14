@@ -26,7 +26,7 @@ The harmony data is provided by the [`mkeyscape`](https://extras.humdrum.org/man
 * To compute the tonality, `mkeyscape` submits the notes expressed at each analysis point to the Krumhansl-Schmuckler algorithm, which establishes a Pearson correlation between the measured pitch class histogram and the predefined profiles for major and minor keys.
 * At the eighth note granularity, the obtained data is quite chaotic. However, we want a bit of stability, and `mkeyscape` provides analysis results for all numbers of points less than the requested value:
   * for 104 points, values vary at *every* point
-  * for 103 points, the measurement is much more stable. This is the value chosen for visualization
+  * for 103 points, the measurement is much more stable.
   * for 1 point, we obtain the *global* tonality of the piece
 
 `mkeyscape` produces enough analyses to represent them in a triangle, where each line represents a different level of analysis granularity.
