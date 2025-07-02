@@ -288,6 +288,7 @@ Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position,
 * [tests de problemes elementaires](https://github.com/cpldcpu/MisguidedAttention)
 * [modele qui raisonne en enchainant trois system slot](https://informationism.org/ai2/siriusIIemodel.php)
 * [details sur le CoT de o1](https://openai.com/index/learning-to-reason-with-llms/)
+
 * i'm like 80% this is how o1 works:
 >collect a dataset of question/answer pairs
 >model to produce reasoning steps (sentences)
