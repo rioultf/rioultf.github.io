@@ -284,6 +284,7 @@ Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position,
 <!---------------------------------------------------------------->
 # Raisonnement
 
+* [building-god](https://www.strangeloopcanon.com/p/building-god)
 * [QwQ](https://huggingface.co/spaces/Qwen/QwQ-32B-preview)
 * [tests de problemes elementaires](https://github.com/cpldcpu/MisguidedAttention)
 * [modele qui raisonne en enchainant trois system slot](https://informationism.org/ai2/siriusIIemodel.php)
@@ -341,6 +342,7 @@ Une part importante des solutions consistent à capter des mesures de télémét
 * [Télémétrie](https://opentelemetry.io/docs/what-is-opentelemetry/)
 
 * [métriques d'évaluation llm](https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics)
+* [métriques](https://www.reddit.com/r/PromptEngineering/comments/1j9plh4/every_llm_metric_you_need_to_know/)
 
 
 * ([Framework d'évaluation](https://www.deepchecks.com/best-llm-evaluation-tools/#post-item-2)

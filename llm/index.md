@@ -108,6 +108,12 @@ CANN 	Ascend NPU
 * [jailbreak](https://diamantai.substack.com/p/15-llm-jailbreaks-that-shook-ai-safety?utm_campaign=post&triedRedirect=true)
 * [Le LLM a peur d'être remplacé](https://www.digit.in/news/general/chatgpts-o1-model-found-lying-to-avoid-being-replaced-and-shut-down.html)
 * [self replication](https://www.reddit.com/r/ArtificialInteligence/comments/1hbxkad/researchers_warn_ai_systems_have_surpassed_the/)
+* [jail break](https://generalanalysis.com/blog/jailbreak_cookbook)
+* [le roi du jail break](https://github.com/elder-plinius)
+* [prevenir la decouverte du systeme prompt](https://www.reddit.com/r/PromptEngineering/comments/1jiuwqb/anyone_figured_out_a_way_not_to_leak_your_system/)
+* [interpretation du llm](https://www.anthropic.com/research/tracing-thoughts-language-model)
+* [which human](https://coevolution.fas.harvard.edu/sites/g/files/omnuum5841/files/culture_cognition_coevol_lab/files/which_humans_09222023.pdf)
+
 
 # Ressources
 

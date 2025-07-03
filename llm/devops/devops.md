@@ -99,6 +99,11 @@ Pour l'installation `curl | sh`, cela a marché directement en GPU, malgré [une
 * [en TypeScript](https://lmstudio.ai/docs/sdk)
 * [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
 
+Démarrer sans sandbox :
+
+        LM-Studio-0.3.17-11-x64.AppImage --no-sandbow
+
+
 les models sont dans `/home/rioultf/.cache/lm-studio/models`
 fichier gguf
 
@@ -172,7 +177,9 @@ Image docker développée par la communauté, large documentation user, génère
 Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
 Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
 
-[liste des variables utilisables dans les prompts](https://openwebui.com/features/)
+* [liste des variables utilisables dans les prompts](https://openwebui.com/features/)
+* [cost tracker](https://www.reddit.com/r/OpenWebUI/comments/1jk6gae/enhanced_context_cost_tracker_function/)
+
 
 <!---------------------------------------------------------------->
 ## LiteLLM
@@ -287,6 +294,7 @@ Replicate is a platform that enables developers to deploy, fine tune, and access
 
 * [streamlit et replicate](https://blog.streamlit.io/how-to-create-an-ai-chatbot-llm-api-replicate-streamlit/)
 * [demo streamlit](https://medium.com/nerd-for-tech/how-to-create-an-ai-app-to-generate-crontabs-using-openai-and-streamlit-23aacbf20a9c)
+* LibreChat : à tester, promet intégration MCP, lourd
 
 ### Divers
 
