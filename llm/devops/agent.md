@@ -1,4 +1,10 @@
-# Développement d'application - Agents
+---
+author:
+- François Rioult
+lang: fr
+title: Application des LLM
+subtitle: Développement d'application - Agents
+---
 
 Un agent regroupe trois composants :
 
@@ -7,6 +13,11 @@ Un agent regroupe trois composants :
 * un framework, qui exécute l'outil
 
 [Systems and Algorithms for Integrating LLMs with Applications, Tools, and Services](https://gorilla.cs.berkeley.edu/)
+
+# MCP
+
+* [Mise à disposition de serveurs MCP](https://mcp.composio.dev/)
+
 
 ## Framework
 
@@ -30,6 +41,11 @@ Use Cases
 
 * [patterns d'orchestration](https://www.agentrecipes.com/)
 * [orchestration](https://www.crewai.com/open-source)
+
+## PocketFlow
+
+* [design pattern d'agent](https://zacharyhuang.substack.com/p/llm-agent-internal-as-a-graph-tutorial)
+
 
 [Guide de conception d'un agent](https://github.com/The-Pocket/PocketFlow/blob/main/docs/guide.md)
 
@@ -108,3 +124,6 @@ pip install litellm
 
 low-level orchestration framework for building controllable agents
 
+# Références
+
+* [road map agent](https://www.reddit.com/r/AI_Agents/comments/1jo2nxa/i_spoke_to_100_companies_hiring_ai_agents_heres/)

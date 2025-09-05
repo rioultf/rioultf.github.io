@@ -35,3 +35,7 @@ production code https://codeium.com/windsurf
 # Data analysis
 
 https://sequel.sh/docs/ai-chat interro d'une bd par ia
+
+# Notes
+
+* [vibe coding](https://www.reddit.com/r/ChatGPTCoding/comments/1jhkjou/5_principles_of_vibe_coding_stop_complicating_it/)

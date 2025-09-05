@@ -323,6 +323,10 @@ Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and 
 
 # Fine-Tuning / Distillation
 
+* [papier séminal de Hinton](https://arxiv.org/pdf/1503.02531)
+* [miniLLM, Knowledge Distillation](https://arxiv.org/pdf/2306.08543)
+* [bon post step by step + math](https://medium.com/data-science-collective/how-to-distill-a-llm-step-by-step-58f06fcf4bfa)
+
 https://github.com/huggingface/smol-course/tree/main
 https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning
 cours de fine tuning https://github.com/huggingface/smol-course
@@ -332,6 +336,8 @@ Tuning de Smollm puis sauvegarde sur le hub
 [Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/index)
 
 [Red teaming](https://www.promptfoo.dev/docs/red-team/)
+
+
 
 # Évaluation
 
