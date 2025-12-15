@@ -1,5 +1,9 @@
 # François Rioult's Publications
 
+1. Aurélien Bournonville, Fabrice Maurel, François Rioult, Gaël Dias, Guillaume Pitel, et al.. Multilingual Evaluation of Main Content Extractors for Web Pages. The 48th International ACM SIGIR Conference on Research and Development in Information Retrieval, Jul 2025, Padova, France. 
+
+1. Dhia Eddine Merzougui, Nilesh Tete, Fabrice Maurel, Gaël Dias, Mohammed Hasanuzzaman, François Rioult et al.. Concurrent Speech and Auditory Tag Clouds for Non-Visual Web Interaction. 26th edition of the Interspeech Conference, Aug 2025, Rotterdam, Netherlands. ⟨hal-05110274⟩ 
+
 1. Mortelier, Alexis, Sebastien Bougleux, and François Rioult. 2024. “Team Dynamics in Dota2 Through Attention Mechanism.” In *11th Workshop on Machine Learning and Data Mining for Sports Analytics – Ecml/Pkdd 2024*, 1–11. Vilnus, Lituany.
 
 1. Mortelier, Alexis, Boris Helleu, Wiem Belhedi, and François Rioult. 2024. “Analysis of Enthusiasm Triggers in Competitive Video Games: Overwatch Case Study.” In *IT4PSS – Ijcai 2024*, 1–8. Jeju, Korea.
