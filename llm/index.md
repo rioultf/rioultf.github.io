@@ -33,6 +33,7 @@ Les objectifs de ce cours sont :
 <!---------------------------------------------------------------->
 # Table des matières
 
+
 * [CM 1 - Fonctionnement d'un modèle de langue](model/model1.md)
 * [CM 1bis - Mise en oeuvre d'un modèle de langue](model/model1.md)
 * [CM 2 - Prompt Engineering](prompt/prompt.md)
@@ -56,7 +57,8 @@ Ceci suppose de gérer un *environnement de développement* :
 * l'essentiel des interactions avec le système consiste en des commandes lancées dans un terminal de commande, de préférence Linux. Il faut arriver à se passer de la souris.
 * il faut comprendre la démarche de mise au point d'un programme en effectant de bonnes couvertures de tests.
 
-[Référence](http://mocs-artefacts.ensta-bretagne.fr/papers/2019_vincent_leilde_these.pdf)
+* [CM 0 - Linux](doc/linux.md)
+* [TP 0 - Apprentissage de Linux](doc/linux-tp.md)
 
 
 <!---------------------------------------------------------------->

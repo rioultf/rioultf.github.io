@@ -97,7 +97,7 @@ $ alias docker-compose='sudo -g docker docker-compose'
 
 # Sauvegarde de l'environnement
 
-On définit un script [script/exit.sh](script/exit.sh)` qui :
+On définit un script [script/exit.sh](script/exit.sh) qui :
 
 1. crée un dossier de sauvegarde 
 1. y sauvegarde l'historique `~/.bash_history`
