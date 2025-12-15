@@ -43,7 +43,7 @@ Les machines inactives pendant 15mn sont éteintes : si vous souhaitez interromp
 
 On définit un environnement qui sera mis en place automatiquement au démarrage de la VDI ou à la demande :
 
-1. rédaction d'un script `bash` : [script/init.sh](/script/init.sh)
+1. rédaction d'un script `bash` : [script/init.sh](script/init.sh)
 
   1. *optionnel mais recommandé* : définition du dossier `~/.ssh`
   1. définition d'un texte destiné à être ajouté au `~/.bashrc` installé par la machine :
