@@ -29,7 +29,7 @@ Un *neurone* est un objet informatique, qui possède :
 
 Un neurone reçoit des informations, à sa manière, et transmet une information.
 
-<img src="../fig/ArtificialNeuronModel_francais.png" width="400">
+<img src="fig/ArtificialNeuronModel_francais.png" width="400">
 
 ### Réseau de neurones
 
