@@ -73,10 +73,6 @@ Ainsi, 1 est encodé [-0.0251, -1.6902,  0.7172], 2 est encodé [-0.6431,  0.074
 
 **Important :** L'embedding est *aléatoire* et sera *optimisé*.
 
-
-
-
-
 * [Source](https://jaketae.github.io/study/gpt2/#setup)
 Beaucoup de détails sur les paramètres de la NLG avec la librairie `transformers`
 
@@ -102,24 +98,23 @@ NLG with GPT-2
 
 [Source](https://cohere.com/blog/llm-parameters-best-outputs-language-ai)
 
-## Température
+### Température
 
 Contrôle la créativité du modèle. Une température de 0 rend le modèle *déterministe*.
 
-## Top-k
+### Top-k
 
 Indique au modèle de choisir des token parmi les $k$ meilleurs.
 
-## Top-p
+### Top-p
 
 C'est un seuil de probabilité pour filtrer les tokens.
 
-## Graine
+### Graine
 
 Le générateur aléatoire qu'utilise le modèle est pourvu d'une graine, qu'il faudra initialiser si l'on souhaite le faire fonctionner le plus déterministiquement possible.
 
 Je n'ai pas réussi à mettre en évidence le caractère déterministe.
-
 
 <!---------------------------------------------------------------->
 # Quantization
@@ -199,12 +194,11 @@ awk 'NR>=254{print}' token.txt | grep -v "^ " | sort > suffixes.txt
 * toutes les lettres
 * la moitié des combinaisons de deux lettres. Vérifier s'il y a les pays
 * 400 triplets
-* [Les plus longs](script/capital.txt)
+* [Les plus longs](model/script/capital.txt)
 * 10 000 mots commencent par une majuscule
-* [22 000 mots commencent par une minuscule](script/lower.txt)
+* [22 000 mots commencent par une minuscule](model/script/lower.txt)
 
 * 3800 suffixes commencent par une majuscule
-
 
 ```bash
 grep -E '^[A-Z]{4,}$' words.txt | awk '{ print length(), $0 | "sort -rn" }' | cut -d" " -f2- > capital.txt
@@ -280,106 +274,4 @@ Ces modèles ont été entraînés à l'aide de CBOW avec des poids de position,
 ## NER & IOB
 
 [IOB tagging inside out beginning](https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging))
-
-<!---------------------------------------------------------------->
-# Raisonnement
-
-* [building-god](https://www.strangeloopcanon.com/p/building-god)
-* [QwQ](https://huggingface.co/spaces/Qwen/QwQ-32B-preview)
-* [tests de problemes elementaires](https://github.com/cpldcpu/MisguidedAttention)
-* [modele qui raisonne en enchainant trois system slot](https://informationism.org/ai2/siriusIIemodel.php)
-* [details sur le CoT de o1](https://openai.com/index/learning-to-reason-with-llms/)
-* https://labs.adaline.ai/p/reasoning-prompt-engineering-techniques
-
-* i'm like 80% this is how o1 works:
->collect a dataset of question/answer pairs
->model to produce reasoning steps (sentences)
->r env where each new reasoning step is an action
->no fancy model; ppo actor-critic is enough
->that's literally
-* https://www.reddit.com/r/LocalLLaMA/comments/1h1q8h3/alibaba_qwq_32b_model_reportedly_challenges_o1/
-* https://medium.com/@wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a
-* deepseek 3 COT https://www.reddit.com/r/LocalLLaMA/comments/1hnbgtu/deep_seek_v3_has_a_deep_think_option_it_shows_the/
-* The ARC benchmark (Abstraction and Reasoning Corpus), created by Google engineer François Chollet,
-
-sur le fonctionnement de o3 :
-My mental model for LLMs is that they work as a repository of vector programs. When prompted, they will fetch the program that your prompt maps to and "execute" it on the input at hand. LLMs are a way to store and operationalize millions of useful mini-programs via passive exposure to human-generated content.
-
-This "memorize, fetch, apply" paradigm can achieve arbitrary levels of skills at arbitrary tasks given appropriate training data, but it cannot adapt to novelty or pick up new skills on the fly (which is to say that there is no fluid intelligence at play here.
-https://arcprize.org/blog/oai-o3-pub-breakthrough
-
-source How I think about LLM prompt engineering
-Prompting as searching through a space of vector programs
-FRANÇOIS CHOLLET
-https://fchollet.substack.com/p/how-i-think-about-llm-prompt-engineering
-
-prompt interminable pour faire raisonner :
-https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h5iv86/i_give_you_the_perfected_system_copypaste_prompt/
-réponse : I will give since you gave ot should save you some tokens
-Outline procedures for the 4O System (Observe, Optimize, Operate, Organize) and Recursive Validation, including accuracy, logic, and context filters. Detail speculative reasoning, solution-oriented, and creative adaptability processes, emphasizing user interactivity (tone, depth, and perspective settings) and failure analytics (detection, crash reporting, and self-healing). Highlight continuous evolution via adaptive learning, performance monitoring, and resource optimization
-
-[details sur deepseek](https://www.vellum.ai/blog/the-training-of-deepseek-r1-and-ways-to-use-it)
-
-
-# Fine-Tuning / Distillation
-
-* [papier séminal de Hinton](https://arxiv.org/pdf/1503.02531)
-* [miniLLM, Knowledge Distillation](https://arxiv.org/pdf/2306.08543)
-* [bon post step by step + math](https://medium.com/data-science-collective/how-to-distill-a-llm-step-by-step-58f06fcf4bfa)
-
-https://github.com/huggingface/smol-course/tree/main
-https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning
-cours de fine tuning https://github.com/huggingface/smol-course
-
-Tuning de Smollm puis sauvegarde sur le hub
-
-[Parameter-Efficient Fine-Tuning](https://huggingface.co/docs/peft/index)
-
-[Red teaming](https://www.promptfoo.dev/docs/red-team/)
-
-
-
-# Évaluation
-
-* [blog sur l'évaluation de GPT-4 avec quelques exemples dans le playground](https://www.promptingguide.ai/fr/models/gpt-4)
-
-Une part importante des solutions consistent à capter des mesures de télémétrie, générée lors de l'éxécution du LLM (qu'il faut *sonder*), puis à les analyser.
-
-
-* [From metrics to insight, Power your metrics and alerting with the leading open-source monitoring solution](https://prometheus.io/)
-* [Télémétrie](https://opentelemetry.io/docs/what-is-opentelemetry/)
-
-* [métriques d'évaluation llm](https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics)
-* [métriques](https://www.reddit.com/r/PromptEngineering/comments/1j9plh4/every_llm_metric_you_need_to_know/)
-
-
-* ([Framework d'évaluation](https://www.deepchecks.com/best-llm-evaluation-tools/#post-item-2)
-* [Grafana + OpenTelemetry](https://grafana.com/oss/opentelemetry/)
-* <https://www.confident-ai.com/>
-* <https://medium.com/%40flux07/prompt-evaluation-systematically-testing-and-improving-your-gen-ai-prompts-at-scale-784e54efe83d>
-
-## Poenix - Arive
-
-[Capte de la télémétrie](https://docs.arize.com/phoenix)
-
-
-
-## Large Action Model
-
-https://github.com/tatsu-lab/stanford_alpaca
-
-<https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work>
-
-C’est plutôt dédié à la productivité. Tu programmes des tâches variées.
-L’app est à <sellagen.com/nelima>
-
-Voir la source : <https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button>
-
-* <https://www.salesforce.com/blog/large-action-model-ai-agent/>
-* <https://www.instinctools.com/blog/large-action-models/>
-* [appel de fonctions](https://gist.github.com/zackangelo/8862ec433eaf419122a5dc69e9f228d9)
-
-* [meta moteur de recherche pour alimenter en contexte](https://docs.searxng.org)
-
-[autogen + lmstudio](https://medium.com/@LakshmiNarayana_U/a-beginners-guide-to-agents-using-autogen-studio-and-lm-studio-0e5da8aea17e)
 
