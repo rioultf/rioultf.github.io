@@ -3,7 +3,7 @@ author:
 - François Rioult
 lang: fr
 title: Application des LLM
-subtitle: Introduction
+subtitle: Guide
 ---
 
 <!---------------------------------------------------------------->
@@ -63,6 +63,21 @@ Ceci suppose de gérer un *environnement de développement* :
 
 <!---------------------------------------------------------------->
 # Travaux pratiques
+
+1. TP - [Mise en place de la VDI](tp/0-VDI.md)
+
+  * paramétrage de `bash`
+  * import des backups de configuration
+  * fermeture de session et sauvagarde d'environnement
+
+1. TP - [BashAPI - environnement de développement minimal](tp/1-BashAPI.md)
+
+  * requète `curl` sur `Openrouter`
+  * interrogation de l'API `chatCompletions`
+
+1. TP - [Promptengineering avec PromptFoo]
+
+1. TP - [Prise en main `Anything LLM']()
 
 1. TP - Prise en main `lm_studio`
 

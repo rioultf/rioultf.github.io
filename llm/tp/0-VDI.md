@@ -43,9 +43,11 @@ Les machines inactives pendant 15mn sont éteintes : si vous souhaitez interromp
 
 On définit un environnement qui sera mis en place automatiquement au démarrage de la VDI ou à la demande :
 
+1. créer le script `~/Documents/bin/init.sh` 
 1. rédaction d'un script `bash` : [script/init.sh](script/init.sh)
 
   1. *optionnel mais recommandé* : définition du dossier `~/.ssh`
+
   1. définition d'un texte destiné à être ajouté au `~/.bashrc` installé par la machine :
 
     1. modifier la taille de l'historique
@@ -54,7 +56,9 @@ On définit un environnement qui sera mis en place automatiquement au démarrage
     1. activer la complétion
     1. activer le passage automatique dans le groupe `docker` pour lancer une commande
     1. ajouter d'autres personnalisations.
-    
+
+1. *edit* le `.bashrc` semble être préservé d'un instance à l'autre
+  
 1. autoriser l'exécution du script :
 
         $ chmod +x init.sh
@@ -62,6 +66,7 @@ On définit un environnement qui sera mis en place automatiquement au démarrage
 1. exécution à la demande :
 
         $ ./init.sh
+
 
 1. [exécution automatique au démarrage de la VDI](https://faq-etu.unicaen.fr/x11_user_startup) :
 
