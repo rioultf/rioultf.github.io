@@ -39,7 +39,7 @@ Un réseau de neurones structure la transformation\ :
 * en la sortie (multi-dimensionnelle, autant de neurones que de dimension) 
 * en intercalant des couches de neurones
 
-<img src="../fig/deep.png"> 
+<img src="fig/deep.png"> 
 
 ### Redescription de l'espace
 
@@ -59,7 +59,7 @@ Lorsque les données sont de nature *séquentielle*, c'est-à-dire concerne une 
 
 Un réseau récurrent est constitué de *cellules* égrénant le temps, reliées aux autres cellules par des mécanismes d'*attention*. La largeur de la fenêtre d'attention définit la taille du *contexte*.
 
-<img src="../fig/rnn.png" width="600">
+<img src="fig/rnn.png" width="600">
 
 <!---------------------------------------------------------------->
 ## Définition d'un LLM
