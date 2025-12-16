@@ -1,63 +1,3 @@
-#!/bin/bash
-
-# ---------------------------------------------------
-# init.sh — Ajoute des configurations à ~/.bashrc
-# version 0.2
-# ---------------------------------------------------
-
-set -euo pipefail
-# -e : arrêt au premier échec
-# -u : erreur si une variable non définie est utilisée
-# -o pipefail : un pipeline échoue si l’une de ses commandes échoue
-
-BASHRC="$HOME/.bashrc"
-
-# copier si nécessaire le .ssh
-if [ ! -d "$HOME/.ssh" ]; then
-  echo "Création du répertoire ~/.ssh..."
-  cp -rf "$HOME/Documents/.ssh" "$HOME"
-  chmod 600 "$HOME/.ssh"/*
-fi
-
-# 2️⃣ Ajouter des lignes à ~/.bashrc si elles n’existent pas
-echo "Ajout des configurations dans $BASHRC..."
-
-cat >> "$BASHRC" << 'EOF'
-
-# ─────────────── Personnalisation ajoutée par init.sh ─────────────── #
-
-HISTSIZE=1000000
-HISTFILESIZE=20000
-
-export PS1="\u@\h:\W\$ "
-
-alias ls='ls --color=auto -T 0 -N'
-alias clean='rm -f core *.out #*# *~ .*~ *.aux *.log *.dvi *.o *.a *.train* *.test* *.aux *.bbl *.blg *.dvi *.toc'
-alias ll='ls -ln'
-alias la='ls -la'
-alias lr='ls -R'
-alias lc='ls *.h* *.c*'
-
-alias rm='rm -i'
-alias cp='cp -i'
-alias ln='ln -i'
-alias mv='mv -i'
-
-alias more=less
-alias lsof='/usr/sbin/lsof'
-
-. /etc/bash_completion
-
-alias docker='sudo -g docker docker'
-
-export PATH="$PATH:$HOME/Documents/bin"
-
-# ─────────────── Fin de la personnalisation ─────────────── #
-
-EOF
-
-echo "Configurations ajoutées avec succès."
-
 #!/usr/bin/env bash
 #
 # init.sh — Ajoute des configurations à ~/.bashrc
@@ -78,6 +18,7 @@ if [ ! -d "$HOME/.ssh" ]; then
   chmod 600 "$HOME/.ssh"/*
 fi
 
+BASHRC=/dev/null
 cat >> "$BASHRC" << 'EOF'
 
 # ───────────────── Personnalisation ajoutée par init.sh ───────────────── #
@@ -156,6 +97,9 @@ if [ ${#firefox_backups[@]} -gt 0 ]; then
   fi
 
   echo "Copie du profil Firefox de sauvegarde..."
+  if [ ! -d ~/.mozilla ]; then
+    mkdir ~/.mozilla
+  fi
   cp -a "$latest_firefox" "$target_ff"
 
   echo "Profil Firefox restauré depuis $latest_firefox"
@@ -168,5 +112,6 @@ echo "Restauration terminée."
 echo "Vous pouvez désormais relancer Firefox ou recharger votre session Bash."
 
 echo ""
-echo "!!! Pour ce terminal, n'oubliez pas de recharger votre bash avec : !!!"
-echo "   source ~/.bashrc"
+echo "Pour recharger l'historique de la session précédente,"
+echo "et mettre à jour l'environnement, relancez bash"
+echo "        bash"
