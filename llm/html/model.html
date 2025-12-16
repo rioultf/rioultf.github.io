@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="François Rioult" />
+  <title>Application des LLM</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Application des LLM</h1>
+<p class="subtitle">Fonctionnement d’un modèle de langue</p>
+<p class="author">François Rioult</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#architecture"><span class="toc-section-number">1</span> Architecture</a>
+<ul>
+<li><a href="#apprentissage-par-réseau-de-neurone"><span class="toc-section-number">1.1</span> Apprentissage par réseau de neurone</a>
+<ul>
+<li><a href="#neurone"><span class="toc-section-number">1.1.1</span> Neurone</a></li>
+<li><a href="#réseau-de-neurones"><span class="toc-section-number">1.1.2</span> Réseau de neurones</a></li>
+<li><a href="#redescription-de-lespace"><span class="toc-section-number">1.1.3</span> Redescription de l’espace</a></li>
+<li><a href="#entraînement-dun-réseau-de-neurones"><span class="toc-section-number">1.1.4</span> Entraînement d’un réseau de neurones</a></li>
+</ul></li>
+<li><a href="#réseau-de-neurones-récurrent"><span class="toc-section-number">1.2</span> Réseau de neurones récurrent</a></li>
+<li><a href="#définition-dun-llm"><span class="toc-section-number">1.3</span> Définition d’un LLM</a></li>
+</ul></li>
+<li><a href="#définitions"><span class="toc-section-number">2</span> définitions</a>
+<ul>
+<li><a href="#dataset"><span class="toc-section-number">2.1</span> dataset</a></li>
+<li><a href="#modèle"><span class="toc-section-number">2.2</span> modèle</a></li>
+<li><a href="#évaluation"><span class="toc-section-number">2.3</span> évaluation</a></li>
+<li><a href="#api"><span class="toc-section-number">2.4</span> API</a></li>
+<li><a href="#chat-template"><span class="toc-section-number">2.5</span> chat template</a></li>
+</ul></li>
+<li><a href="#section"><span class="toc-section-number">3</span> </a>
+<ul>
+<li><a href="#modèles"><span class="toc-section-number">3.1</span> Modèles</a>
+<ul>
+<li><a href="#raisonnement"><span class="toc-section-number">3.1.1</span> Raisonnement</a></li>
+<li><a href="#tuning"><span class="toc-section-number">3.1.2</span> Tuning</a></li>
+</ul></li>
+<li><a href="#model-context-protocol"><span class="toc-section-number">3.2</span> Model context protocol</a></li>
+</ul></li>
+<li><a href="#évaluation-1"><span class="toc-section-number">4</span> Évaluation</a></li>
+<li><a href="#applications"><span class="toc-section-number">5</span> Applications</a></li>
+<li><a href="#ner-iob"><span class="toc-section-number">6</span> NER &amp; IOB</a>
+<ul>
+<li><a href="#large-action-model"><span class="toc-section-number">6.1</span> Large Action Model</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="architecture"><span class="header-section-number">1</span> Architecture</h1>
+<p>Les LLM fonctionnent grâce à des réseaux de neurones récurrents, qui ont <em>appris</em> à prédire le prochain jeton selon les jetons qu’il a lus précédemment.</p>
+<p>C’est le même fonctionnement que votre application de rédaction de MMS qui vous propose des mots probables selon les mots précédents dans votre message en cours d’écriture.</p>
+<!---------------------------------------------------------------->
+<h2 data-number="1.1" id="apprentissage-par-réseau-de-neurone"><span class="header-section-number">1.1</span> Apprentissage par réseau de neurone</h2>
+<p>Un réseau de neurones est une structure informatique qui apprend à mettre en relation une <em>entrée</em> et une <em>sortie</em>. On fournit au réseau des paires <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>e</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>e</mi><mi>e</mi><mo>,</mo><mi>s</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>i</mi><mi>e</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(entree, sortie)</annotation></semantics></math> pour lesquelles il doit déterminer une relation <em>fonctionnelle</em>.</p>
+<p>Entrée comme sortie peuvent être quasiment n’importe quel type de donnée : numérique, texte, image, vidéo, etc. Tout finira par être transformé en vecteurs de nombre, par une opération d’<em>embedding</em> (intégration en français).</p>
+<h3 data-number="1.1.1" id="neurone"><span class="header-section-number">1.1.1</span> Neurone</h3>
+<p>Un <em>neurone</em> est un objet informatique, qui possède :</p>
+<ul>
+<li>une valeur (généralement entre -1 et 1)</li>
+<li>des connexions <em>entrantes</em> pondérées avec d’autres neurones : un ensemble de poids <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>i</mi></msub><annotation encoding="application/x-tex">w_i</annotation></semantics></math> tels que <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>i</mi></msub><mo>=</mo><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>w</mi><mi>j</mi></msub><msub><mi>h</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">h_i = \sum_j w_j h_j</annotation></semantics></math></li>
+<li>des connexions <em>sortantes</em> avec d’autres neurones</li>
+</ul>
+<p>Un neurone reçoit des informations, à sa manière, et transmet une information.</p>
+<p><img src="../fig/ArtificialNeuronModel_francais.png" width="400"></p>
+<h3 data-number="1.1.2" id="réseau-de-neurones"><span class="header-section-number">1.1.2</span> Réseau de neurones</h3>
+<p>Un réseau de neurones structure la transformation :</p>
+<ul>
+<li>de l’entrée : multi-dimensionnelle, donne initie le réseau par autant de neurones que de dimensions</li>
+<li>en la sortie (multi-dimensionnelle, autant de neurones que de dimension)</li>
+<li>en intercalant des couches de neurones</li>
+</ul>
+<p><img src="../fig/deep.png"></p>
+<h3 data-number="1.1.3" id="redescription-de-lespace"><span class="header-section-number">1.1.3</span> Redescription de l’espace</h3>
+<p>Il faut voir une couche de neurones comme étant une <em>projection</em> de son entrée vers un espace de redescription où la <em>similarité</em> entre les objets étudiés sera plus <em>discriminante</em> que celle de l’espace initial.</p>
+<p>La notion de discrimination est définie ici par le contexte d’appariement fourni au cours de l’apprentissage.</p>
+<h3 data-number="1.1.4" id="entraînement-dun-réseau-de-neurones"><span class="header-section-number">1.1.4</span> Entraînement d’un réseau de neurones</h3>
+<p>La tâche d’entraînement d’un réseau de neurones, appelée <em>apprentissage</em>, consiste sur un réseau <em>vierge</em> à présenter un exemple d’entrée et de mesurer la sortie obtenue. Cette sortie est comparée à la <em>sortie attendue</em> ou <em>vérité</em>, selon une mesure de <em>perte</em> définie, qui sert d’indication au réseau pour être modifié.</p>
+<p>La modification des poids du réseau procède par <em>rétro-propagation de gradient</em>. Le <em>gradient</em> est le mot physique pour <em>variation</em>. De la sortie à l’entrée, on propage la variation entre la sortie obtenue et la vérité - dans la pratique, on fait des groupes d’instances (<em>batch</em>) et on rétro-propage la moyenne.</p>
+<!---------------------------------------------------------------->
+<h2 data-number="1.2" id="réseau-de-neurones-récurrent"><span class="header-section-number">1.2</span> Réseau de neurones récurrent</h2>
+<p>Lorsque les données sont de nature <em>séquentielle</em>, c’est-à-dire concerne une évolution temporelle ou spatiale, il faut un réseau capable de traiter des entrées séquentielles : un réseau de neurones récurrent. Les applications sont nombreuses : texte, vidéo, audio, trajectoires.</p>
+<p>Un réseau récurrent est constitué de <em>cellules</em> égrénant le temps, reliées aux autres cellules par des mécanismes d’<em>attention</em>. La largeur de la fenêtre d’attention définit la taille du <em>contexte</em>.</p>
+<p><img src="../fig/rnn.png" width="600"></p>
+<h2 data-number="1.3" id="définition-dun-llm"><span class="header-section-number">1.3</span> Définition d’un LLM</h2>
+<p>Un LLM (ou <em>large language model</em>) est un modèle de langue constitué par un réseau de neurones récurrent entraîné à prédire des tokens de texte à partir d’un contexte de tokens, sur des <em>corpus</em> de textes proportionnels à sa <em>taille</em>.</p>
+<p>La façon de <em>tokenizer</em> le texte est importante. Cette fonctionnalité peut elle-même être fournie par un LLM.</p>
+<h1 data-number="2" id="définitions"><span class="header-section-number">2</span> définitions</h1>
+<h2 data-number="2.1" id="dataset"><span class="header-section-number">2.1</span> dataset</h2>
+<h2 data-number="2.2" id="modèle"><span class="header-section-number">2.2</span> modèle</h2>
+<h2 data-number="2.3" id="évaluation"><span class="header-section-number">2.3</span> évaluation</h2>
+<h2 data-number="2.4" id="api"><span class="header-section-number">2.4</span> API</h2>
+<h2 data-number="2.5" id="chat-template"><span class="header-section-number">2.5</span> chat template</h2>
+<p>comment le modèle s’arrête-til de produire des jetons ## system prompt ## évaluation</p>
+<h1 data-number="3" id="section"><span class="header-section-number">3</span> </h1>
+<p><a href="https://cohere.com/blog/llm-parameters-best-outputs-language-ai">Sur les paramètres de la génération</a></p>
+<h2 data-number="3.1" id="modèles"><span class="header-section-number">3.1</span> Modèles</h2>
+<ul>
+<li><a href="https://huggingface.co/google-t5/t5-base">tokenizer</a></li>
+</ul>
+<p>https://huggingface.co/docs/transformers/model_doc/t5</p>
+<h3 data-number="3.1.1" id="raisonnement"><span class="header-section-number">3.1.1</span> Raisonnement</h3>
+<ul>
+<li><a href="https://huggingface.co/spaces/Qwen/QwQ-32B-preview">QwQ</a></li>
+<li><a href="https://github.com/cpldcpu/MisguidedAttention">tests de problemes elementaires</a></li>
+<li><a href="https://informationism.org/ai2/siriusIIemodel.php">modele qui raisonne en enchainant trois system slot</a></li>
+</ul>
+<p><a href="https://openai.com/index/learning-to-reason-with-llms/">details sur le CoT de o1</a></p>
+<p>i’m like 80% this is how o1 works: &gt;collect a dataset of question/answer pairs &gt;model to produce reasoning steps (sentences) &gt;r env where each new reasoning step is an action &gt;no fancy model; ppo actor-critic is enough &gt;that’s literally</p>
+<p>https://www.reddit.com/r/LocalLLaMA/comments/1h1q8h3/alibaba_qwq_32b_model_reportedly_challenges_o1/</p>
+<p>https://medium.com/<span class="citation" data-cites="wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a">@wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a</span></p>
+<p>The ARC benchmark (Abstraction and Reasoning Corpus), created by Google engineer François Chollet,</p>
+<h3 data-number="3.1.2" id="tuning"><span class="header-section-number">3.1.2</span> Tuning</h3>
+<p>https://github.com/huggingface/smol-course/tree/main https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning</p>
+<p>Tuning de Smollm puis sauvegarde sur le hub</p>
+<h2 data-number="3.2" id="model-context-protocol"><span class="header-section-number">3.2</span> Model context protocol</h2>
+<p>https://www.anthropic.com/news/model-context-protocol</p>
+<h1 data-number="4" id="évaluation-1"><span class="header-section-number">4</span> Évaluation</h1>
+<p><a href="https://www.promptingguide.ai/fr/models/gpt-4" class="uri">https://www.promptingguide.ai/fr/models/gpt-4</a> blog sur l’évaluation de GPT-4 avec quelques exemples dans le playground</p>
+<p>From metrics to insight, Power your metrics and alerting with the leading open-source monitoring solution : https://prometheus.io/</p>
+<p>https://opentelemetry.io/docs/what-is-opentelemetry/</p>
+<ul>
+<li><a href="https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics">métriques d’évaluation llm</a></li>
+</ul>
+<h1 data-number="5" id="applications"><span class="header-section-number">5</span> Applications</h1>
+<ul>
+<li>moteur de recherche amélioré <a href="https://www.perplexity.ai" class="uri">https://www.perplexity.ai</a></li>
+<li><a href="https://github.com/hf-lin/ChatMusician?tab=readme-ov-file" class="uri">https://github.com/hf-lin/ChatMusician?tab=readme-ov-file</a> Je suis pas allé plus loin que la section Limitations qui indique « A large portion of the training data is in the style of Irish music ».</li>
+<li>https://www.reddit.com/r/ChatGPTPromptGenius/comments/1h2uxeh/full_starting_prompt_for_chatgpt/</li>
+</ul>
+<h1 data-number="6" id="ner-iob"><span class="header-section-number">6</span> NER &amp; IOB</h1>
+<p><a href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)">IOB tagging inside out beginning</a></p>
+<h2 data-number="6.1" id="large-action-model"><span class="header-section-number">6.1</span> Large Action Model</h2>
+<p><a href="https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work" class="uri">https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work</a></p>
+<p>C’est plutôt dédié à la productivité. Tu programmes des tâches variées. L’app est à &lt;sellagen.com/nelima&gt;</p>
+<p>Voir la source : <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button" class="uri">https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</a></p>
+<ul>
+<li><a href="https://www.salesforce.com/blog/large-action-model-ai-agent/" class="uri">https://www.salesforce.com/blog/large-action-model-ai-agent/</a></li>
+<li><a href="https://www.instinctools.com/blog/large-action-models/" class="uri">https://www.instinctools.com/blog/large-action-models/</a></li>
+</ul>
+<p>https://docs.searxng.org meta moteur de recherche pour alimenter en contexte</p>
+<p><a href="https://www.louisbouchard.ai/how-llms-know-when-to-stop/">Comment le LLM sait quand s’arrêter de générer</a></p>
+</body>
+</html>

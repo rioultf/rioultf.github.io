@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>model2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; } /* Alert */
+    code span.an { color: #008000; } /* Annotation */
+    code span.at { } /* Attribute */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #0000ff; } /* ControlFlow */
+    code span.ch { color: #008080; } /* Char */
+    code span.cn { } /* Constant */
+    code span.co { color: #008000; } /* Comment */
+    code span.cv { color: #008000; } /* CommentVar */
+    code span.do { color: #008000; } /* Documentation */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.im { } /* Import */
+    code span.in { color: #008000; } /* Information */
+    code span.kw { color: #0000ff; } /* Keyword */
+    code span.op { } /* Operator */
+    code span.ot { color: #ff4000; } /* Other */
+    code span.pp { color: #ff4000; } /* Preprocessor */
+    code span.sc { color: #008080; } /* SpecialChar */
+    code span.ss { color: #008080; } /* SpecialString */
+    code span.st { color: #008080; } /* String */
+    code span.va { } /* Variable */
+    code span.vs { color: #008080; } /* VerbatimString */
+    code span.wa { color: #008000; font-weight: bold; } /* Warning */
+  </style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#paramètres-de-la-génération"><span class="toc-section-number">0.1</span> Paramètres de la génération</a>
+<ul>
+<li><a href="#température"><span class="toc-section-number">0.1.1</span> Température</a></li>
+<li><a href="#top-k"><span class="toc-section-number">0.1.2</span> Top-k</a></li>
+<li><a href="#top-p"><span class="toc-section-number">0.1.3</span> Top-p</a></li>
+</ul></li>
+<li><a href="#tokenizer"><span class="toc-section-number">0.2</span> Tokenizer</a>
+<ul>
+<li><a href="#exemple-de-smollm"><span class="toc-section-number">0.2.1</span> Exemple de Smollm</a></li>
+<li><a href="#enseignement-important"><span class="toc-section-number">0.2.2</span> Enseignement important</a></li>
+<li><a href="#notes"><span class="toc-section-number">0.2.3</span> Notes</a></li>
+</ul></li>
+<li><a href="#embedding"><span class="toc-section-number">0.3</span> Embedding</a>
+<ul>
+<li><a href="#gpt---generative-pre-trained-transformer"><span class="toc-section-number">0.3.1</span> GPT - generative pre-trained transformer</a></li>
+<li><a href="#bert---bidirectional-encoder-representations-from-transformers"><span class="toc-section-number">0.3.2</span> BERT - (Bidirectional Encoder Representations from Transformers)</a></li>
+<li><a href="#word2vec"><span class="toc-section-number">0.3.3</span> Word2vec</a></li>
+</ul></li>
+<li><a href="#raisonnement"><span class="toc-section-number">0.4</span> Raisonnement</a></li>
+<li><a href="#tuning"><span class="toc-section-number">0.5</span> Tuning</a></li>
+<li><a href="#model-context-protocol"><span class="toc-section-number">0.6</span> Model context protocol</a></li>
+<li><a href="#évaluation"><span class="toc-section-number">0.7</span> Évaluation</a></li>
+<li><a href="#ner-iob"><span class="toc-section-number">1</span> NER &amp; IOB</a>
+<ul>
+<li><a href="#large-action-model"><span class="toc-section-number">1.1</span> Large Action Model</a></li>
+</ul></li>
+</ul>
+</nav>
+<!---------------------------------------------------------------->
+<h2 data-number="0.1" id="paramètres-de-la-génération"><span class="header-section-number">0.1</span> Paramètres de la génération</h2>
+<p><a href="https://cohere.com/blog/llm-parameters-best-outputs-language-ai">Source</a></p>
+<h3 data-number="0.1.1" id="température"><span class="header-section-number">0.1.1</span> Température</h3>
+<p>Contrôle la créativité du modèle. Une température de 0 rend le modèle <em>déterministe</em>.</p>
+<h3 data-number="0.1.2" id="top-k"><span class="header-section-number">0.1.2</span> Top-k</h3>
+<p>Indique au modèle de choisir des token parmi les <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math> meilleurs.</p>
+<h3 data-number="0.1.3" id="top-p"><span class="header-section-number">0.1.3</span> Top-p</h3>
+<p>C’est un seuil de probabilité pour filtrer les tokens.</p>
+<!---------------------------------------------------------------->
+<h2 data-number="0.2" id="tokenizer"><span class="header-section-number">0.2</span> Tokenizer</h2>
+<p>[Introduction à la tokenisation]<a href="https://www.geeksforgeeks.org/introduction-of-lexical-analysis/" class="uri">https://www.geeksforgeeks.org/introduction-of-lexical-analysis/</a></p>
+<h3 data-number="0.2.1" id="exemple-de-smollm"><span class="header-section-number">0.2.1</span> Exemple de Smollm</h3>
+<ul>
+<li><a href="https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus">600B tokens from Smollm-Corpus</a></li>
+<li>49152 tokens</li>
+<li><a href="https://arxiv.org/pdf/2402.14905">architecture reprise sur MobileLLM</a>
+<ul>
+<li>section G : distillation</li>
+<li>beaucoup de détails techniques, considérations sur le nombre de têtes d’attention. Partage de layer. Un bloc trasformer contient le MHSA (multi-head self attention) et un feed-forward (FFN)</li>
+</ul></li>
+</ul>
+<h4 data-number="0.2.1.1" id="analyse-des-tokens"><span class="header-section-number">0.2.1.1</span> Analyse des tokens</h4>
+<ul>
+<li>tokens de dialogue :</li>
+</ul>
+<pre><code>&lt;|endoftext|&gt;
+&lt;|im_start|&gt;
+&lt;|im_end|&gt;
+&lt;repo_name&gt;
+&lt;reponame&gt;
+&lt;file_sep&gt;
+&lt;filename&gt;
+&lt;gh_stars&gt;
+&lt;issue_start&gt;
+&lt;issue_comment&gt;
+&lt;issue_closed&gt;
+&lt;jupyter_start&gt;
+&lt;jupyter_text&gt;
+&lt;jupyter_code&gt;
+&lt;jupyter_output&gt;
+&lt;jupyter_script&gt;
+&lt;empty_output&gt;</code></pre>
+<ul>
+<li>760 combinaisons de signes de ponctuation</li>
+<li>235 caractères uniques</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="im">from</span> transformers <span class="im">import</span> AutoModelForCausalLM, AutoTokenizer</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>model_name <span class="op">=</span> <span class="st">&quot;HuggingFaceTB/SmolLM2-360M-Instruct&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(pretrained_model_name_or_path<span class="op">=</span>model_name)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">49152</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>    <span class="bu">print</span>(tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens([i])))</span></code></pre></div>
+<p>Les tokens commençant par un espace (codé <code>Ġ</code>) sont des débuts de mots. Les autres peuvent compléter d’autres tokens.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">awk</span> <span class="st">&#39;NR&gt;=254{print}&#39;</span> token.txt <span class="kw">|</span> <span class="fu">sed</span> -n <span class="st">&#39;s/^ //p&#39;</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="op">&gt;</span> words.txt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="fu">awk</span> <span class="st">&#39;NR&gt;=254{print}&#39;</span> token.txt <span class="kw">|</span> <span class="fu">grep</span> -v <span class="st">&quot;^ &quot;</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="op">&gt;</span> suffixes.txt</span></code></pre></div>
+<h4 data-number="0.2.1.2" id="mots-en-majuscule"><span class="header-section-number">0.2.1.2</span> Mots en majuscule</h4>
+<ul>
+<li><p>toutes les lettres</p></li>
+<li><p>la moitié des combinaisons de deux lettres. Vérifier s’il y a les pays</p></li>
+<li><p>400 triplets</p></li>
+<li><p><a href="script/capital.txt">Les plus longs</a></p></li>
+<li><p>10 000 mots commencent par une majuscule</p></li>
+<li><p><a href="script/lower.txt">22 000 mots commencent par une minuscule</a></p></li>
+<li><p>3800 suffixes commencent par une majuscule</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">grep</span> -E <span class="st">&#39;^[A-Z]{4,}$&#39;</span> words.txt <span class="kw">|</span> <span class="fu">awk</span> <span class="st">&#39;{ print length(), $0 | &quot;sort -rn&quot; }&#39;</span> <span class="kw">|</span> <span class="fu">cut</span> -d<span class="st">&quot; &quot;</span> -f2- <span class="op">&gt;</span> capital.txt</span></code></pre></div>
+<h3 data-number="0.2.2" id="enseignement-important"><span class="header-section-number">0.2.2</span> Enseignement important</h3>
+<ul>
+<li>la ponctuation est prise en compte</li>
+<li>le modèle fait la différence entre majuscules et minuscules</li>
+<li>certains tokens sont <em>très</em> longs : les mots longs ne sont pas découpés lorsqu’ils sont porteurs de sens répandu dans le corpus.</li>
+</ul>
+<h3 data-number="0.2.3" id="notes"><span class="header-section-number">0.2.3</span> Notes</h3>
+<ul>
+<li><a href="https://huggingface.co/google-t5/t5-base">tokenizer</a></li>
+<li><a href="https://huggingface.co/docs/transformers/model_doc/t5" class="uri">https://huggingface.co/docs/transformers/model_doc/t5</a></li>
+</ul>
+<!---------------------------------------------------------------->
+<h2 data-number="0.3" id="embedding"><span class="header-section-number">0.3</span> Embedding</h2>
+<p>L’<em>embedding</em> transforme le token en un vecteur, qui peut être utilisé dans un RNN. C’est le résultat d’un apprentissage à base de blocs transformers propageant de la self attention pour prédire la cible.</p>
+<h3 data-number="0.3.1" id="gpt---generative-pre-trained-transformer"><span class="header-section-number">0.3.1</span> GPT - generative pre-trained transformer</h3>
+<p>On ajoute un embedding positionnel sur la <em>sequence</em>.</p>
+<h3 data-number="0.3.2" id="bert---bidirectional-encoder-representations-from-transformers"><span class="header-section-number">0.3.2</span> BERT - (Bidirectional Encoder Representations from Transformers)</h3>
+<p>Utilise également un embedding positionnel.</p>
+<p>Ajoute un embedding de <em>segment</em> pour différencier les séquences.</p>
+<h3 data-number="0.3.3" id="word2vec"><span class="header-section-number">0.3.3</span> Word2vec</h3>
+<p>Il utilise deux architectures principales pour générer des embeddings : Skip-gram et CBOW (Continuous Bag of Words). Skip-gram prédit le contexte à partir d’un mot donné, tandis que CBOW prédit un mot à partir des mots du contexte.</p>
+<p><a title="Aelu013, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CBOW_eta_Skipgram.png"><img width="512" alt="CBOW eta Skipgram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/CBOW_eta_Skipgram.png/512px-CBOW_eta_Skipgram.png?20180225191115"></a></p>
+<p>L’embedding</p>
+<!---------------------------------------------------------------->
+<h2 data-number="0.4" id="raisonnement"><span class="header-section-number">0.4</span> Raisonnement</h2>
+<ul>
+<li><a href="https://huggingface.co/spaces/Qwen/QwQ-32B-preview">QwQ</a></li>
+<li><a href="https://github.com/cpldcpu/MisguidedAttention">tests de problemes elementaires</a></li>
+<li><a href="https://informationism.org/ai2/siriusIIemodel.php">modele qui raisonne en enchainant trois system slot</a></li>
+<li><a href="https://openai.com/index/learning-to-reason-with-llms/">details sur le CoT de o1</a></li>
+</ul>
+<p>i’m like 80% this is how o1 works: &gt;collect a dataset of question/answer pairs &gt;model to produce reasoning steps (sentences) &gt;r env where each new reasoning step is an action &gt;no fancy model; ppo actor-critic is enough &gt;that’s literally</p>
+<ul>
+<li><p>https://www.reddit.com/r/LocalLLaMA/comments/1h1q8h3/alibaba_qwq_32b_model_reportedly_challenges_o1/</p></li>
+<li><p>https://medium.com/<span class="citation" data-cites="wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a">@wadan/what-researchers-need-to-know-about-openais-new-o1-model-cfda50f18d1a</span></p></li>
+</ul>
+<p>The ARC benchmark (Abstraction and Reasoning Corpus), created by Google engineer François Chollet,</p>
+<h2 data-number="0.5" id="tuning"><span class="header-section-number">0.5</span> Tuning</h2>
+<p>https://github.com/huggingface/smol-course/tree/main https://github.com/huggingface/smol-course/tree/main/1_instruction_tuning</p>
+<p>Tuning de Smollm puis sauvegarde sur le hub</p>
+<h2 data-number="0.6" id="model-context-protocol"><span class="header-section-number">0.6</span> Model context protocol</h2>
+<p>https://www.anthropic.com/news/model-context-protocol</p>
+<h2 data-number="0.7" id="évaluation"><span class="header-section-number">0.7</span> Évaluation</h2>
+<ul>
+<li><a href="https://www.promptingguide.ai/fr/models/gpt-4">blog sur l’évaluation de GPT-4 avec quelques exemples dans le playground</a></li>
+<li><a href="https://prometheus.io/">From metrics to insight, Power your metrics and alerting with the leading open-source monitoring solution</a></li>
+<li><a href="https://opentelemetry.io/docs/what-is-opentelemetry/">Télémétrie</a></li>
+<li><a href="https://docs.ragas.io/en/latest/concepts/metrics/overview/#different-types-of-metrics">métriques d’évaluation llm</a></li>
+</ul>
+<h1 data-number="1" id="ner-iob"><span class="header-section-number">1</span> NER &amp; IOB</h1>
+<p><a href="https://en.wikipedia.org/wiki/Inside%E2%80%93outside%E2%80%93beginning_(tagging)">IOB tagging inside out beginning</a></p>
+<h2 data-number="1.1" id="large-action-model"><span class="header-section-number">1.1</span> Large Action Model</h2>
+<p><a href="https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work" class="uri">https://www.trinetix.com/insights/what-are-large-action-models-and-how-do-they-work</a></p>
+<p>C’est plutôt dédié à la productivité. Tu programmes des tâches variées. L’app est à &lt;sellagen.com/nelima&gt;</p>
+<p>Voir la source : <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button" class="uri">https://www.reddit.com/r/ArtificialInteligence/comments/1fzzmr4/psa_you_can_literally_get_a_custom_newsletter_on/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</a></p>
+<ul>
+<li><p><a href="https://www.salesforce.com/blog/large-action-model-ai-agent/" class="uri">https://www.salesforce.com/blog/large-action-model-ai-agent/</a></p></li>
+<li><p><a href="https://www.instinctools.com/blog/large-action-models/" class="uri">https://www.instinctools.com/blog/large-action-models/</a></p></li>
+<li><p><a href="https://docs.searxng.org">meta moteur de recherche pour alimenter en contexte</a></p></li>
+</ul>
+</body>
+</html>
