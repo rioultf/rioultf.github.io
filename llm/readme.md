@@ -42,7 +42,6 @@ Les objectifs de ce cours sont :
 * [CM 5 - Écosystème des LLM](hugging/hugging.md)
 * [CM 6 - Programmation assistée par LLM - NoCode](nocode/nocode.md)
 * [CM 7 - Personnalisation d'un LLM - Distillation]()
-* CM 8
 
 <!---------------------------------------------------------------->
 
@@ -106,7 +105,7 @@ flowchart TD
 
 1. TP - [Promptengineering avec PromptFoo]
 
-1. TP - [Prise en main `Anything LLM'](tp/2-AnythingLLM.md)
+1. TP - [Prise en main `Anything LLM`](tp/2-AnythingLLM.md)
 
 1. TP - [Prise en main `lm_studio`](tp/22-LMStudio.md)
 
