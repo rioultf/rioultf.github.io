@@ -2,7 +2,7 @@
 author:
 - François Rioult
 lang: fr
-title: Application des LLM
+title: Application des LLM - développement d'agent
 subtitle: Guide
 ---
 
@@ -21,7 +21,7 @@ Les objectifs de ce cours sont :
 
 * comprendre le fonctionnement d'un LLM
 * maîtriser les interactions avec un LLM (prompt engineering)
-* le mettre en oeuvre pour la réalisation d'une application
+* le mettre en oeuvre pour la réalisation d'une application agent, faisant appel à un outil spécifique
 * appréhender l'éco-système informatique autour des LLM
 
 ## Cas d'usage
@@ -60,6 +60,12 @@ Ceci suppose de gérer un *environnement de développement* :
 * [CM 0 - Linux](doc/linux.md)
 * [TP 0 - Apprentissage de Linux](doc/linux-tp.md)
 
+<!---------------------------------------------------------------->
+# Principe fonctionnel
+
+<img src="fig/agent.svg>
+
+
 
 <!---------------------------------------------------------------->
 # Travaux pratiques
@@ -93,10 +99,6 @@ Ceci suppose de gérer un *environnement de développement* :
   * tokenisation
   * inférence
 
-1. TP - Réalisation d'application - `Streamlit`
-
-  * connexion `lm_studio`
-
 # Vocabulaire
 
 * Backend - Devices - hug - repository
@@ -116,7 +118,6 @@ CANN 	Ascend NPU
 
 
 # Concepts
-
 
 * [ai slop](https://www.reddit.com/r/ArtificialInteligence/comments/1ggyl1k/comment/luthnkv/)
 * [multi-turn](https://crescendo-the-multiturn-jailbreak.github.io//
@@ -141,8 +142,3 @@ CANN 	Ascend NPU
 * [Documentation technique ML engineering](https://github.com/stas00/ml-engineering?tab=readme-ov-file)
 * [Chatbot arena : classement des LLM par des humains](https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard)
 * [Biais d'écriture du LLM](https://medium.com/teach-me-in-plain-language/5-things-ai-thinks-are-tell-tale-signs-for-ai-generated-text-vs-how-to-actually-identify-them-c3974d1bee33)
-
-
-# Écologie
-
-* [mesurer l'impact de votre LLM](https://www.ecollm.fr/)
