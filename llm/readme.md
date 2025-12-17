@@ -63,7 +63,7 @@ Ceci suppose de gérer un *environnement de développement* :
 <!---------------------------------------------------------------->
 # Principe fonctionnel
 
-<img src="fig/agent.svg>
+<img src="fig/agent.svg">
 
 
 
