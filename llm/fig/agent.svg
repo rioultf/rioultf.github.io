@@ -23,7 +23,7 @@
   <!-- 2) Orchestrateur -->
   <rect x="50" y="180" width="800" height="160" rx="12" class="box orchestrator"/>
   <text x="450" y="210" text-anchor="middle" class="title" fill="#198754">2) Orchestrateur / Middleware</text>
-  <text x="450" y="240" text-anchor="middle" class="step-label">AnythingLLM (analyse & routage)</text>
+  <text x="450" y="240" text-anchor="middle" class="step-label">AnythingLLM (analyse et routage)</text>
   <text x="450" y="260" text-anchor="middle" class="step-label">Ajoute outils, RAG, backend/node de chat</text>
   <text x="450" y="280" text-anchor="middle" class="step-label">Décide si appel outil local ou externe</text>
 
