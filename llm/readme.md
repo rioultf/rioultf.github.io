@@ -68,7 +68,7 @@ Ceci suppose de gérer un *environnement de développement* :
 ```mermaid
 flowchart TD
     A[Utilisateur: Prompt Sensor1 hauteur ?]
-    B[Orchestrateur (AnythingLLM)]
+    B[Orchestrateur - AnythingLLM]
     C1[Modèle Local e.g. LM Studio]
     C2[Modèle Cloud e.g. OpenAI]
     D[Outil Externe API]
