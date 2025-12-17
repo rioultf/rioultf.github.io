@@ -106,9 +106,9 @@ flowchart TD
 
 1. TP - [Promptengineering avec PromptFoo]
 
-1. TP - [Prise en main `Anything LLM']()
+1. TP - [Prise en main `Anything LLM'](tp/2-AnythingLLM.md)
 
-1. TP - Prise en main `lm_studio`
+1. TP - [Prise en main `lm_studio`](tp/22-LMStudio.md)
 
   * Installation
   * Examen du repository
