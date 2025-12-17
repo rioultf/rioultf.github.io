@@ -69,19 +69,16 @@ Ceci suppose de gérer un *environnement de développement* :
 flowchart TD
     A[Utilisateur: Prompt Sensor1 hauteur ?]
     B[Orchestrateur - AnythingLLM]
-    C1[Modèle Local e.g. LM Studio]
-    C2[Modèle Cloud e.g. OpenAI]
+    C[chat_completion API (LM Studio, OpenRouter, AnythingLLM)
     D[Outil Externe API]
     E[Réinterrogation Modèle Final]
     F[Assemblage Réponse]
     UI[UI Final affichage]
 
     A --> B
-    B --> C1
-    B --> C2
+    B --> C
 
-    C1 --> B
-    C2 --> B
+    C --> B
 
     B --> D
     D --> B
