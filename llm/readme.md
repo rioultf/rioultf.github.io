@@ -65,7 +65,8 @@ Ceci suppose de gérer un *environnement de développement* :
 
 <img src="fig/agent.svg">
 
-```mermaidflowchart TD
+```mermaid
+flowchart TD
     subgraph UI["1) Interface / Interaction"]
         A[Utilisateur\nPrompt (« Sensor 1 hauteur ? »)]
     end
