@@ -65,7 +65,47 @@ Ceci suppose de gérer un *environnement de développement* :
 
 <img src="fig/agent.svg">
 
+```mermaidflowchart TD
+    subgraph UI["1) Interface / Interaction"]
+        A[Utilisateur\nPrompt (« Sensor 1 hauteur ? »)]
+    end
 
+    subgraph ORCH["2) Orchestrateur / Middleware\n(AnythingLLM)"]
+        B(Analyse & Routage)
+    end
+
+    subgraph MODELS["3) Modèles"]
+        C1[Modèle Local\n(LM Studio / Ollama)]
+        C2[Modèle Cloud\n(OpenAI / Azure / Claude)]
+    end
+
+    subgraph TOOL["4) Outil Externe"]
+        D[API OpenAPI / API métier\n(Outil externe)]
+    end
+
+    subgraph ASSEM["6) Assemblage réponse"]
+        E[Assemblage final\n(textes + outils + métadonnées)]
+    end
+
+    F[Résultat final affiché à l’UI]
+
+    %% Flèches principales
+    A -->|1: Prompt| B
+    B -->|2a: Appel modèle local| C1
+    B -->|2b: Appel modèle cloud| C2
+
+    C1 -->|3a: Réponse| B
+    C2 -->|3b: Réponse| B
+
+    B -->|4: Appel outil externe| D
+    D -->|5: Résultat outil| B
+
+    B -->|5: Réinterrogation modèle\sinformation d’outil| C1
+    C1 -->|6: Réponse final modèle| B
+
+    B -->|7: Assemblage| E
+    E -->|8: Réponse finale| F
+```
 
 <!---------------------------------------------------------------->
 # Travaux pratiques
