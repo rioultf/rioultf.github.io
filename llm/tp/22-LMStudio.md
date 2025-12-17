@@ -1,90 +1,94 @@
----
-author:
-- François Rioult
-lang: fr
-title: Application des LLM
-subtitle: Mise en place d'un registre _ LMStudio
----
+## LM Studio
+
+LMStudio est un *registre* : il sert de l'inférence à partir de modèle locaux.
+
+* télécharge un modèle GGUF
+* chaque modèle peut être paramétré :
+
+  * load
+
+    * taille du contexte
+    * GPU / CPU
+    * seed
+
+  * prompt
+    
+    * *jinja* template
+    * system prompt
+
+  * inférence 
+
+    * température 
+    * sortie structurée (JSON)
+    * top K
+    * min P
+    * top P
+
+* permet d'instancier un *serveur* pour l'inférence (Developer -> Server Settings)
+
+  * serveur local : `LMStudio` propose une API `chat_completions` et peut être utilisé par AnythingLLM
+  * accepte les requêtes MCP 
+  * positionne CORS (pour pouvoir assembler la requête dans un navigateur)
+
+* la section `Developer` permet d'interagir avec les modèles (élucider si le paramétrage surcharge celui du modèle):
+
+  * liste des end-points supportés 
+
+  * onglets
+    
+    *information (quantisation, architecture, taille)
+    * system prompt 
+    * inférence 
+
+        * température 
+        * sortie structurée (JSON)
+        * top K
+        * min P
+        * top P
+
+  * paramétrer le système de log
+
 
 # Installation
 
-* télécharger l'app sur le site
+* créer un dossier `~/software` destiné à stocker les logiciels utilisés dans ce TP
+* y télécharger l'[AppImage](https://lmstudio.ai/download/latest/linux/x64)
 
-        cd software/
-        mv ~/Téléchargements/LM-Studio-0.3.35-1-x64.ppImage .
         chmod +x LM-Studio-0.3.35-1-x64.AppImage 
+        ./LM-Studio-0.3.35-1-x64.AppImage
+        LM-Studio-0.3.17-11-x64.AppImage --no-sandbox
 
-        ./LM-Studio-0.3.35-1-x64.AppImage --no-sandbox
+* on installe un premier modèle (onglet vertical)
 
+  * rechercher https://model.lmstudio.ai/download/lmstudio-community/SmolLM2-1.7B-Instruct-GGUF
 
+  
+Les modèles sont stockés au format GGUF dans `ˇ/.lmstudio/models`.
 
+# Exercices
 
+* effectuer des requêtes sur `smollm2-1.7b-instruct:2`
 
+                hi
 
-* [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
-* [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
-* [en TypeScript](https://lmstudio.ai/docs/sdk)
-* [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
+* analyser les statistiques (survol de l'ampoule) :
 
-Démarrer sans sandbox :
-
-        LM-Studio-0.3.17-11-x64.AppImage --no-sandbow
-
-
-les models sont dans `/home/rioultf/.cache/lm-studio/models`
-fichier gguf
-
-on choisit le runtime Llama.cpp (GPU, CPU) ou Vulkan
-
-la fenêtre de chat peut être améliorée par des configurations (settings) incluant un system prompt
-
-le chat montre
-
-* le nombre de token pour chaque instruction
-* le rôle est paramétrable (user, assistant)
-* génération : token/sec, temps pour obtenir le premier token, raison pour le stop
-* en bas de la fenêtre, le taux de remplissage du contexte
-
-peut instancier un serveur, réglable par l'interface.
-
-```bash
-lms -h
+```
+"stats": {
+    "stopReason": "eosFound",
+    "tokensPerSecond": 2.039456782601547,
+    "numGpuLayers": -1,
+    "timeToFirstTokenSec": 15.076,
+    "totalTimeSec": 4.903,
+    "promptTokensCount": 31,
+    "predictedTokensCount": 10,
+    "totalTokensCount": 41
+  }
 ```
 
-On peut charger plusieurs fois un même modèle, vierge pour tester le système prompt en chat, ou avec son propre système prompt à partir d'une configuration de chat. Permet de mettre au point un système prompt.
+* découvrir les modes d'interaction avec le chatbot
 
-supporte les fonctions
+  * regénérer la réponse
+  * continuer la discussion
+  * brancher
 
-dans le menu Models, on peut éditer la configuration de chaque modèle : paramètres, system prompt, chat template
-
-[On peut ajouter des GGUF](https://github.com/lmstudio-ai/lmstudio.js/issues/21)
-
-        lms import "{filepath}/{modelName}.gguf"
-
-[How to convert HuggingFace model to GGUF](https://github.com/ggerganov/llama.cpp/discussions/2948)
-  
-
-Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
-Dans l'onglet inférence, system prompt = méta prompt ?
-
-[On peut analyser les log de ce qui est envoyé au model](https://lmstudio.ai/docs/cli/log-stream#debug-your-prompts-with-lms-log-stream)
-
-### CLI
-
-Install lms by running 
-        
-        npx lmstudio install-cli
-
-
-### Fonctions
-
-[Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
-
-  beta spéciale avec inscription
-
-Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
-
-
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->

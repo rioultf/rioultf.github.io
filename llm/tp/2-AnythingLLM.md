@@ -13,6 +13,8 @@ subtitle: Environnement de développement
 * plugin navigateur
 * peut définir agents en appelant des serveurs MCP.
 
+On ne l'utilisera pas pour interroger de façon critique un modèle personnalisé, l'interface n'est pas faite pour cela. Pour cet usage, on préférera `LMStudio` ou `OpenWebUi`.
+
 # Installation
 
 <https://docs.anythingllm.com/installation-desktop/linux#install-using-the-installer-script>
