@@ -67,45 +67,30 @@ Ceci suppose de gérer un *environnement de développement* :
 
 ```mermaid
 flowchart TD
-    subgraph UI["1) Interface / Interaction"]
-        A[Utilisateur\nPrompt (« Sensor 1 hauteur ? »)]
-    end
+    A[Utilisateur: Prompt Sensor1 hauteur ?]
+    B[Orchestrateur (AnythingLLM)]
+    C1[Modèle Local e.g. LM Studio]
+    C2[Modèle Cloud e.g. OpenAI]
+    D[Outil Externe API]
+    E[Réinterrogation Modèle Final]
+    F[Assemblage Réponse]
+    UI[UI Final affichage]
 
-    subgraph ORCH["2) Orchestrateur / Middleware\n(AnythingLLM)"]
-        B(Analyse & Routage)
-    end
+    A --> B
+    B --> C1
+    B --> C2
 
-    subgraph MODELS["3) Modèles"]
-        C1[Modèle Local\n(LM Studio / Ollama)]
-        C2[Modèle Cloud\n(OpenAI / Azure / Claude)]
-    end
+    C1 --> B
+    C2 --> B
 
-    subgraph TOOL["4) Outil Externe"]
-        D[API OpenAPI / API métier\n(Outil externe)]
-    end
+    B --> D
+    D --> B
 
-    subgraph ASSEM["6) Assemblage réponse"]
-        E[Assemblage final\n(textes + outils + métadonnées)]
-    end
+    B --> E
+    E --> B
 
-    F[Résultat final affiché à l’UI]
-
-    %% Flèches principales
-    A -->|1: Prompt| B
-    B -->|2a: Appel modèle local| C1
-    B -->|2b: Appel modèle cloud| C2
-
-    C1 -->|3a: Réponse| B
-    C2 -->|3b: Réponse| B
-
-    B -->|4: Appel outil externe| D
-    D -->|5: Résultat outil| B
-
-    B -->|5: Réinterrogation modèle\sinformation d’outil| C1
-    C1 -->|6: Réponse final modèle| B
-
-    B -->|7: Assemblage| E
-    E -->|8: Réponse finale| F
+    B --> F
+    F --> UI
 ```
 
 <!---------------------------------------------------------------->
