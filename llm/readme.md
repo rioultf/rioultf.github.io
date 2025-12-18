@@ -111,6 +111,7 @@ flowchart TD
 
 4. TP - [PromptEngineering `PromptFoo`](tp/4.PromptFoo.md)
 
+5. TP - Mise en place d'outil - MCP / `AnythingLLM`
 
 6. TP - Programmation d'un LLM
 
