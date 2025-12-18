@@ -135,5 +135,40 @@ curl http://localhost:1234/v1/chat/completions \
 }'
 ```
 
-* [script d'interrogation de LMStudio](script/chatCompletions-LMS.sh), basé sur [le script d'interrogation d'OpenRouter](script/chatCompletions.sh)
+1. [script d'interrogation de LMStudio](script/chatCompletions-LMS.sh), basé sur [le script d'interrogation d'OpenRouter](script/chatCompletions.sh)
+
+1. mettre en évidence la limite de la fenêtre de contexte :
+
+    pip install tiktoken --user
+    python3 comptine.py 100 > comptine.txt 2> comptine_tokens.txt
+
+    Répète uniquement les informations des vers 1 à 30 dans l’ordre.
+
+  1. expérience 0 : zero-shot
+
+    réussit bien à 
+    
+```
+Vers 1: Le nom de carnet 1 est Marin.
+...
+Vers 69: Le nom de carnet 69 est Marin.
+Refrain: Récapitule tous les carnets vus jusqu’ici.
+
+Répète uniquement les informations des vers 1 à 30 dans l’ordre.
+```
+
+  1. expérience 1 : one-shot ?
+
+    * indication des 100 premiers
+
+      * à 14 : `Marin` devient `marin`
+      * à 28, apparition de `mari`
+      * répète tout le carnet
+      * ne répond pas à la question
+
+* avec 160 vers, ce qui semble être la limite en tokens pour ce modèle (le calcul diffère de celui fourni par tiktoken), la réponse est :
+
+```
+Les nom de la premiere carte est Marin, la second carte Marina, la troisième carte Marinne et le quart carte Marinier. Les noms des deuxièmes cartes sont Marinelle, Marinien et Marinneur. La quatrième carte est Marinier et le fifth carte est mariner. L'sixième carte est mariniard, le septième carte est marinier, le huitième carte est mariner, le neuvième carte est marinier, le onzièm carte est mariner et la dizaine carte est marin.
+```
 

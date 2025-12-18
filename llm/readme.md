@@ -109,11 +109,6 @@ flowchart TD
 
 1. TP - [Prise en main `lm_studio`](tp/22-LMStudio.md)
 
-  * Installation
-  * Examen du repository
-  * System prompt / Meta prompt
-  * Mesure, fenêtre de contexte.
-
 1. TP - Programmation d'un LLM
 
   * librairie `transformer`et modèle `smollm`
