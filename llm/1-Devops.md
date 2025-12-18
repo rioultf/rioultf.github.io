@@ -30,139 +30,14 @@ On veillera à différencier :
 <!---------------------------------------------------------------->
 # Interface Utilisateur 
 
-<!---------------------------------------------------------------->
-## AnythingLLM
+* [AnythingLLM](tp/2-AnythingLLM.md)
 
-* permet d'exposer l'API d'un agent, valorisant un provider (instance/admin/pref/enable network discovery)
-* gestion de clé d'accès API
-* plugin navigateur
-* peut définir des agents
+* OpenWebUI : offre le meilleur contrôle sur l'exécution de modèles, avec tout un éco-système d'outils et de workflows. C'est réservé à des organisations importantes et hors de propos.
 
-### System prompt
-
-Il est paramétrable uniquement dans `Settings/Apparence`.
-
-### Agent : Custom Skill
-
-Appelés au moment du prompt `@agent what is the temperature at what is the température in 48.929557/-0.469883 ?`. Voir [custom skills](https://docs.anythingllm.com/agent/custom/introduction). La programmation s'effectue en JS et requiert de connaître très précisément la documentation de l'API appelée.
-
-All skills must return a string type response - anything else may break the agent invocation.
-
-<https://docs.anythingllm.com/agent/custom/introduction>
-
-```bash
-cd .config/anythingllm-desktop/storage/plugins/agent-skills
-mkdir my-custom-agent-skill
-touch plugin.json handler.js
-
-```
-
-### Notes
-
-Not all LLM Models works well as Agents, you may need to use higher quantization models for better responses. Example: Llama 3 8B 8Bit Quantization gives better responses as an Agent
-
-<!---------------------------------------------------------------->
-
-
-
-<!------------------------------------------------------------------->
-## OpenWeb-Ui
-
-Image docker développée par la communauté, large documentation user, génère un serveur web (ou python pour en faire un endpoint) :
-
-* gestion / historique de prompt, téléchargeable, importable
-* connexion à tout modèle par API ou `ollama`
-* gestion des évaluations (*arena models*)
-* RAG par embedding au choix
-* recherche sur le web 
-
-Cela manque de documentation technique ! https://docs.openwebui.com/tutorials/integrations/apache
-Mieux mais ne marche pas (nodejs) : https://docs.openwebui.com/getting-started/advanced-topics/development
-
-* [liste des variables utilisables dans les prompts](https://openwebui.com/features/)
-* [cost tracker](https://www.reddit.com/r/OpenWebUI/comments/1jk6gae/enhanced_context_cost_tracker_function/)
-
-
-
-
-
-
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
 # Registres
-<!---------------------------------------------------------------->
-## LM Studio
 
-* [Peut faire du RAG](https://lmstudio.ai/docs/basics/rag)
-* [Intégration dans LlamaIndex](https://github.com/run-llama/llama_index/blob/main/llama-index-integrations/llms/llama-index-llms-lmstudio/README.md)
-* [en TypeScript](https://lmstudio.ai/docs/sdk)
-* [beaucoup de détails, entre autres l'intégration d'OpenAI](https://pyimagesearch.com/2024/06/24/integrating-local-llm-frameworks-a-deep-dive-into-lm-studio-and-anythingllm/)
+* [LM Studio](tp/22-LMStudio.md)
 
-Démarrer sans sandbox :
-
-        LM-Studio-0.3.17-11-x64.AppImage --no-sandbow
-
-
-les models sont dans `/home/rioultf/.cache/lm-studio/models`
-fichier gguf
-
-on choisit le runtime Llama.cpp (GPU, CPU) ou Vulkan
-
-la fenêtre de chat peut être améliorée par des configurations (settings) incluant un system prompt
-
-le chat montre
-
-* le nombre de token pour chaque instruction
-* le rôle est paramétrable (user, assistant)
-* génération : token/sec, temps pour obtenir le premier token, raison pour le stop
-* en bas de la fenêtre, le taux de remplissage du contexte
-
-peut instancier un serveur, réglable par l'interface.
-
-```bash
-lms -h
-```
-
-On peut charger plusieurs fois un même modèle, vierge pour tester le système prompt en chat, ou avec son propre système prompt à partir d'une configuration de chat. Permet de mettre au point un système prompt.
-
-supporte les fonctions
-
-dans le menu Models, on peut éditer la configuration de chaque modèle : paramètres, system prompt, chat template
-
-[On peut ajouter des GGUF](https://github.com/lmstudio-ai/lmstudio.js/issues/21)
-
-        lms import "{filepath}/{modelName}.gguf"
-
-[How to convert HuggingFace model to GGUF](https://github.com/ggerganov/llama.cpp/discussions/2948)
-  
-
-Dans l'onglet `developper/code snippets` on trouve des requêtes `curL`. En particulier, on peut forcer une réponse en JSON.
-Dans l'onglet inférence, system prompt = méta prompt ?
-
-[On peut analyser les log de ce qui est envoyé au model](https://lmstudio.ai/docs/cli/log-stream#debug-your-prompts-with-lms-log-stream)
-
-### CLI
-
-Install lms by running 
-        
-        npx lmstudio install-cli
-
-
-### Fonctions
-
-[Appel à des fonctionnalités externes - Tool use](https://lmstudio.ai/docs/advanced/tool-use)
-
-  beta spéciale avec inscription
-
-Cloud based (un-quantized) models are typically dramatically better at following instructions and forming valid JSON matching the required tool-call.
-
-
-<!---------------------------------------------------------------->
-<!---------------------------------------------------------------->
 <!---------------------------------------------------------------->
 # Orchestration Framework
 
@@ -182,19 +57,3 @@ Pour l'installation `curl | sh`, cela a marché directement en GPU, malgré [une
 
 Fournit une API utilisable en Python et des scripts d'inférence, tokenisation, etc.
 Permet de convertir de Hugging Face vers GGUF avec l'API Python.
-
-#### Server
-
-* sert une API OpenAI
-* multi-user et parallel decoding
-* speculative decoding
-* reranking model
-* outputs grammar
-
-
-<!---------------------------------------------------------------->
-### CLI
-
-A CLI tool for accessing and experimenting with most of llama.cpp's functionality.
-Run simple text completion
-

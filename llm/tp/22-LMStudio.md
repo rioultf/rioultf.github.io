@@ -67,12 +67,11 @@ Les modèles sont stockés au format GGUF dans `ˇ/.lmstudio/models`.
 
 # Exercices
 
-* effectuer des requêtes sur `smollm2-1.7b-instruct:2`
+1. effectuer des requêtes sur `smollm2-1.7b-instruct:2`
 
                 hi
 
-* analyser les statistiques (survol de l'ampoule) :
-
+1. analyser les statistiques (survol de l'ampoule) :
 ```
 "stats": {
     "stopReason": "eosFound",
@@ -86,9 +85,55 @@ Les modèles sont stockés au format GGUF dans `ˇ/.lmstudio/models`.
   }
 ```
 
-* découvrir les modes d'interaction avec le chatbot
+1. découvrir les modes d'interaction avec le chatbot
 
   * regénérer la réponse
   * continuer la discussion
   * brancher
+
+1. dans `Developper`, découvrir la requête `cURL` à exécuter : 
+
+```bash
+curl http://localhost:1234/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "smollm2-1.7b-instruct",
+    "messages": [
+        {
+            "role": "system",
+            "content": "Always answer in rhymes. Today is Thursday"
+        },
+        {
+            "role": "user",
+            "content": "What day is it today?"
+        }
+    ],
+    "temperature": 0.7,
+    "max_tokens": -1,
+    "stream": false
+}'
+```
+
+```json
+curl http://localhost:1234/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "smollm2-1.7b-instruct",
+    "messages": [
+        {
+            "role": "system",
+            "content": "Always answer in rhymes. Today is Thursday"
+        },
+        {
+            "role": "user",
+            "content": "What day is it today?"
+        }
+    ],
+    "temperature": 0.7,
+    "max_tokens": -1,
+    "stream": false
+}'
+```
+
+* [script d'interrogation de LMStudio](script/chatCompletions-LMS.sh), basé sur [le script d'interrogation d'OpenRouter](script/chatCompletions.sh)
 

@@ -12,13 +12,8 @@
 
 set -e
 
-API_URL="${API_URL:-https://openrouter.ai/api/v1/chat/completions}"
-MODEL="${MODEL:-openai/gpt-3.5-turbo}"
-
-if [ -z "$OPENROUTER_API_KEY" ]; then
-  echo "Erreur : la variable d'environnement OPENROUTER_API_KEY n'est pas définie." >&2
-  exit 1
-fi
+API_URL="${API_URL:-http://localhost:1234/v1/chat/completions}"
+MODEL="${MODEL:-smollm2-1.7b-instruct}"
 
 PROMPT="$*"
 if [ -z "$PROMPT" ]; then
@@ -38,10 +33,12 @@ JSON_PAYLOAD=$(jq -n \
      ]
    }')
 
+echo $JSON_PAYLOAD
+
 # Appel API
+echo curl -s "$API_URL" -H "Content-Type: application/json" -d "$JSON_PAYLOAD"
 RESPONSE=$(curl -s "$API_URL" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY" \
   -d "$JSON_PAYLOAD")
 
 # Afficher JSON brut si demandé, ou message
