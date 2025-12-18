@@ -1,0 +1,191 @@
+***********************************************************************
+
+Call for Applications/Participation
+
+ 
+
+The 1st European Business Intelligence Summer School (eBISS 2011)
+
+ 
+
+ <http://cs.ulb.ac.be/conferences/ebiss2011/>
+http://cs.ulb.ac.be/conferences/ebiss2011/
+
+ 
+
+July 3 – 8, 2011
+
+Paris, France
+
+ 
+
+organized by
+
+ECP (Ecole Centrale Paris) and ULB (Université Libre de Bruxelles)
+
+***********************************************************************
+
+ 
+
+We are pleased to announce the First European Business Intelligence Summer
+School. This summer school, presented by leading researchers in the field,
+represents an opportunity for postgraduate students (PhD or MsC), postdoc
+and other young researchers to equip themselves with the theoretical,
+practical, and collaboration skills necessary for developing challenging
+Business Intelligence applications. To ensure a high ratio between tutors
+and students the school will be limited to 50 participants. Furthermore,
+industrial presentations will allow participants to gain a deep
+understanding of current product offer. 
+
+ 
+
+The summer school will provide a stimulating and enjoyable environment in
+which participants will benefit not only from the formal sessions but also
+from informal and social interactions with established researchers and the
+other participants in the school. To further facilitate communication and
+feedback all attendees will present a poster on their own research. The
+electronic copy of all course lectures will be available to participants
+through the web site. 
+
+ 
+
+APPLICATION
+
+ 
+
+The number of attendees will be limited. Applications are submitted by
+filling the Application Form available at
+<http://cs.ulb.ac.be/conferences/ebiss2011/application.html>
+http://cs.ulb.ac.be/conferences/ebiss2011/application.html and also emailing
+a CV to  <mailto:ezimanyi@ulb.ac.be> ezimanyi@ulb.ac.be.
+
+ 
+
+Application deadline:    March 25, 2011 
+
+Notification:                      April  4, 2011 
+
+ 
+
+CONFIRMED LECTURES
+
+ 
+
+Academic presentations:
+
+·         Alberto Abelló, Universitat Politècnica de Catalunya, Spain
+
+·         Marie-Aude Aufaure, Ecole Centrale Paris, France
+
+·          Etienne Cuvelier, Ecole Centrale Paris, France
+
+·         Alexander Löser, TU-Berlin, Germany
+
+·         Patrick Marcel, Université de Tours, France,
+
+·         Stefano Rizzi, Università di Bologna, Italy
+
+·         Stijn Vansummeren, Université Libre de Bruxelles, Belgium
+
+·         Esteban Zimányi, Université Libre de Bruxelles, Belgium
+
+ 
+
+Industrial presentations:
+
+·         Yannick Cras, Bruno Dumant, Chahab Nastar, David Trastour (SAP,
+France)
+
+·         Marin Dimitrov (Ontotext, Bulgaria)
+
+·         Françoise Fogelman (KXEN, France)
+
+ 
+
+ 
+
+SCIENTIFIC COMMITTEE
+
+ 
+
+·         Alberto Abelló, Universitat Politècnica de Catalunya, Spain
+
+·         Marie-Aude Aufaure, Ecole Centrale Paris, France
+
+·         Alexander Löser, TU Berlin, Germany
+
+·         Patrick Marcel, Université de Tours, France
+
+·         Esteban Zimányi, Université Libre de Bruxelles, Belgium
+
+ 
+
+ 
+
+LECTURE NOTES
+
+ 
+
+The course material used during the summer school will be published with
+Springer's Lecture Notes in Computer Science (LNCS) series.
+
+ 
+
+REGISTRATION
+
+ 
+
+Details of the registration process will be announced on the Web site, after
+the application deadline.
+
+·         All inclusive registration fee (including room, meals and social
+events): 500 Euros
+
+·         Registration without accommodation: 300 Euros
+
+ 
+
+ORGANIZERS 
+
+ 
+
+Marie-Aude AUFAURE
+
+MAS Laboratory - SAP Business Objects Academic Chair
+
+Ecole Centrale Paris, France
+
+ 
+<file:///C:\Users\MarieAude\AppData\Local\Microsoft\Windows\Temporary%20Inte
+rnet%20Files\Content.Outlook\4J8PWS7F\Marie-Aude.Aufaure@ecp.fr>
+Marie-Aude.Aufaure@ecp.fr
+
+ 
+
+Esteban ZIMANYI
+
+Computer & Decision Engineering Department
+
+Université Libre de Bruxelles, Belgium
+
+ <mailto:ezimanyi@ulb.ac.be> ezimanyi@ulb.ac.be
+
+ 
+
+ 
+
+ 
+
+Marie-Aude Aufaure
+
+Professor, Ecole Centrale Paris, MAS Laboratory
+
+Head of the SAP Academic Chair in Business Intelligence
+
+Scientific Partner at INRIA Paris-Rocquencourt/Axis
+
+ 
+
+ 
+
+

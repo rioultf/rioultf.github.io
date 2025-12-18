@@ -9,6 +9,8 @@ prompts:
 providers:
 #  - id: openai:chat:gpt-3.5-turbo
 
+  - id: openrouter:openai/gpt-3.5-turbo
+
   - id: https
     config:
       url: 'http://0.0.0.0:1234/v1/chat/completions'
@@ -21,6 +23,6 @@ providers:
 
 tests:
   - vars:
-      file: file://data/1.txt
+      file: file://data/mail1.txt
   - vars:
-      file: file://data/2.txt
+      file: file://data/mail2.txt
