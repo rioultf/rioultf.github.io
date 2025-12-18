@@ -93,11 +93,9 @@ flowchart TD
 # Travaux pratiques
 
 1. TP - [Mise en place de la VDI](tp/0-VDI.md)
-
   * paramétrage de `bash`
   * import des backups de configuration
   * fermeture de session et sauvagarde d'environnement
-
 1. TP - [BashAPI - environnement de développement minimal](tp/1-BashAPI.md)
 
   * requète `curl` sur `Openrouter`
