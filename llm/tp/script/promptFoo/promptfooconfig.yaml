@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+description: "My eval"
+
+prompts:
+  #- 'Consider the content of the following email. <email>{{file}}</email>. What is the language used in the email? Answer with only one word.'
+  - file://prompt.json
+
+
+providers:
+#  - id: openai:chat:gpt-3.5-turbo
+
+  - id: https
+    config:
+      url: 'http://0.0.0.0:1234/v1/chat/completions'
+      method: 'POST'
+      body:
+        model: 'smollm2-1.7b-instruct'
+        messages: '{{prompt}}'
+      transformResponse: 'json.choices[0].message.content'
+      maxTokens: 300
+
+tests:
+  - vars:
+      file: file://data/1.txt
+  - vars:
+      file: file://data/2.txt
