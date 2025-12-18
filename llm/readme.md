@@ -36,12 +36,14 @@ Les objectifs de ce cours sont :
 
 * [CM 1 - Fonctionnement d'un modèle de langue](0-Model.md)
 * [CM 1bis - Mise en oeuvre d'un modèle de langue](01-ModelBis.md)
-* [CM 2 - Prompt Engineering](prompt/prompt.md)
-* [CM 3 - Mise en oeuvre d'un LLM](devops/devops.md)
+* [CM 2 - Mise en oeuvre d'un LLM](10.Devops.md)
+* [CM 3 - Prompt Engineering](20.PromptEngineering.md)
+<!--
 * [CM 4 - Interactions avec un système d'information, RAG](rag/rag.md)
 * [CM 5 - Écosystème des LLM](hugging/hugging.md)
 * [CM 6 - Programmation assistée par LLM - NoCode](nocode/nocode.md)
 * [CM 7 - Personnalisation d'un LLM - Distillation]()
+>
 
 <!---------------------------------------------------------------->
 
@@ -92,22 +94,25 @@ flowchart TD
 <!---------------------------------------------------------------->
 # Travaux pratiques
 
-1. TP - [Mise en place de la VDI](tp/0-VDI.md)
+0. TP - [Mise en place de la VDI](tp/0-VDI.md)
+
   * paramétrage de `bash`
   * import des backups de configuration
   * fermeture de session et sauvagarde d'environnement
+
 1. TP - [BashAPI - environnement de développement minimal](tp/1-BashAPI.md)
 
   * requète `curl` sur `Openrouter`
   * interrogation de l'API `chatCompletions`
 
-1. TP - [Promptengineering avec PromptFoo]
+2. TP - [Prise en main `Anything LLM`](tp/2-AnythingLLM.md)
 
-1. TP - [Prise en main `Anything LLM`](tp/2-AnythingLLM.md)
+3. TP - [Prise en main `LMSudio`](tp/3.LMStudio.md)
 
-1. TP - [Prise en main `lm_studio`](tp/22-LMStudio.md)
+4. TP - [PromptEngineering `PromptFoo`](tp/4.PromptFoo.md)
 
-1. TP - Programmation d'un LLM
+
+6. TP - Programmation d'un LLM
 
   * librairie `transformer`et modèle `smollm`
   * définition chat template
