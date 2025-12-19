@@ -1,0 +1,25 @@
+{
+    "mcpServers": {
+        "time": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-time",
+                "--local-timezone=America/New_York"
+            ]
+        },
+        "memory": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory"
+            ]
+        },
+        "mcp": {
+            "command": "mcp",
+            "args": [
+                "run",
+                "mcp-server-demo.py"
+            ]
+        }
+    }
+}
