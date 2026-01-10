@@ -49,3 +49,7 @@ You can use /undo to undo and discard each aider commit.
 
 historique du chat avec coûts :
 .aider.chat.history.md
+
+.aider.input.history aider constitue un historique sous forme de diff pour interroger one-shot.
+
+/add fichier pour ajouter un fichier à la conversation.
