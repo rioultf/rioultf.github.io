@@ -39,3 +39,13 @@ https://sequel.sh/docs/ai-chat interro d'une bd par ia
 # Notes
 
 * [vibe coding](https://www.reddit.com/r/ChatGPTCoding/comments/1jhkjou/5_principles_of_vibe_coding_stop_complicating_it/)
+
+
+# `aider`
+
+pip install aider-install
+
+You can use /undo to undo and discard each aider commit.
+
+historique du chat avec coûts :
+.aider.chat.history.md

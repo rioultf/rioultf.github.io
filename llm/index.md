@@ -153,6 +153,9 @@ CANN 	Ascend NPU
 * [interpretation du llm](https://www.anthropic.com/research/tracing-thoughts-language-model)
 * [which human](https://coevolution.fas.harvard.edu/sites/g/files/omnuum5841/files/culture_cognition_coevol_lab/files/which_humans_09222023.pdf)
 
+* l'IA comme vecteur d'emancipation
+* les informaticien.ne.s sont les premier.e.s touché.e.s par la venue de l'IA. Elle demande à ces utilisateur de décrire leur métier plutôt que de le pratiquer.
+
 
 # Ressources
 

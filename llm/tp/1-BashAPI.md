@@ -135,3 +135,38 @@ Répondez aux questions suivantes :
   10. Quelles sont les données principales (métadonnées + contenu + usage) renvoyées par l’API, que l’on peut observer dans la réponse JSON ?
   11. Pourquoi ces données renvoyées peuvent-elles être utiles (dans un contexte de développement / facturation / audit) ?
 
+# OpenRouter
+
+```mermaid
+flowchart TD
+
+    subgraph Fournisseurs
+        OAI[OpenAI Provider]
+        GOOG[Google Provider]
+        ANTH[Anthropic Provider]
+    end
+
+    subgraph OpenRouter
+        OR[OpenRouter API Gateway]
+    end
+
+    subgraph Utilisateur
+        APP[Mon Application]
+    end
+
+    %% Flux de tokens et d'accès
+    APP -->|Requête API avec tokens| OR
+    OR -->|Routage & Facturation| OAI
+    OR -->|Routage & Facturation| GOOG
+    OR -->|Routage & Facturation| ANTH
+
+    OAI -->|Tokens vendus au final| OR
+    GOOG -->|Tokens vendus au final| OR
+    ANTH -->|Tokens vendus au final| OR
+
+    OR -->|Un seul crédit/token exploitable| APP
+
+    style Fournisseurs fill:#f9f,stroke:#333,stroke-width:1px
+    style OpenRouter fill:#bbf,stroke:#333,stroke-width:1px
+    style Utilisateur fill:#bfb,stroke:#333,stroke-width:1px
+```
