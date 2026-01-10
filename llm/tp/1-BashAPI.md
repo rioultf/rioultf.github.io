@@ -139,34 +139,39 @@ Répondez aux questions suivantes :
 
 ```mermaid
 flowchart TD
-
-    subgraph Fournisseurs
-        OAI[OpenAI Provider]
-        GOOG[Google Provider]
-        ANTH[Anthropic Provider]
+    subgraph Ecosystème
+        PROVIDERS[OpenAI, Google, Anthropic,…]
+        MODEL[Modèles (GPT, Gemini, Claude, …)]
     end
 
     subgraph OpenRouter
-        OR[OpenRouter API Gateway]
+        OR[OpenRouter - API unifiée et gestion de tokens]
     end
 
-    subgraph Utilisateur
-        APP[Mon Application]
+    subgraph Application
+        APP[App / Service utilisant LLMs]
     end
 
-    %% Flux de tokens et d'accès
-    APP -->|Requête API avec tokens| OR
-    OR -->|Routage & Facturation| OAI
-    OR -->|Routage & Facturation| GOOG
-    OR -->|Routage & Facturation| ANTH
+    %% Flux
+    PROVIDERS -->|vend des tokens & accès API| OR
+    OR -->|consommation de tokens unifiée| APP
 
-    OAI -->|Tokens vendus au final| OR
-    GOOG -->|Tokens vendus au final| OR
-    ANTH -->|Tokens vendus au final| OR
+    APP -->|requêtes modèles via tokens (API)| OR
+    OR -->|routage & exécution| MODEL
+    MODEL -->|résultats & usage| OR
 
-    OR -->|Un seul crédit/token exploitable| APP
+    note right of PROVIDERS
+        Fournisseurs vendent tokens
+        pour exécuter des modèles
+    end
 
-    style Fournisseurs fill:#f9f,stroke:#333,stroke-width:1px
-    style OpenRouter fill:#bbf,stroke:#333,stroke-width:1px
-    style Utilisateur fill:#bfb,stroke:#333,stroke-width:1px
+    note left of OR
+        OpenRouter centralise
+        l’accès et la facturation
+    end
+
+    note right of APP
+        Application cliente
+        n’a qu’une seule clé
+    end
 ```
