@@ -13,20 +13,24 @@ Office: Sciences 3 - 353
 email:
 [Francois.Rioult@unicaen.fr](mailto:Francois.Rioult@info.unicaen.fr)
 
-In 2020 I was 53 years old. Between 1990 and 2000, I was sound-engineer
-for french television, cinema and music bands.
+In 2020 I was 53 years old. Currently Associate Professor in Computer Science at Normandie Univ (UNICAEN, ENSICAEN, CNRS), member of GREYC (UMR 6072), Caen, France. Habilitation (HDR) obtained in 2017. Initial career as a sound engineer (1990–2000) for television, cinema and music.
 
-I defended in 2005 my PhD in computer science. I am now associate professor in Caen (France): researcher for the Normandie Univ, UNICAEN,
-ENSICAEN, CNRS, GREYC and teacher in the University of Caen Basse-Normandie. In 2017, I defended my HDR (accreditation to supervise research or
-habilitation thesis).
+My research sits  at the intersection of formal modelling, combinatorial optimisation and algorithm design. Main themes include discrete structures for knowledge extraction (Boolean matrix factorisation, formal concept analysis, hypergraphs), machine learning for complex dynamic systems through geometric and graph-based models, and predictive modelling of heterogeneous temporal data in decision-making contexts, such as sport and competitive games, e-sport.
+
+Intellectual breadth combined with methodological discipline characterises the trajectory — sustained curiosity with a healthy skepticism toward narrow disciplinary silos.
 
 ### Research interests
 
--   Data mining and Knowledge Discovery in Databases
--   Missing values in databases
--   Algorithmical aspects of data mining - condensed representations
--   Machine learning, classification, clustering
--   (e-)Sport analysis
+
+- Data mining
+- Boolean matrix factorization
+- Optimization and ILP
+- Machine learning for dynamic systems
+- Graph-based modeling
+- Sports analytics
+- Temporal data analysis
+- Web content extraction
+- LLM applications
 
 See my [publications](biblio.md).
 
