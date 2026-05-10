@@ -18,4 +18,5 @@
 -   Jadis, les hommes s'étaient laissés guider par des intelligences artificielles, des ordinateurs. Le Jihad Butlérien avait mis un terme à cet âge, mais il n'avait que partiellement triomphé de l'aura de vice du monde aristocratique qui continuait d'utiliser des machines (Frank Herbert, Le Messie de Dune)
 -   Les cons, ça repose, c'est comme le feuillage au milieu des roses (Le temps qui reste, Serge Reggiani)
 
-[Une autre citation, un peu plus longue.](belle.md)
+- [Une autre citation, un peu plus longue.](belle.md)
+- [Un texte éclairant](goethe.md)

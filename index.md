@@ -4,6 +4,7 @@
 [Université de Caen Normandie](http://www.unicaen.fr)  
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
+[Orcid 0000-0001-8162-0997](https://orcid.org/0000-0001-8162-0997)
 
 <img src="img/F-Rioult-Chatgpt.png" width="200"/>
 
