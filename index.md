@@ -5,6 +5,8 @@
 [UFR Sciences](http://ufrsciences.unicaen.fr/) - Département
 mathématique - informatique
 [Orcid 0000-0001-8162-0997](https://orcid.org/0000-0001-8162-0997)
+[idRef](https://www.idref.fr/099427494)
+[substack](https://rioultf.substack.com/)
 
 <img src="img/F-Rioult-Chatgpt.png" width="200"/>
 
