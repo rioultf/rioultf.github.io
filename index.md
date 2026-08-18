@@ -48,6 +48,7 @@ See my [publications](biblio.md).
 
 -   [Some aphorims (in French)](aphorims.md)
 -   [DotA Pulse](dota_pulse.md)
+- [Recipes in french](recettes.md)
 
 ### Music
 
